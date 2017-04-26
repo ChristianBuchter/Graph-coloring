@@ -1,0 +1,27 @@
+\input{preamble/preamble.tex}
+
+
+\begin{document}
+
+\binoppenalty=\maxdimen
+\relpenalty=\maxdimen
+\emergencystretch=4em
+\include{frontpage/frontpage}
+\frontmatter %herunder ligger ting som ikke er selve projektets kerne
+\begin{abstract}
+The aim is to present and compare a few formulations of the graph colouring problem in the language of mixed-integer optimization. The student will learn and describe the principles of linear and integer optimization, formulate and implement a few known integer models of the graph colouring problem, and compare their performance on various benchmark graphs.
+\end{abstract}
+\newpage
+
+\begin{KeepFromToc}
+  \tableofcontents
+\end{KeepFromToc}
+\mainmatter %herunder ligger al det væsentligste materiale
+\input{chapter1/chapter1}
+\input{chapter2/chapter2}
+\input{chapter3/chapter3}
+\input{chapter_appA/App}
+\printbibliography
+	
+\backmatter
+\end{document}

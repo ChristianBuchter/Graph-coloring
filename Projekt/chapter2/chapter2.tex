@@ -1,0 +1,41 @@
+\chapter{Integer Programming and Graphs}
+In this chapter we introduce the concept of Integer programming. We will approach the subject with examples and results from graph theory, but apart from fundamental definitions we will omit most of the theory from this field of mathematics. 
+\section{Some Graph notation}
+\begin{definition}\label{cromatic number}
+A \textbf{graph} $G$ is an ordered set $(V,E)$ where $V$ is a set of vertices and $E$ is a set of edges and each edge in $E$ is a subset of $V$ containing two vertices.
+\end{definition}
+\begin{definition}
+let $G=(V,E)$ be a graph. Two vertices $v,u\in V$ are said to be \textbf{adjacent} if the edge $(v,u)$ (or $(u,v)$) is in $E$.
+\end{definition}
+\begin{definition}
+let $G=(V,E)$ be a graph. A subset $S$ of $V$ form an \textbf{independent set} if no two vertices in $S$ are adjacent in $G$
+\end{definition}
+\begin{definition}
+let $G=(V,E)$ be a graph. A subset $S$ of $V$ form a \textbf{clique} if all pairs of two vertices in $S$ are adjacent in $G$
+\end{definition}
+\begin{definition}
+let $G=(V,E)$ be a graph. A \textbf{maximal independent set} or a \textbf{maximal clique} is an independent set or a clique respectively where if any other vertex $v \in V$ is added to the set, it will lose the property of being an independent set or clique respectively 
+\end{definition}
+\begin{definition}
+A \textbf{maximum independent set} or a \textbf{maximum clique} in a graph $G$ is an independent set or a clique respectively where no other independent set or clique in $G$ respectively have more vertices.
+\end{definition}
+\begin{definition}
+the \textbf{clique number} $\omega(G)$ of a graph $G$ is the number of vertices in a maximal clique in $G$.
+\end{definition}
+
+\section{Integer and Binary Constraints}
+\begin{example}\label{clique}
+Maximal clique problem\\
+Let $G=(V,E)$ be a graph and let $H=(V,E')$ be it's complement   graph.
+\begin{align}
+\begin{array}{ll@{}ll}
+\text{max} &\sum_{v\in V} x_v&\\
+\text{s.t.} &x_u + x_v \leq 1,& \forall (u,v) \in E'\\
+&x_v\in\{0,1\},& \forall v \in V\\
+\end{array}
+\end{align}
+\end{example}
+\section{The Convex Hull}
+\section{Mixed Integer Programming - MIP}
+\section{Relaxation}
+\section{Integer Programming is NP-hard}

@@ -1,0 +1,156 @@
+\chapter{Graph colouring}
+In this chapter we introduce main concept of graph vertex-colouring and some integer formulations for colouring graphs.
+\section{Fundamental colouring terms and results}
+\begin{definition}\label{vertex colouring}
+A \textbf{vertex-colouring} of a graph $G=(V,E)$ is an assignment of colors $C = {1,...,k}$ such that each $v\in V$ is assigned one color and no two adjacent vertices are assigned the same color.
+\end{definition}
+in this paper a colouring will always refer to a vertex-colouring.
+\begin{definition}
+A \textbf{$k$-colouring} of a graph $G$ is a vertex-colouring using $k$ colours.
+\end{definition}
+\begin{definition}\label{cromatic number}
+An \textbf{optimal colouring} of a graph, $G$, is a colouring of $G$ using the minimum amount of colours possible.
+\end{definition}
+\begin{definition}\label{cromatic number}
+The \textbf{chromatic number} $\chi (G)$ of a graph, $G$ is the number number of colours in an optimal colouring of $G$.
+\end{definition}
+\begin{theorem}
+Vertices of one color form an independent set
+\begin{proof}
+Let $G=(V,E)$ be a graph and suppose that a set of vertices $S$ are assigned the same color but does not form an independent set. Then there exists some edge in $E$ connecting two vertices $s_1,s_2 \in S$. But that implies that $s_1$ and $s_2$ are assigned different colours which gives us contradiction
+\end{proof}
+\end{theorem}
+\begin{theorem}
+Given a graph $G$\\
+$\chi (G) \geq \omega(G)$
+\begin{proof}
+Let $G=(V,E)$ be a graph and suppose that a set $S$ of $k = \omega(G)$ vertices form a maximal clique in $G$. Then each $s_i \in S$ has edges in $E$ to all other vertices of $S$ and they must each have distinct colours by \ref{vertex colouring}. And since $G_S$ is a sub graph of $G$, we get $\omega(G)= \chi(G_S) \leq \chi(G)$.
+\end{proof}
+\end{theorem}
+\section{Integer programming formulations}
+Here we formulate some integer problems to calculate an optimal colouring. The same formulations can be used with minor simplifications to calculate if feasibility problems of weather graphs are $k$-colourable.
+\subsection{The standard formulation}
+In the standard formulation we want to introduce $k|V|$ binary variables, $x_{v,c}$ for a suitable $k\geq \mathcal{X}(G)$. where
+\begin{align} \label{x standard}
+x_{v,c} = \left\{
+\begin{array}{ll}
+1 & \text{if vertex }v \text{ is assigned colour } c \\ 0 & \text{otherwise}
+\end{array}\right.
+\end{align}
+and $k$ binary variables $y_c$ indicating if color $c$ is used in the colouring.\\
+\begin{proposition}
+The following formulation assigns an optimal colouring to the graph and gives the chromatic number:
+\begin{align}\label{the standard formulation}
+\begin{array}{ll@{}ll}
+\text{min} &\sum_{c\in \{1...k\}} y_c&\\
+\text{s.t.} 
+&\sum_{c\in \{1...k\}}{x_{v,c}} = 1,& \forall v \in V\\
+&x_{v,c} + x_{u,c} \leq 1,& \forall (u,v)\in E, \forall c \in \{1...k\}\\
+&x_{v,c} - y_c \leq 0,& \forall v \in V,\forall c \in \{1...k\}\\
+&x_{v,c}\in\{0,1\},& \forall v \in V, \forall c \in \{1...k\}\\
+&y_c \geq 0,& \forall c \in \{1...k\}\\
+\end{array}
+\end{align}
+\begin{proof}
+Given a graph $G = (V,E)$:
+\begin{enumerate}
+\item An optimal colouring is feasible and optimal in \ref{the standard formulation}:\\
+Given an optimal colouring of $G$ and assigning each $x_{v,c}$ the values specified in \ref{x standard}, we see that:
+\begin{enumerate}
+\item the first condition is satisfied since each vertex only has one colour.
+\item the second condition is satisfied since no two adjacent vertices has the same colour.
+\item the third condition assign values to each $y_c$ such that $y_{c_i} \geq 1$ if colour $c_i$ is used to colour some vertex $\in V$ and otherwise greater than zero.
+\end{enumerate}
+thus the solution is feasible, and since the object is to minimize the sum of all $y_c$'s each $y_c$ will be minimized to 
+$y_c =\left\{
+\begin{array}{ll}
+1 & \text{if colour }c \text{ is used} \\ 0 & \text{otherwise}
+\end{array}\right. $ and since the colouring was optimal and used the fewest colours possible, their sum will be optimal and equal $\chi(G)$ 
+\item An optimal solution to \ref{the standard formulation} returns $\chi(G)$ and assign the vertices colours such that the colouring is optimal:\\
+
+\end{enumerate}
+\end{proof}
+\end{proposition}
+
+\subsection{A scheduling formulation}
+Another Integer formulation of the graph colouring problem for a graph $G=(V,E)$ is the scheduling formulation. Here we introduce $V$ integer variables $\{X_1, \cdots X_v\}$ with the desired result: $X_v = c$ if vertex $v$ is assigned colour $c$. And another $E$ binary variables $x_{u,v} \forall (u,v)\in E$ with the desired result:
+\begin{align}
+x_{u,v} = \left\{
+\begin{array}{ll}
+1 & \text{if vertecies }u,v \text{ are assigned colours $c_u,c_v$ respectively with } c_u < c_v \\ 0 & \text{otherwise}
+\end{array}\right.
+\end{align}
+Furthermore we introduce the variable $c$ that has to be greater or equal to the amount of colours used.
+\begin{proposition}
+The following formulation assigns an optimal colouring to the graph and gives the chromatic number:
+\begin{align}\label{scheduling}
+\begin{array}{ll@{}ll}
+\text{min} &c&\\
+\text{s.t.} 
+&X_u - X_v + kx_{u,v} \leq k-1,& \forall (u,v)\in E\\
+&X_v - X_u - kx_{u,v} \leq -1,& \forall (u,v)\in E\\
+&X_v - c \leq 0,& \forall v \in V\\
+&x_{u,v}\in\{0,1\},& \forall (u,v) \in E\\
+\end{array}
+\text{for } k \geq c
+\end{align}
+\begin{proof}
+\begin{enumerate}
+\item An optimal colouring is feasible and optimal in \ref{scheduling}:\\
+\begin{enumerate}
+\item Since $X_u \neq X_v$ for all adjacent $u,v\in V$ we have the option of $X_u < X_v$ and $X_u > X_v$. If $X_u < X_v$ then $x_{u,v}$ must equal 1 in order for the first two constraint to be feasible. If $X_u > X_v$ then $x_{u,v}$ must be 0. But since $x_{u,v}$ is not inherited from the colouring, we can assign these the desired values and the constraints will be satisfied.
+\item Under the assumption that the colours assigned to $G$ are natural numbers $\leq \chi (G)$, the highest value of $X_v$ is exactly the chromatic number of $G$. The last constraint then ensures that $c$ is at least $\chi (G)$ and when minimized it will become the chromatic number and optimal.
+\end{enumerate}
+\item An optimal solution to \ref{scheduling} returns $\chi(G)$ and assign the vertices colours such that the colouring is optimal:\\
+Let $\zeta$ be an optimal solution to the problem.
+\begin{enumerate}
+\item The third constraint ensures that no value of $X_v$ is greater than $\zeta$. 
+\item The first and second constraints ensures that no two adjacent vertices have the same colour. Thus it is a proper colouring and $\zeta$ must be at least $\chi (G)$ for a solution to be feasible. And since $\zeta$ is optimal, we can conclude that $\zeta = \chi (G)$
+\end{enumerate}
+\end{enumerate}
+\end{proof}
+\end{proposition}
+\subsection{The binary encoding formulation}
+The last formulation of the graph colouring problem for a graph $G=(V,E)$, that this thesis will focus on is the binary encoding formulation. Here we introduce $V\left \lceil{log_2(k)}\right \rceil $ integer variables $x_{v,b}$ with the desired result:
+\begin{align}\label{binX}
+x_{v,b} =\left\{
+\begin{array}{ll}
+1 & \text{if vertex }v \text{ has the $b$'th bit in it's assigned colour set to 1} \\ 0 & \text{otherwise}
+\end{array}\right.
+\end{align} 
+And another $2E\left \lceil{log_2(k)}\right \rceil$ binary variables $z_{u,v,b}$ and $z_{u,v,b}$ to help create the equality $z_{u,v,b} = |x_{u,b}-x_{v,b}|, \forall (u,v) \in E$.
+Furthermore we introduce the variable $c$ that has to be greater or equal to the greatest value of any colour used.
+\begin{proposition}
+The following formulation assigns an optimal colouring to the graph and gives the chromatic number:
+\begin{align}\label{binary}
+\begin{array}{ll@{}ll}
+\text{min} &c&\\
+\text{s.t.} 
+&c - \sum_{b = 0}^{B}{2^b\cdot x_{v,b}} \leq -1,& \forall v\in V\\
+&z_{v,u,b}-2t_{v,u,b}+x_{v,b}-x_{u,b} = 0,& \forall (u,v)\in E \forall b \in [0,\cdots ,B ] \\
+&\sum_{b = 0}^{B}{z_{v,u,b}} \geq 1,& \forall (u,v) \in E\\
+&x_{v,b}\in\{0,1\},& \forall v \in V \forall b \in [0,\cdots ,B]\\
+&z_{u,v,b}\in\{0,1\},& \forall (u,v) \in E \forall b \in [0,\cdots ,B]\\
+&x_{u,v,b}\in\{0,1\},& \forall (u,v) \in E \forall b \in [0,\cdots ,B]\\
+\end{array}
+\text{for } k \geq c , B = \left \lceil{log_2(k)}\right \rceil
+\end{align}
+\begin{proof}
+\begin{enumerate}
+\item An optimal colouring is feasible and optimal in \ref{binary}:\\
+\begin{enumerate}
+\item Given an optimal solution with values of $x_{v,b}$ defined as our desired results \ref{binX}, we see that at, since adjacent vertices have different colours, at least one bit in the colours are different for such two vertices.\\
+For such a bit, $x_{v,b}-x_{u,b}$ from the second constraint function is either $1$ or $-1$, and $z_{v,u,b}$ and $t_{v,u,b}$ must be either $z_{v,u,b} = 1$ and $t_{v,u,b} = 0$ or $z_{v,u,b} = 1$ and $t_{v,u,b} = 1$ respectively for the constraint to be satisfied. But since these values are not inherited from the colouring, they can take the appropriate values. 
+\item Sine $z_{v,u,b} = 1$ for some bit of two adjacent vertices, the third constraint is also satisfied.
+\item since the first constraint states that $c$ is at least one higher than the value of the highest value colour used (since a vertex can be assigned colour $0$ by this formulation), and if we assume the colouring has assigned colours values as low as possible, $c$ will minimize to the chromatic number of the graph.
+\end{enumerate}
+\item An optimal solution to \ref{binary} returns $\chi(G)$ and assign the vertices colours such that the colouring is optimal:\\
+\begin{enumerate}
+\item since all $x_{v,b}$ has a value, all vertices have colours trivially.
+\item As established before, a $z_{v,u,b}$ value of $1$ indicates that the $b$'th bit of vertex $u$ and $v$ are different. Likewise we see that since $x_{v,b}-x_{u,b} \in \{-1,0,1\}$ and $2t_u,v,b \in \{0,2\}$ a $z_{v,u,b}$ value of $0$ will only be feasible if the $b$'th bit of $u$ and $v$ are the same. \\
+By that observation we see that the third constraint ensures that at least one bit of the colours of two adjacent vertices are different, making the colours different. Thus the formulation will assign a proper colouring to a graph
+\item  the first constraint states that $c$ is at least the value of the highest value colour assigned to any vertex. When minimizing c the formulation will therefore assign the lowest amount of colours possible with the lowest possible values where the solution is still feasible. Thus it will assign an optimal colouring to a graph and return the chromatic number. 
+\end{enumerate}
+\end{enumerate}
+\end{proof}
+\end{proposition}
