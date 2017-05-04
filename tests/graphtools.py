@@ -92,3 +92,14 @@ def bestGreedyChi(A, s):
 			col[x] = min([c for c in range(n) if not used[c]])
 		best = min(best, max(col)+1)
 	return best
+
+'''
+Random bipartite graph on n vertices
+'''
+def bipRandom(n):
+	m = 2*n
+	A = [[0 for i in range(m)] for j in range(m)]
+	for i,j in product(range(0,n),range(n,m)):
+		if (i*i+j*j)%17 < 4:
+			A[i][j] = A[j][i] = 1
+	return A
