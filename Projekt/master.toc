@@ -14,42 +14,46 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {1.4}Convexity}{2}{section.1.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {1.7}The geometric/graphical intuition}{3}{section.1.7}
+\contentsline {subsection}{The Fundamental Theorem of Linear Programming}{3}{section*.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {1.8}Matrix representation of an LP and Slack variables}{3}{section.1.8}
+\contentsline {section}{\numberline {1.9}The geometric/graphical intuition}{4}{section.1.9}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {1.9}Duality}{4}{section.1.9}
+\contentsline {section}{\numberline {1.10}Matrix representation of an LP and Slack variables}{4}{section.1.10}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{Weak and strong duality}{5}{section*.4}
+\contentsline {section}{\numberline {1.11}Duality}{5}{section.1.11}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {1.12}Worst case runtime of an LP}{5}{section.1.12}
+\contentsline {subsection}{Weak and strong duality}{6}{section*.8}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {1.13}The simplex method}{5}{section.1.13}
+\contentsline {section}{\numberline {1.14}Efficiency of solving an LP}{6}{section.1.14}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\chapternumberline {2}Integer Programming and Graphs}{6}{chapter.2}
+\contentsline {subsection}{The simplex method}{6}{section*.10}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.1}Some Graph notation}{6}{section.2.1}
+\contentsline {chapter}{\chapternumberline {2}Integer Programming and Graphs}{7}{chapter.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.9}Integer and Binary Constraints}{7}{section.2.9}
+\contentsline {section}{\numberline {2.1}Some Graph notation}{7}{section.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.11}The Convex Hull}{7}{section.2.11}
+\contentsline {section}{\numberline {2.9}Mixed Integer Programming - MIP}{8}{section.2.9}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.12}Mixed Integer Programming - MIP}{7}{section.2.12}
+\contentsline {subsection}{Integer and Binary Constraints}{8}{section*.12}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.13}Relaxation}{7}{section.2.13}
+\contentsline {section}{\numberline {2.11}Relaxation}{8}{section.2.11}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.14}Integer Programming is NP-hard}{7}{section.2.14}
+\contentsline {section}{\numberline {2.12}Integer Programming is NP-hard}{8}{section.2.12}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\chapternumberline {3}Graph colouring}{8}{chapter.3}
+\contentsline {chapter}{\chapternumberline {3}Graph colouring}{9}{chapter.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.1}Fundamental colouring terms and results}{8}{section.3.1}
+\contentsline {section}{\numberline {3.1}Fundamental colouring terms and results}{9}{section.3.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.8}Integer programming formulations}{9}{section.3.8}
+\contentsline {section}{\numberline {3.8}Integer programming formulations}{10}{section.3.8}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{The standard formulation}{9}{section*.5}
+\contentsline {subsection}{The standard formulation}{10}{section*.17}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{A scheduling formulation}{10}{section*.6}
+\contentsline {subsection}{A scheduling formulation}{11}{section*.18}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{The binary encoding formulation}{11}{section*.7}
+\contentsline {subsection}{The binary encoding formulation}{12}{section*.19}
 \defcounter {refsection}{0}\relax 
-\contentsline {appendix}{\chapternumberline {A}Test appendix}{14}{appendix.A}
+\contentsline {chapter}{\chapternumberline {4}Colouring results}{15}{chapter.4}
+\defcounter {refsection}{0}\relax 
+\contentsline {appendix}{\chapternumberline {A}Test appendix}{16}{appendix.A}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{Bibliography}{17}{section*.21}

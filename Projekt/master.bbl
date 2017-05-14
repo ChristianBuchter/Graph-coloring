@@ -16,5 +16,52 @@
   {}
 \endgroup
 
-\sortlist[entry]{anyt/global/}\endsortlist
+\sortlist[entry]{anyt/global/}
+  \entry{vanderbei2015linear}{book}{}
+    \name{author}{1}{}{%
+      {{hash=VRJ}{%
+         family={Vanderbei},
+         familyi={V\bibinitperiod},
+         given={Robert\bibnamedelima J},
+         giveni={R\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer}%
+    }
+    \strng{namehash}{VRJ1}
+    \strng{fullhash}{VRJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelalpha}{Van15}
+    \field{sortinit}{V}
+    \field{sortinithash}{V}
+    \field{title}{Linear programming}
+    \field{year}{2015}
+  \endentry
+
+  \entry{wolsey1998integer}{book}{}
+    \name{author}{1}{}{%
+      {{hash=WLA}{%
+         family={Wolsey},
+         familyi={W\bibinitperiod},
+         given={Laurence\bibnamedelima A},
+         giveni={L\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Wiley New York}%
+    }
+    \strng{namehash}{WLA1}
+    \strng{fullhash}{WLA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelalpha}{Wol98}
+    \field{sortinit}{W}
+    \field{sortinithash}{W}
+    \field{title}{Integer programming}
+    \field{volume}{42}
+    \field{year}{1998}
+  \endentry
+\endsortlist
 \endinput
