@@ -1,0 +1,16 @@
+=======================================================================
+myciel3    (V=11  ) ,standard:  lb=4.0, ub=4.0, status=MIP_optimal,elapsed time ~=0.062 greedy=4
+myciel3    (V=11  ) ,scheduling:  lb=4.0, ub=4.0, status=MIP_optimal,elapsed time ~=0.047 greedy=4
+myciel3    (V=11  ) ,binary:  lb=4.0, ub=4.0, status=MIP_optimal,elapsed time ~=0.156 greedy=4
+myciel4    (V=23  ) ,standard:  lb=5.0, ub=5.0, status=MIP_optimal,elapsed time ~=0.297 greedy=5
+myciel4    (V=23  ) ,scheduling:  lb=5.0, ub=5.0, status=MIP_optimal,elapsed time ~=0.547 greedy=5
+myciel4    (V=23  ) ,binary:  lb=4.0, ub=5.0, status=MIP_time_limit_feasible,elapsed time ~=50.031 greedy=5
+myciel5    (V=47  ) ,standard:  lb=6.0, ub=6.0, status=MIP_optimal,elapsed time ~=6.329 greedy=6
+myciel5    (V=47  ) ,scheduling:  lb=4.0, ub=6.0, status=MIP_time_limit_feasible,elapsed time ~=50.0 greedy=6
+myciel5    (V=47  ) ,binary:  lb=3.0, ub=6.0, status=MIP_time_limit_feasible,elapsed time ~=50.031 greedy=6
+myciel6    (V=95  ) ,standard:  lb=5.0, ub=7.0, status=MIP_time_limit_feasible,elapsed time ~=50.016 greedy=7
+myciel6    (V=95  ) ,scheduling:  lb=3.0, ub=7.0, status=MIP_time_limit_feasible,elapsed time ~=50.031 greedy=7
+myciel6    (V=95  ) ,binary:  lb=inf, ub=-1, status=MIP_time_limit_infeasible,elapsed time ~=50.078 greedy=7
+myciel7    (V=191 ) ,standard:  lb=2.5, ub=8.0, status=MIP_time_limit_feasible,elapsed time ~=50.047 greedy=8
+myciel7    (V=191 ) ,scheduling:  lb=3.0, ub=8.0, status=MIP_time_limit_feasible,elapsed time ~=50.031 greedy=8
+myciel7    (V=191 ) ,binary:  lb=inf, ub=-1, status=MIP_time_limit_infeasible,elapsed time ~=50.172 greedy=8

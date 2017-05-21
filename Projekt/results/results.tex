@@ -1,0 +1,55 @@
+\begin{table}[]
+\centering
+\caption{Results}
+\label{table}
+\begin{tabular}{l||l|l|l|l}
+Graph & &standard &scheduling  &binary\\
+\toprule
+myciel3&&&&\\
+Vertices=11 &Status: &MIP\_optimal  &MIP\_optimal &MIP\_optimal\\
+\cline{2-5}
+Greedy ub =4&Best objective: &4.0  &4.0 &4.0\\
+\cline{2-5}
+&Lower bound: &4.0  &4.0 &4.0\\
+\cline{2-5}
+&Compute time: &0.062 seconds  &0.047 seconds &0.156 seconds\\
+\hline
+myciel4&&&&\\
+Vertices=23 &Status: &MIP\_optimal  &MIP\_optimal &MIP\_time\_limit\_feasible\\
+\cline{2-5}
+Greedy ub =5&Best objective: &5.0  &5.0 &5.0\\
+\cline{2-5}
+&Lower bound: &5.0  &5.0 &4.0\\
+\cline{2-5}
+&Compute time: &0.297 seconds  &0.547 seconds &50.031 seconds\\
+\hline
+myciel5&&&&\\
+Vertices=47 &Status: &MIP\_optimal  &MIP\_time\_limit\_feasible &MIP\_time\_limit\_feasible\\
+\cline{2-5}
+Greedy ub =6&Best objective: &6.0  &6.0 &6.0\\
+\cline{2-5}
+&Lower bound: &6.0  &4.0 &3.0\\
+\cline{2-5}
+&Compute time: &6.329 seconds  &50.0 seconds &50.031 seconds\\
+\hline
+myciel6&&&&\\
+Vertices=95 &Status: &MIP\_time\_limit\_feasible  &MIP\_time\_limit\_feasible &MIP\_time\_limit\_infeasible\\
+\cline{2-5}
+Greedy ub =7&Best objective: &7.0  &7.0 &-1\\
+\cline{2-5}
+&Lower bound: &5.0  &3.0 &inf\\
+\cline{2-5}
+&Compute time: &50.016 seconds  &50.031 seconds &50.078 seconds\\
+\hline
+myciel7&&&&\\
+Vertices=191 &Status: &MIP\_time\_limit\_feasible  &MIP\_time\_limit\_feasible &MIP\_time\_limit\_infeasible\\
+\cline{2-5}
+Greedy ub =8&Best objective: &8.0  &8.0 &-1\\
+\cline{2-5}
+&Lower bound: &2.5  &3.0 &inf\\
+\cline{2-5}
+&Compute time: &50.047 seconds  &50.031 seconds &50.172 seconds\\
+\hline
+\bottomrule
+\end{tabular}
+\end{table}

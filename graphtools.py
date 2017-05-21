@@ -40,6 +40,25 @@ def printDimacs(A, filename):
 					f.write("e {0} {1}\n".format(i+1, j+1))
 
 '''
+Read graph in DIMACS format. Return adjacency matrix.
+Vertices are numbered 1..n, we map it to 0..n-1
+'''
+def readDimacs(filename):
+	v = 0
+	e = 0
+	edgesBoth = []
+	with open(filename) as f:
+		for line in f.readlines():
+			if line[0]=="p":
+				_, _, v, e = line.split()
+				v, e = int(v), int(e)
+			if line[0]=="e":
+				_, x, y = line.split()
+				edgesBoth.append((int(x)-1,int(y)-1))				
+				edgesBoth.append((int(y)-1,int(x)-1))
+	return canonical(range(v), edgesBoth)
+
+'''
 Return graph complement in matrix format
 '''
 def complement(A):
@@ -73,3 +92,14 @@ def bestGreedyChi(A, s):
 			col[x] = min([c for c in range(n) if not used[c]])
 		best = min(best, max(col)+1)
 	return best
+
+'''
+Random bipartite graph on n vertices
+'''
+def bipRandom(n):
+	m = 2*n
+	A = [[0 for i in range(m)] for j in range(m)]
+	for i,j in product(range(0,n),range(n,m)):
+		if (i*i+j*j)%17 < 4:
+			A[i][j] = A[j][i] = 1
+	return A

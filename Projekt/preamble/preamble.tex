@@ -7,11 +7,9 @@
 \usepackage{amsfonts}
 \usepackage{amsthm}
 \usepackage[usenames,dvipsnames]{xcolor}
-\usepackage{tikz}
-\usetikzlibrary{calc, 3d}
 \usepackage{amssymb}
 \usepackage{graphicx}
-\usepackage{flexisym}
+%\usepackage{flexisym} %problem with graph tikz
 \usepackage{hyperref}
 \usepackage{xr}
 \usepackage[all]{xy}
@@ -25,6 +23,9 @@
 \usepackage[backgroundcolor=cyan]{todonotes}
 \usepackage{wallpaper}
 \usepackage{faktor}
+\usepackage{float}
+\usepackage{tikz}
+\usetikzlibrary{calc, 3d,positioning}
 
 
 \begin{filecontents}{bibtest.bib}
@@ -40,6 +41,19 @@
   author={Vanderbei, Robert J},
   year={2015},
   publisher={Springer}
+}
+@Article{Karmarkar1984,
+author="Karmarkar, N.",
+title="A new polynomial-time algorithm for linear programming",
+journal="Combinatorica",
+year="1984",
+volume="4",
+number="4",
+pages="373--395",
+abstract="We present a new polynomial-time algorithm for linear programming. In the worst case, the algorithm requiresO(n                3.5                L) arithmetic operations onO(L) bit numbers, wheren is the number of variables andL is the number of bits in the input. The running-time of this algorithm is better than the ellipsoid algorithm by a factor ofO(n                2.5). We prove that given a polytopeP and a strictly interior point a $\epsilon$P, there is a projective transformation of the space that mapsP, a toP{\textasciiacutex}, a{\textasciiacutex} having the following property. The ratio of the radius of the smallest sphere with center a{\textasciiacutex}, containingP{\textasciiacutex} to the radius of the largest sphere with center a{\textasciiacutex} contained inP{\textasciiacutex} isO(n). The algorithm consists of repeated application of such projective transformations each followed by optimization over an inscribed sphere to create a sequence of points which converges to the optimal solution in polynomial time.",
+issn="1439-6912",
+doi="10.1007/BF02579150",
+url="http://dx.doi.org/10.1007/BF02579150"
 }
 \end{filecontents}
 

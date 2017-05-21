@@ -4,7 +4,56 @@ In this chapter we introduce main concept of graph vertex-colouring and some int
 \begin{definition}\label{vertex colouring}
 A \textbf{vertex-colouring} of a graph $G=(V,E)$ is an assignment of colors $C = {1,...,k}$ such that each $v\in V$ is assigned one color and no two adjacent vertices are assigned the same color.
 \end{definition}
-\todo{tikz picture}
+%\todo{udkommenteret tikz}
+%\iffalse
+\begin{figure}[H]
+\begin{tikzpicture}[main node/.style={circle,fill=blue!20,draw,minimum size=.8cm,inner sep=0pt}]
+    \node[main node, fill = blue!60] (1) {$v_1$};
+    \node[main node, fill = red!60] (2) [right = 1.5cm  of 1]  {$v_2$};
+    \node[main node, fill = yellow!60] (3) [below left = 1cm and .8cm of 1] {$v_3$};
+    \node[main node, fill = orange!60] (4) [below right = 1cm and .8cm of 2] {$v_4$};
+    \node[main node, fill = purple!60] (5) [below = 2.4cm  of 1] {$v_5$};
+    \node[main node, fill = green!60] (6) [right = 1.5cm  of 5] {$v_6$};
+    \node[left = 1cm of 1]{$G:$};
+
+    \path[draw,thick]
+    (1) edge node {} (2)
+    (1) edge node {} (3)
+    (1) edge node {} (5)
+    (2) edge node {} (3)
+    (2) edge node {} (4)
+    (2) edge node {} (5)
+    (3) edge node {} (4)
+    (3) edge node {} (6)
+    (4) edge node {} (5)
+    (5) edge node {} (6);
+    %%
+    \begin{scope}[xshift=6cm]
+    \node[main node, fill = blue!60] (1) {$v_1$};
+    \node[main node, fill = red!60] (2) [right = 1.5cm  of 1]  {$v_2$};
+    \node[main node, fill = yellow!60] (3) [below left = 1cm and .8cm of 1] {$v_3$};
+    \node[main node, fill = blue!60] (4) [below right = 1cm and .8cm of 2] {$v_4$};
+    \node[main node, fill = yellow!60] (5) [below = 2.4cm  of 1] {$v_5$};
+    \node[main node, fill = blue!60] (6) [right = 1.5cm  of 5] {$v_6$};
+    \node[left = 1cm of 1]{$G:$};
+
+    \path[draw,thick]
+    (1) edge node {} (2)
+    (1) edge node {} (3)
+    (1) edge node {} (5)
+    (2) edge node {} (3)
+    (2) edge node {} (4)
+    (2) edge node {} (5)
+    (3) edge node {} (4)
+    (3) edge node {} (6)
+    (4) edge node {} (5)
+    (5) edge node {} (6)
+    ;
+    \end{scope}
+\end{tikzpicture}
+\caption{A graph coloured with the trivial and an optimal vertex colouring.}
+\end{figure}
+%\fi
 in this paper a colouring will always refer to a vertex-colouring.
 \begin{definition}
 A \textbf{$k$-colouring} of a graph $G$ is a vertex-colouring using $k$ colours.

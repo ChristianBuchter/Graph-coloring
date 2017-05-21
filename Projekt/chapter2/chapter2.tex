@@ -1,7 +1,7 @@
 \chapter{Integer Programming and Graphs}
 In this chapter we introduce the concept of Integer programming. We will approach the subject with examples and results from graph theory, but apart from fundamental definitions we will omit most of the theory from this field of mathematics, but a more in depth explanation can be found in ~\cite{wolsey1998integer}. 
 \section{Some Graph notation}
-\begin{definition}\label{cromatic number}
+\begin{definition}\label{graph}
 A \textbf{graph} $G$ is an ordered set $(V,E)$ where $V$ is a set of vertices and $E$ is a set of edges and each edge in $E$ is a subset of $V$ containing two vertices.
 \end{definition}
 \begin{definition}
@@ -25,7 +25,27 @@ the \textbf{clique number} $\omega(G)$ of a graph $G$ is the number of vertices 
 
 \section{Mixed Integer Programming - MIP}
 A Mixed integer problem (MIP) is a way of solving optimisation problems with integer values. The Structure of an integer problem is the same as a linear problem, but with the extra constraint that all or some of the variables are in $\Z$. This added constraint might seem insignificant, but it introduces crucial differences to problems with real variables. One significant difference is that the feasible space of an MIP consists of discrete sets and thus it is not convex.
-\todo{tix showing that it is not convex?}
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\foreach \x in {0,...,5}{
+	\foreach \y in {0,...,5}{% node on the grid we have drawn 
+        \node[draw,circle,inner sep=1pt,fill] at (\x,\y) {};
+            % Places a dot at those points
+  }
+}
+\draw [lightgray, thick] (0,4.8) -- (3.4,4.2);
+\draw [lightgray, thick] (3.4,4.2)--(4.2,1.6);
+\draw [lightgray, thick] (4.2,1.6)--(2.5,0);
+\draw [red!60,opacity=.8, thick] (3.1,5)--(5,0);
+\node[draw,circle,inner sep=1pt,fill = red] at (3.4,4.2) {};
+\draw [green,opacity=.8, thick] (2.85,5)--(4.76,0);
+\node[draw,circle,inner sep=1pt,fill = green] at (4,2) {};
+\draw [black, thick, arrows = ->] (0,-1) -- (0,5.5);
+\draw [black, thick, arrows = ->] (-1,0) -- (5.5,0);
+\end{tikzpicture}
+\caption{Figure showing the feasible region of an IP with the optimal solution in green and a red non-feasible solution that would have been optimal if the set was convex.}
+\end{figure}
 \subsection{Integer and Binary Constraints}
 An important method in Integer programming is \textbf{Binary programming}. Here variables take values either $1$ or $0$ these binary variables are very useful since they can easily be used to say "Is variable $x_i$ part of the solution? then $x_i = 1$ otherwise $x_i = 0$. Binary constraints will be used extensively once we start colouring Graphs, but another example of their usefulness is in determining maximal cliques and independent sets of graphs:
 \begin{example}\label{clique}
@@ -47,9 +67,115 @@ calculates the maximal independent set and
 \end{array}
 \end{align}
 Calculates the maximal clique
-\todo{tikz and proof}
+%\iffalse
+% Clique and independent set
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[main node/.style={circle,fill=blue!20,draw,minimum size=.8cm,inner sep=0pt}]
+    \node[main node] (1) {$v_1$};
+    \node[main node,fill = green!60] (2) [right = 1.5cm  of 1]  {$v_2$};
+    \node[main node,fill = green!60] (3) [below left = 1cm and .8cm of 1] {$v_3$};
+    \node[main node,fill = green!60] (4) [below right = 1cm and .8cm of 2] {$v_4$};
+    \node[main node] (5) [below = 2.4cm  of 1] {$v_5$};
+    \node[main node] (6) [right = 1.5cm  of 5] {$v_6$};
+    \node[left = 1cm of 1]{$G:$};
+
+    \path[draw,thick]
+    (1) edge node {} (2)
+    (1) edge node {} (3)
+    (1) edge node {} (5)
+    (2) edge node {} (3)
+    (2) edge node {} (4)
+    (2) edge node {} (5)
+    (3) edge node {} (4)
+    (3) edge node {} (6)
+    (4) edge node {} (5)
+    (5) edge node {} (6);
+    %%
+    \begin{scope}[xshift=6cm]
+    \node[main node,fill = green!60] (1) {$v_1$};
+    \node[main node] (2) [right = 1.5cm  of 1]  {$v_2$};
+    \node[main node] (3) [below left = 1cm and .8cm of 1] {$v_3$};
+    \node[main node,fill = green!60] (4) [below right = 1cm and .8cm of 2] {$v_4$};
+    \node[main node] (5) [below = 2.4cm  of 1] {$v_5$};
+    \node[main node,fill = green!60] (6) [right = 1.5cm  of 5] {$v_6$};
+    \node[left = 1cm of 1]{$G:$};
+
+    \path[draw,thick]
+    (1) edge node {} (2)
+    (1) edge node {} (3)
+    (1) edge node {} (5)
+    (2) edge node {} (3)
+    (2) edge node {} (4)
+    (2) edge node {} (5)
+    (3) edge node {} (4)
+    (3) edge node {} (6)
+    (4) edge node {} (5)
+    (5) edge node {} (6)
+    ;
+    \path[draw=red,thick,dashed]
+    (1) edge node {} (4)
+    (1) edge node {} (6)
+    (2) edge node {} (6)
+    (3) edge node {} (5)
+    (4) edge node {} (6)
+    ;
+    \end{scope}
+\end{tikzpicture}
+\caption{A maximal clique and a maximal independent set in a graph $G$}
+\end{figure}
+%\fi
+
+\todo{proof?}
 \end{example}
 \section{Relaxation}
-\todo{how is it usefull? what does the relaxation of \ref{clique} mean)}
-\section{Integer Programming is NP-hard}
-\todo{\ref{clique} is an NP-hard problem}
+It is well known that \ref{clique} is an $\mathcal{NP}$-hard task. Thus unlike Linear programming, with real variables, integer programming can be used to calculate NP-hard tasks. in some cases it is however still useful to view the IP as a linear problem and assign real values to the variables instead of integer. This problem, where values in $\Z$ are assigned values in $\R$ instead and binary variables are assigned values in $[0,1]$ is called the \textbf{Linear relaxation} of the IP. And the solution to the linear relaxation of an IP can often tell us something about the solution to the IP itself or even give the integer solution.
+\begin{example}
+Some examples of cases where the relaxation is useful to different degrees are the following formulations of the shortest path problem and the longest cycle problem in graphs:
+\subsection{Length of shortest path between two vertices}
+Let $G=(V,E)$ be a directed graph where $V$ is the set of vertices and $E$ is the set of edges. Let $A$ be the adjacency matrix of $G$ and introduce the set of binary values $x_{i,j}$ where
+\begin{align*}
+x_{i,j} = \left\{
+\begin{array}{ll}
+1 & \text{if } (i,j) \text{ is in the path} \\ 0 & \text{otherwise}
+\end{array}\right.
+\end{align*}
+And the sets $V^+(i)$ and $V^-(i)$ where
+\begin{align*}
+V^+(i) = \{v: (i,v) \in E\}\\
+V^-(i) = \{v: (v, i) \in E\}
+\end{align*}
+We want to minimise the $\sum x_{i,j}$ subject to conditions that ensures we get a path form $s \in V$ to $t \in V$ in $G$.
+\begin{align}
+\begin{array}{ll@{}ll}
+\text{min} &\sum_{i,j \in V}x_{i,j}&\\
+\text{s.t.} &\sum_{j\in V^+(s)}x_{s,j} = 1,&\\
+&\sum_{i\in V^-(t)}x_{i,t} = 1,&\\
+&\sum_{j\in V^+(v)}x_{v,j} = \sum_{i\in V^-(v)}x_{i,v}, \quad &\forall v \in V \backslash \{s,t\},\\
+&x_{i,j}\leq A_{i,j},&\forall i,j \in V,\\
+&x_{i,j} \in \{0,1\},&\forall i,j \in V.\\
+\end{array}
+\end{align}
+In this case the convex hull of the feasible set has all its extreme points in integer points. Thus the relaxed problem with $x_{i,j} \in [0,1]$ has has optimal solutions in integral values and we don't have to solve the original IP at all.
+\subsection{Length of shortest directed cycle in a graph}
+Let $G=(V,E)$ be a directed graph where $V$ is the set of vertices and $E$ is the set of edges. Let $A$ be the adjacency matrix of $G$ and introduce the set of binary values $x_{i,j}$ where
+\begin{align*}
+x_{i,j} = \left\{
+\begin{array}{ll}
+1 & \text{if } (i,j) \text{ is in the cycle} \\ 0 & \text{otherwise}
+\end{array}\right.
+\end{align*}
+We want to minimise the $\sum x_{i,j}$ subject to conditions that ensures we get a cycle in $G$.
+\begin{align}
+\begin{array}{ll@{}ll}
+\text{min} & \sum_{i,j \in V}x_{i,j}&\\
+\text{s.t.} & \sum_{j\in V}x_{i_0,j} = \sum_{i\in V}x_{i,j_0},& \forall j_0,i_0 \in V,\\
+&x_{i,j}\leq A_{i,j} \leq 1,&\forall i,j \in V,\\
+&\sum_{i,j\in V}x_{v,j} \geq 1&\\
+&x_{i,j} \in \{0,1\},&\forall i,j \in V.\\
+\end{array}
+\end{align}
+In this case a solution to the relaxed problem with $x_{i,j} \in [0,1]$ will be a union of directed cycles and the objective value will always minimize to $1$. Thus the relaxed problem does not tell us much about the actual optimal integral solution, but it does however tell us if a feasible solution exists.\\
+In the case of \Cref{clique} the relaxed problem doesn't tell us much at all. In some cases the relaxed problem will have the same solution as the IP but in most cases it will find a much higher value. Thus all we can get from the relaxation is an upper bound of the actual problem.
+\todo{figures to examples?}
+\end{example}
