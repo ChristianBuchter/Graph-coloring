@@ -17,14 +17,17 @@
 \endgroup
 
 \sortlist[entry]{anyt/global/}
-  \entry{Karmarkar1984}{article}{}
+  \entry{karmarkar1984new}{inproceedings}{}
     \name{author}{1}{}{%
       {{hash=KN}{%
          family={Karmarkar},
          familyi={K\bibinitperiod},
-         given={N.},
+         given={Narendra},
          giveni={N\bibinitperiod},
       }}%
+    }
+    \list{organization}{1}{%
+      {ACM}%
     }
     \strng{namehash}{KN1}
     \strng{fullhash}{KN1}
@@ -33,35 +36,39 @@
     \field{labelalpha}{Kar84}
     \field{sortinit}{K}
     \field{sortinithash}{K}
-    \field{abstract}{%
-    We present a new polynomial-time algorithm for linear programming. In the
-  worst case, the algorithm requiresO(n 3.5 L) arithmetic operations onO(L) bit
-  numbers, wheren is the number of variables andL is the number of bits in the
-  input. The running-time of this algorithm is better than the ellipsoid
-  algorithm by a factor ofO(n 2.5). We prove that given a polytopeP and a
-  strictly interior point a $\epsilon$P, there is a projective transformation
-  of the space that mapsP, a toP{\textasciiacutex}, a{\textasciiacutex} having
-  the following property. The ratio of the radius of the smallest sphere with
-  center a{\textasciiacutex}, containingP{\textasciiacutex} to the radius of
-  the largest sphere with center a{\textasciiacutex} contained
-  inP{\textasciiacutex} isO(n). The algorithm consists of repeated application
-  of such projective transformations each followed by optimization over an
-  inscribed sphere to create a sequence of points which converges to the
-  optimal solution in polynomial time.%
-    }
-    \verb{doi}
-    \verb 10.1007/BF02579150
-    \endverb
-    \field{issn}{1439-6912}
-    \field{number}{4}
-    \field{pages}{373\bibrangedash 395}
+    \field{booktitle}{Proceedings of the sixteenth annual ACM symposium on
+  Theory of computing}
+    \field{pages}{302\bibrangedash 311}
     \field{title}{A new polynomial-time algorithm for linear programming}
-    \verb{url}
-    \verb http://dx.doi.org/10.1007/BF02579150
-    \endverb
-    \field{volume}{4}
-    \field{journaltitle}{Combinatorica}
     \field{year}{1984}
+  \endentry
+
+  \entry{khachiyan1980polynomial}{article}{}
+    \name{author}{1}{}{%
+      {{hash=KLG}{%
+         family={Khachiyan},
+         familyi={K\bibinitperiod},
+         given={Leonid\bibnamedelima G},
+         giveni={L\bibinitperiod\bibinitdelim G\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Elsevier}%
+    }
+    \strng{namehash}{KLG1}
+    \strng{fullhash}{KLG1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelalpha}{Kha80}
+    \field{sortinit}{K}
+    \field{sortinithash}{K}
+    \field{number}{1}
+    \field{pages}{53\bibrangedash 72}
+    \field{title}{Polynomial algorithms in linear programming}
+    \field{volume}{20}
+    \field{journaltitle}{USSR Computational Mathematics and Mathematical
+  Physics}
+    \field{year}{1980}
   \endentry
 
   \entry{vanderbei2015linear}{book}{}

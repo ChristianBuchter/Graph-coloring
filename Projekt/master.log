@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.4.10)  21 MAY 2017 14:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.4.10)  26 MAY 2017 18:10
 entering extended mode
 **./master.tex
 (master.tex
@@ -1679,23 +1679,31 @@ LaTeX Warning: Overwriting file `./bibtest.bib'.
 \openout15 = `bibtest.bib'.
 
 
+\c@theorem=\count397
+\c@lemma=\count398
+\c@proposition=\count399
+\c@corollary=\count400
+\c@definition=\count401
+\c@example=\count402
+\c@remark=\count403
+\c@note=\count404
 ("C:\Program Files\MiKTeX 2.9\tex\latex\xpatch\xpatch.sty"
 ("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\expl3.sty"
 Package: expl3 2017/04/01 L3 programming layer (loader) 
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\expl3-code.tex"
 Package: expl3 2017/04/01 L3 programming layer (code)
-\c_max_int=\count397
-\l_tmpa_int=\count398
-\l_tmpb_int=\count399
-\g_tmpa_int=\count400
-\g_tmpb_int=\count401
-\g__prg_map_int=\count402
-\c_log_iow=\count403
-\l_iow_line_count_int=\count404
-\l__iow_line_target_int=\count405
-\l__iow_one_indent_int=\count406
-\l__iow_indent_int=\count407
+\c_max_int=\count405
+\l_tmpa_int=\count406
+\l_tmpb_int=\count407
+\g_tmpa_int=\count408
+\g_tmpb_int=\count409
+\g__prg_map_int=\count410
+\c_log_iow=\count411
+\l_iow_line_count_int=\count412
+\l__iow_line_target_int=\count413
+\l__iow_one_indent_int=\count414
+\l__iow_indent_int=\count415
 \c_zero_dim=\dimen318
 \c_max_dim=\dimen319
 \l_tmpa_dim=\dimen320
@@ -1714,30 +1722,30 @@ Package: expl3 2017/04/01 L3 programming layer (code)
 \l_tmpb_muskip=\muskip15
 \g_tmpa_muskip=\muskip16
 \g_tmpb_muskip=\muskip17
-\l_keys_choice_int=\count408
-\c__fp_leading_shift_int=\count409
-\c__fp_middle_shift_int=\count410
-\c__fp_trailing_shift_int=\count411
-\c__fp_big_leading_shift_int=\count412
-\c__fp_big_middle_shift_int=\count413
-\c__fp_big_trailing_shift_int=\count414
-\c__fp_Bigg_leading_shift_int=\count415
-\c__fp_Bigg_middle_shift_int=\count416
-\c__fp_Bigg_trailing_shift_int=\count417
-\c__fp_rand_size_int=\count418
-\c__fp_rand_four_int=\count419
-\c__fp_rand_eight_int=\count420
-\l__sort_length_int=\count421
-\l__sort_min_int=\count422
-\l__sort_top_int=\count423
-\l__sort_max_int=\count424
-\l__sort_true_max_int=\count425
-\l__sort_block_int=\count426
-\l__sort_begin_int=\count427
-\l__sort_end_int=\count428
-\l__sort_A_int=\count429
-\l__sort_B_int=\count430
-\l__sort_C_int=\count431
+\l_keys_choice_int=\count416
+\c__fp_leading_shift_int=\count417
+\c__fp_middle_shift_int=\count418
+\c__fp_trailing_shift_int=\count419
+\c__fp_big_leading_shift_int=\count420
+\c__fp_big_middle_shift_int=\count421
+\c__fp_big_trailing_shift_int=\count422
+\c__fp_Bigg_leading_shift_int=\count423
+\c__fp_Bigg_middle_shift_int=\count424
+\c__fp_Bigg_trailing_shift_int=\count425
+\c__fp_rand_size_int=\count426
+\c__fp_rand_four_int=\count427
+\c__fp_rand_eight_int=\count428
+\l__sort_length_int=\count429
+\l__sort_min_int=\count430
+\l__sort_top_int=\count431
+\l__sort_max_int=\count432
+\l__sort_true_max_int=\count433
+\l__sort_block_int=\count434
+\l__sort_begin_int=\count435
+\l__sort_end_int=\count436
+\l__sort_A_int=\count437
+\l__sort_B_int=\count438
+\l__sort_C_int=\count439
 \c_empty_box=\box48
 \l_tmpa_box=\box49
 \l_tmpb_box=\box50
@@ -1781,18 +1789,18 @@ Package: expl3 2017/04/01 L3 programming layer (code)
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\l3pdfmode.def"
 File: l3pdfmode.def 2017/03/18 v L3 Experimental driver: PDF mode
-\l__driver_color_stack_int=\count432
+\l__driver_color_stack_int=\count440
 \l__driver_tmp_box=\box63
 ))
 Package: xpatch 2012/10/02 v0.3 Extending etoolbox patching commands
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\l3packages\xparse\xparse.sty"
 Package: xparse 2017/04/01 L3 Experimental document command parser
-\l__xparse_current_arg_int=\count433
-\g__xparse_grabber_int=\count434
-\l__xparse_m_args_int=\count435
-\l__xparse_mandatory_args_int=\count436
-\l__xparse_v_nesting_int=\count437
+\l__xparse_current_arg_int=\count441
+\g__xparse_grabber_int=\count442
+\l__xparse_m_args_int=\count443
+\l__xparse_mandatory_args_int=\count444
+\l__xparse_v_nesting_int=\count445
 )
 .................................................
 . LaTeX info: "xparse/define-command"
@@ -1985,8 +1993,8 @@ File: english.lbx 2016/12/05 v3.7 biblatex localization (PK/JW/AB)
 Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing.
 (biblatex)                Loading 'csquotes' recommended.
 
-\@quotelevel=\count438
-\@quotereset=\count439
+\@quotelevel=\count446
+\@quotereset=\count447
 (master.aux (frontpage/frontpage.aux)
 
 LaTeX Warning: Label `cromatic number' multiply defined.
@@ -2042,16 +2050,16 @@ LaTeX Font Info:    ... okay on input line 4.
 
 ("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count440
+\scratchcounter=\count448
 \scratchdimen=\dimen349
 \scratchbox=\box64
-\nofMPsegments=\count441
-\nofMParguments=\count442
+\nofMPsegments=\count449
+\nofMParguments=\count450
 \everyMPshowfont=\toks60
-\MPscratchCnt=\count443
+\MPscratchCnt=\count451
 \MPscratchDim=\dimen350
-\MPnumerator=\count444
-\makeMPintoPDFobject=\count445
+\MPnumerator=\count452
+\makeMPintoPDFobject=\count453
 \everyMPtoPDFconversion=\toks61
 ) ("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-base.sty"
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
@@ -2075,7 +2083,7 @@ Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\gettitlestring.sty"
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count446
+\c@section@level=\count454
 )
 Redoing nameref's sectioning
 Redoing nameref's label
@@ -2120,7 +2128,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 7--10
 
  []
 
-<frontpage/2.pdf, id=78, 597.23125pt x 845.1575pt>
+<frontpage/2.pdf, id=86, 597.23125pt x 845.1575pt>
 File: frontpage/2.pdf Graphic file (type pdf)
  <use frontpage/2.pdf>
 Package pdftex.def Info: frontpage/2.pdf used on input line 19.
@@ -2145,17 +2153,10 @@ l.33 \end{align}
                  [1
 
 
-]
-Underfull \hbox (badness 10000) in paragraph at lines 39--41
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 39--41
-
- []
-
-[2] [3]
+] [2]
+Package hyperref Info: bookmark level for unknown todo defaults to 0 on input l
+ine 62.
+ [3]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [4]
@@ -2164,42 +2165,75 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.205 \begin{align}
-                   \label{canonicalMin}] [6]
-Package hyperref Info: bookmark level for unknown todo defaults to 0 on input l
-ine 260.
-) (chapter2/chapter2.tex
-Underfull \hbox (badness 10000) in paragraph at lines 279--1
+l.216 \begin{align}
+                   \label{canonicalMin}] [6]) (chapter2/chapter2.tex
+Underfull \hbox (badness 1337) in paragraph at lines 293--1
+\T1/cmr/m/n/10 Even though these al-go-rithms have bet-ter worst case time com-
+plex-ity
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 293--1
 
  []
 
 
-Underfull \hbox (badness 1831) in paragraph at lines 279--1
+Underfull \hbox (badness 1831) in paragraph at lines 293--1
 \T1/cmr/m/n/10 In the next chap-ter we will in-tro-duce In-te-ger pro-gram-ming
  which is
  []
 
-[7] [8] [9
+[7] [8
 
-] [10pdfTeX warning (ext4): destination with the same identifier (name{figure.2
-.1}) has been already used, duplicate ignored
+]
+Overfull \hbox (27.47092pt too wide) in paragraph at lines 53--55
+\T1/cmr/m/n/10 Let $\OML/cmm/m/it/10 G \OT1/cmr/m/n/10 = (\OML/cmm/m/it/10 V; E
+\OT1/cmr/m/n/10 )$ \T1/cmr/m/n/10 be a graph and let $\OML/cmm/m/it/10 H \OT1/c
+mr/m/n/10 = (\OML/cmm/m/it/10 V; E[]\OT1/cmr/m/n/10 )$ \T1/cmr/m/n/10 with $\OM
+L/cmm/m/it/10 E[] \OT1/cmr/m/n/10 = \OMS/cmsy/m/n/10 f\OT1/cmr/m/n/10 (\OML/cmm
+/m/it/10 u; v\OT1/cmr/m/n/10 ) : \OML/cmm/m/it/10 u; v \OMS/cmsy/m/n/10 2 \OML/
+cmm/m/it/10 V; \OT1/cmr/m/n/10 (\OML/cmm/m/it/10 u; v\OT1/cmr/m/n/10 ) [] \OML/
+cmm/m/it/10 E\OMS/cmsy/m/n/10 g$
+ []
+
+[9pdfTeX warning (ext4): destination with the same identifier (name{figure.2.1}
+) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.60 \end{align}
+l.61 \end{align}
                 ]
 Overfull \hbox (6.59567pt too wide) in paragraph at lines 124--125
  [][] 
  []
 
-[11pdfTeX warning (ext4): destination with the same identifier (name{figure.2.2
+
+Underfull \hbox (badness 10000) in paragraph at lines 128--128
+
+ []
+
+[10pdfTeX warning (ext4): destination with the same identifier (name{figure.2.2
 }) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.135 \subsection
-                 {Length of shortest path between two vertices}] [12])
-(chapter3/chapter3.tex [13]
+l.139 \item S
+             ince no vertices in $I$ are connected by an edge by definition,...
+]
+Underfull \vbox (badness 1675) has occurred while \output is active []
+
+ [11]
+Underfull \vbox (badness 1939) has occurred while \output is active []
+
+ [12]
+Underfull \hbox (badness 10000) in paragraph at lines 193--195
+
+ []
+
+
+LaTeX Warning: Marginpar on page 13 moved by 21.21838pt.
+
+) (chapter3/chapter3.tex [13]
 Overfull \hbox (6.59567pt too wide) in paragraph at lines 53--54
 [][]
  []
@@ -2211,23 +2245,26 @@ has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.71 \end{proof}
-                ]
+l.69 \begin{proof}\todo
+                       {simplify}]
 Underfull \hbox (badness 10000) in paragraph at lines 89--91
 
  []
 
-[15]
+
+Underfull \vbox (badness 1102) has occurred while \output is active []
+
+ [15]
 Underfull \hbox (badness 10000) in paragraph at lines 119--120
 
  []
 
-
+[16]
 Overfull \hbox (18.52505pt too wide) in paragraph at lines 132--132
 [] 
  []
 
-[16]
+
 Underfull \hbox (badness 10000) in paragraph at lines 148--149
 
  []
@@ -2277,12 +2314,7 @@ Overfull \hbox (203.56325pt too wide) in paragraph at lines 5--55
 l.2 \chapter
             {Test appendix}]) [22
 
-]
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 25.
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\t1cmtt.fd"
-File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
-) [23
+] [23
 
 ]
 
@@ -2301,7 +2333,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 28.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 28.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 28.
 Package rerunfilecheck Info: File `master.out' has not changed.
-(rerunfilecheck)             Checksum: 580803B3D7539C326189FE1F0A63F956;1222.
+(rerunfilecheck)             Checksum: 77CA99F43DA95D643344713B85A41A06;1423.
 
 
 LaTeX Warning: There were multiply-defined labels.
@@ -2312,42 +2344,40 @@ Package logreq Info: Writing requests to 'master.run.xml'.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 28.
  ) 
 Here is how much of TeX's memory you used:
- 41523 strings out of 493333
- 759040 string characters out of 3139182
- 1222356 words of memory out of 3000000
- 44291 multiletter control sequences out of 15000+200000
- 23925 words of font info for 56 fonts, out of 3000000 for 9000
+ 41593 strings out of 493333
+ 760153 string characters out of 3139182
+ 1226662 words of memory out of 3000000
+ 44360 multiletter control sequences out of 15000+200000
+ 22209 words of font info for 53 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 69i,19n,82p,10475b,2005s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 69i,19n,82p,10475b,2006s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\Christian\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi
-600\ectt1000.pk> <C:\Users\Christian\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\j
-knappen\ec\dpi600\ecbi1000.pk> <C:\Users\Christian\AppData\Local\MiKTeX\2.9\fon
-ts\pk\ljfour\jknappen\ec\dpi600\ecti1000.pk> <C:\Users\Christian\AppData\Local\
-MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1095.pk> <C:\Users\Christian\
-AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1200.pk> <C:\Us
-ers\Christian\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1
+600\ecbi1000.pk> <C:\Users\Christian\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\j
+knappen\ec\dpi600\ecti1000.pk> <C:\Users\Christian\AppData\Local\MiKTeX\2.9\fon
+ts\pk\ljfour\jknappen\ec\dpi600\ecbx1095.pk> <C:\Users\Christian\AppData\Local\
+MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1200.pk> <C:\Users\Christian\
+AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1000.pk> <C:\Us
+ers\Christian\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1
 000.pk> <C:\Users\Christian\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\e
-c\dpi600\ecbx1000.pk> <C:\Users\Christian\AppData\Local\MiKTeX\2.9\fonts\pk\ljf
-our\jknappen\ec\dpi600\ecrm2074.pk> <C:\Users\Christian\AppData\Local\MiKTeX\2.
-9\fonts\pk\ljfour\jknappen\ec\dpi600\eccc1000.pk> <C:\Users\Christian\AppData\L
-ocal\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm0900.pk> <C:\Users\Chris
-tian\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx0900.pk> <
+c\dpi600\ecrm2074.pk> <C:\Users\Christian\AppData\Local\MiKTeX\2.9\fonts\pk\ljf
+our\jknappen\ec\dpi600\eccc1000.pk> <C:\Users\Christian\AppData\Local\MiKTeX\2.
+9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm0900.pk> <C:\Users\Christian\AppData\L
+ocal\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx0900.pk> <C:\Users\Chris
+tian\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\eccc1200.pk> <
 C:\Users\Christian\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\
-eccc1200.pk> <C:\Users\Christian\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknap
-pen\ec\dpi600\eccc1095.pk><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfo
-nts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
-mmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi5.pfb
-><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Prog
-ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files
-/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Program Files/MiKTeX 2.
-9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
-pe1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
-ic/amsfonts/cm/cmsy5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfon
-ts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbol
-s/msbm10.pfb>
-Output written on master.pdf (26 pages, 378190 bytes).
+eccc1095.pk><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.
+pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/
+Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Program F
+iles/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKT
+eX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fo
+nts/type1/public/amsfonts/cm/cmr5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
+public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/ams
+fonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
+/cmsy5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pf
+b><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on master.pdf (26 pages, 376575 bytes).
 PDF statistics:
- 920 PDF objects out of 1000 (max. 8388607)
- 136 named destinations out of 1000 (max. 500000)
- 162 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 914 PDF objects out of 1000 (max. 8388607)
+ 143 named destinations out of 1000 (max. 500000)
+ 178 words of extra memory for PDF output out of 10000 (max. 10000000)
 
