@@ -22,9 +22,9 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {1.6}Efficiency of solving an LP}{6}{section.1.6}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{The simplex method}{6}{section*.6}
+\contentsline {subsection}{The simplex method}{6}{section*.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{Polynomial time algorithms}{7}{section*.7}
+\contentsline {subsection}{Polynomial time algorithms}{7}{section*.6}
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\chapternumberline {2}Integer Programming and Graphs}{8}{chapter.2}
 \defcounter {refsection}{0}\relax 
@@ -32,11 +32,11 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {2.2}Mixed Integer Programming - MIP}{8}{section.2.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{Integer and Binary Constraints}{9}{section*.9}
+\contentsline {subsection}{Integer and Binary Constraints}{9}{section*.7}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{Maximum independent set:}{10}{section*.10}
+\contentsline {subsection}{Maximum independent set:}{10}{section*.8}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{Maximum clique}{11}{section*.11}
+\contentsline {subsection}{Maximum clique}{11}{section*.9}
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {2.3}Relaxation}{11}{section.2.3}
 \defcounter {refsection}{0}\relax 
@@ -52,14 +52,38 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {3.2}Integer programming formulations}{15}{section.3.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{The standard formulation}{15}{section*.18}
+\contentsline {subsection}{The standard formulation}{15}{section*.14}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{A scheduling formulation}{16}{section*.19}
+\contentsline {subsection}{A scheduling formulation}{16}{section*.15}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{The binary encoding formulation}{18}{section*.20}
+\contentsline {subsection}{The binary encoding formulation}{18}{section*.16}
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\chapternumberline {4}Colouring results}{20}{chapter.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {appendix}{\chapternumberline {A}Test appendix}{22}{appendix.A}
+\contentsline {section}{\numberline {4.1}The graph test-set}{20}{section.4.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Bibliography}{23}{section*.22}
+\contentsline {subsection}{Queen graphs}{20}{section*.17}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{Mycielski graphs}{20}{section*.18}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{Register allocation graphs}{20}{section*.19}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{Proximity graphs of US road network at various scales}{21}{section*.20}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{Lego graphs}{21}{section*.21}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{The specific graphs}{21}{section*.22}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{Generalized cube graphs}{21}{section*.23}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{Bipartite graph}{21}{section*.25}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{Random graphs}{22}{section*.26}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{Sparse graphs}{22}{section*.27}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4.2}Discussion of results}{26}{section.4.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {appendix}{\chapternumberline {A}Test appendix}{27}{appendix.A}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{Bibliography}{28}{section*.29}

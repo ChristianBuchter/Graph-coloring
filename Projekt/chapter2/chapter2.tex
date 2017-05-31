@@ -25,7 +25,7 @@ the \textbf{clique number} $\omega(G)$ of a graph $G$ is the number of vertices 
 
 \section{Mixed Integer Programming - MIP}
 A Mixed integer problem (MIP) is a way of formulating optimisation problems with integer values. The structure of an integer problem is the same as of a linear problem, but with the extra constraint that all or some of the variables are in $\Z$. This added constraint might seem insignificant, but it introduces crucial differences compared to purely linear problems. One significant difference is that the feasible space of an MIP consists of disjoint sets with no feasible solutions between the integer values of the integer variables and thus it is not convex.
-\begin{figure}[H]
+\begin{figure}[H]\label{IP figure}
 \centering
 \begin{tikzpicture}
 \foreach \x in {0,...,5}{
@@ -45,8 +45,9 @@ A Mixed integer problem (MIP) is a way of formulating optimisation problems with
 \draw [black, thick, arrows = ->] (-1,0) -- (5.5,0);
 \end{tikzpicture}
 \caption{Figure showing the feasible region of an IP with the optimal solution in green and a red non-feasible solution that would have been optimal if the set was convex.}
-\end{figure}\todo{change to \ref{lpex}  maybe (x2 integer -> (0.75, 2, 3.5)\\
-all integer -> (1,2,3)}
+\end{figure}
+In the case of \Cref{lpex} the optimal solution did not have integer values, but when buying food it's often only possible to buy a product in quantities of natural numbers. If we restrict $x_2$ to be an integer we will get a new optimal solution, $x_1=0.75, x_2=2$ and $x_3= 3.5$, and if we restrict all variables to be integral, an optimal solution would be $x_1=1, x_2=2$ and $x_3= 3$\\
+These solutions are fairly close to the solution to the LP, but as seen in \Cref{IP figure} we can't always expect this to be the case for MIPs.
 \subsection{Integer and Binary Constraints}
 An important method in Integer programming is \textbf{Binary programming}. Here variables take values either $1$ or $0$. These binary variables are very useful since they can easily be used to say "If variable $x_i$ is part of the solution then $x_i = 1$ otherwise $x_i = 0$". Binary constraints will be used extensively once we start colouring graphs. We begin with an easier combinatorial problem on graphs using an MIP formulation:
 \begin{example}\label{independent set}
@@ -195,5 +196,4 @@ In this case a solution to the relaxed problem with $x_{i,j} \in [0,1]$ will be 
 \section{Maximum clique problem}
 In the case of \Cref{independent set} the relaxed problem doesn't tell us much at all. In some cases the relaxed problem will have the same solution as the IP but a solution with $x_v = \frac{1}{2} \forall v \in V$ is always feasible and in most cases it will have a much higher objective value compared to an optimal solution to the MIP. Thus all we can get from the relaxation is an upper bound of the actual problem.
 \todo{figures to examples?}
-\todo{look at notes}
 \end{example}

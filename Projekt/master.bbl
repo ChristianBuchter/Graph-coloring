@@ -71,6 +71,41 @@
     \field{year}{1980}
   \endentry
 
+  \entry{b459f618a93441f1ad27d944d0f81644}{book}{}
+    \name{author}{1}{}{%
+      {{hash=MT}{%
+         family={Mogensen},
+         familyi={M\bibinitperiod},
+         given={{Torben Ægidius}},
+         giveni={T\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer}%
+    }
+    \strng{namehash}{MT1}
+    \strng{fullhash}{MT1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelalpha}{Mog11}
+    \field{sortinit}{M}
+    \field{sortinithash}{M}
+    \verb{doi}
+    \verb 10.1007/978-0-85729-829-4
+    \endverb
+    \field{isbn}{978-0-85729-828-7}
+    \field{note}{@book{DBLP:series/utcs/Mogensen11, author = {Torben
+  {\AE}gidius Mogensen}, title = {Introduction to Compiler Design}, series =
+  {Undergraduate Topics in Computer Science}, publisher = {Springer}, year =
+  {2011}, url = {http://dx.doi.org/10.1007/978-0-85729-829-4}, doi =
+  {10.1007/978-0-85729-829-4}, isbn = {978-0-85729-828-7}, timestamp = {Mon, 09
+  Dec 2013 17:20:15 +0100}, biburl =
+  {http://dblp.uni-trier.de/rec/bib/series/utcs/Mogensen11}, bibsource = {dblp
+  computer science bibliography, http://dblp.org} }}
+    \field{title}{Introduction to compiler design}
+    \field{year}{2011}
+  \endentry
+
   \entry{vanderbei2015linear}{book}{}
     \name{author}{1}{}{%
       {{hash=VRJ}{%
