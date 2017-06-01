@@ -23,6 +23,7 @@ def standard(graph, ub, timeLimit, threadLimit):
 		my_prob = cplex.Cplex()
 		my_prob.parameters.threads.set(threadLimit)
 		my_prob.parameters.timelimit.set(timeLimit)
+		my_prob.parameters.parallel.set(-1)
 		my_prob.parameters.timelimit.get()
 		my_obj = []
 		my_ub = []
@@ -114,6 +115,7 @@ def binary(graph, ub, timeLimit, threadLimit):
 		my_prob = cplex.Cplex()
 		my_prob.parameters.threads.set(threadLimit)
 		my_prob.parameters.timelimit.set(timeLimit)
+		my_prob.parameters.parallel.set(-1)
 		my_prob.parameters.timelimit.get()
 		my_obj = []
 		my_ub = []
@@ -219,6 +221,7 @@ def scheduling(graph, ub, timeLimit, threadLimit):
 		my_prob = cplex.Cplex()
 		my_prob.parameters.threads.set(threadLimit)
 		my_prob.parameters.timelimit.set(timeLimit)
+		my_prob.parameters.parallel.set(-1)		
 		my_prob.parameters.timelimit.get()
 		my_obj = []
 		my_ub = []
