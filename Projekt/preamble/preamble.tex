@@ -3,6 +3,7 @@
 \usepackage[pass]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage[english]{babel}
+\usepackage{longtable}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amsthm}
@@ -42,18 +43,33 @@
   year={2015},
   publisher={Springer}
 }
-@Article{Karmarkar1984,
-author="Karmarkar, N.",
-title="A new polynomial-time algorithm for linear programming",
-journal="Combinatorica",
-year="1984",
-volume="4",
-number="4",
-pages="373--395",
-abstract="We present a new polynomial-time algorithm for linear programming. In the worst case, the algorithm requiresO(n                3.5                L) arithmetic operations onO(L) bit numbers, wheren is the number of variables andL is the number of bits in the input. The running-time of this algorithm is better than the ellipsoid algorithm by a factor ofO(n                2.5). We prove that given a polytopeP and a strictly interior point a $\epsilon$P, there is a projective transformation of the space that mapsP, a toP{\textasciiacutex}, a{\textasciiacutex} having the following property. The ratio of the radius of the smallest sphere with center a{\textasciiacutex}, containingP{\textasciiacutex} to the radius of the largest sphere with center a{\textasciiacutex} contained inP{\textasciiacutex} isO(n). The algorithm consists of repeated application of such projective transformations each followed by optimization over an inscribed sphere to create a sequence of points which converges to the optimal solution in polynomial time.",
-issn="1439-6912",
-doi="10.1007/BF02579150",
-url="http://dx.doi.org/10.1007/BF02579150"
+@article{khachiyan1980polynomial,
+  title={Polynomial algorithms in linear programming},
+  author={Khachiyan, Leonid G},
+  journal={USSR Computational Mathematics and Mathematical Physics},
+  volume={20},
+  number={1},
+  pages={53--72},
+  year={1980},
+  publisher={Elsevier}
+}
+@inproceedings{karmarkar1984new,
+  title={A new polynomial-time algorithm for linear programming},
+  author={Karmarkar, Narendra},
+  booktitle={Proceedings of the sixteenth annual ACM symposium on Theory of computing},
+  pages={302--311},
+  year={1984},
+  organization={ACM}
+}
+@book{b459f618a93441f1ad27d944d0f81644,
+title = "Introduction to compiler design",
+author = "Mogensen, {Torben Ægidius}",
+note = "@book{DBLP:series/utcs/Mogensen11, author = {Torben {\AE}gidius Mogensen}, title = {Introduction to Compiler Design}, series = {Undergraduate Topics in Computer Science}, publisher = {Springer}, year = {2011}, url = {http://dx.doi.org/10.1007/978-0-85729-829-4}, doi = {10.1007/978-0-85729-829-4}, isbn = {978-0-85729-828-7}, timestamp = {Mon, 09 Dec 2013 17:20:15 +0100}, biburl = {http://dblp.uni-trier.de/rec/bib/series/utcs/Mogensen11}, bibsource = {dblp computer science bibliography, http://dblp.org} }",
+year = "2011",
+doi = "10.1007/978-0-85729-829-4",
+isbn = "978-0-85729-828-7",
+publisher = "Springer",
+
 }
 \end{filecontents}
 
@@ -166,20 +182,28 @@ url="http://dx.doi.org/10.1007/BF02579150"
 	{\bfseries}{}
 	{\newline}{}
 \theoremstyle{break}
-\newtheorem{theorem}[section]{Theorem}
-\newtheorem{lemma}[section]{Lemma}
-\newtheorem{proposition}[section]{Proposition}
-\newtheorem{corollary}[section]{Corollary}
-\newtheorem{definition}[section]{Definition}
+\newtheorem{theorem}{Theorem}
+\numberwithin{theorem}{chapter}
+\newtheorem{lemma}{Lemma}
+\numberwithin{lemma}{chapter}
+\newtheorem{proposition}{Proposition}
+\numberwithin{proposition}{chapter}
+\newtheorem{corollary}{Corollary}
+\numberwithin{corollary}{chapter}
+\newtheorem{definition}{Definition}
+\numberwithin{definition}{chapter}
 \newtheoremstyle{Break}
 	{\topsep}{\topsep}
 	{}{}
 	{\bfseries}{}
 	{\newline}{}
 \theoremstyle{Break}
-\newtheorem{example}[section]{Example}
-\newtheorem{remark}[section]{Remark}
-\newtheorem{note}[section]{Note}
+\newtheorem{example}{Example}
+\numberwithin{example}{chapter}
+\newtheorem{remark}{Remark}
+\numberwithin{remark}{chapter}
+\newtheorem{note}{Note}
+\numberwithin{note}{chapter}
 \setcounter{secnumdepth}{0}
 \usepackage{xpatch}
 \xpatchcmd{\proof}{\ignorespaces}{\mbox{}\\\ignorespaces}{}{}

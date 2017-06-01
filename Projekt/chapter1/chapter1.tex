@@ -1,7 +1,7 @@
 \chapter{Linear Programming}
-In this chapter we introduce the concept of Linear programming. Most proofs will be omitted but proofs and more in depth explanations can be found in ~\cite{vanderbei2015linear}
-\section{The structure of a linear program}
-In a linear program we want to maximise or minimize a given linear function $z:\R^n \rightarrow \R$ subject to a number of linear inequalities or equalities $g_i:\R^n \rightarrow \R$ with $g_i(x_1,...,x_n)\geq b_i$,$g_i(x_1,...,x_n)\leq b_i$ or $g_i(x_1,...,x_n)= b_i$. The function, $z$, that we want to optimise is called the \textbf{Objective} and the set of inequalities are called the \textbf{Constraints}. A general linear problem is written:
+In this chapter we introduce the concept of linear programming. Most proofs will be omitted but proofs and more in depth explanations can be found in ~\cite{vanderbei2015linear}
+\section{The structure of a linear program (LP)}
+In a linear program we want to maximize or minimize a given linear function $z:\R^n \rightarrow \R$ subject to a number of linear inequalities or equalities $g_i:\R^n \rightarrow \R$ with $g_i(x_1,...,x_n)\geq b_i$,$g_i(x_1,...,x_n)\leq b_i$ or $g_i(x_1,...,x_n)= b_i$. The function, $z$, that we want to optimise is called the \textbf{Objective} and the set of inequalities are called the \textbf{Constraints}. A general linear problem is written:
 \begin{align}\label{lpform}
 \begin{array}{ll@{}ll}
 \text{min/max} &z(x_1,...,x_n)&\\
@@ -14,7 +14,7 @@ In a linear program we want to maximise or minimize a given linear function $z:\
 
 \begin{example}\label{lpex}
 A maths student wants to save money on his diet while still remaining healthy. To stay healthy his diet must contain at least $b_1=6$ units of protein, $b_2=15$ units of carbs, $b_3=5$ units of fat and $b_4=7$ units of vitamins.\\
-He consider buying 3 food products with different nutritional values and prices: 
+He considers buying 3 food products with different nutritional values and prices: 
 \begin{enumerate}
 \item $x_1$ is a take away meal costing 5 and containing 3 units of protein, 3 units of carbs, 2 units of fat and 1 unit of vitamins.
 \item $x_2$ is a vegetable costing 1 and containing 1 unit of protein, 2 units of carbs, 0 units of fat and 4 units of vitamins.
@@ -31,13 +31,14 @@ He then define an optimization problem minimizing the cost of food subject to ge
 &x_1,x_2,x_3 \geq 0,&\\
 \end{array}
 \end{align}
+He finds the cheapest solution to be $x_1 = 1, x_2= \frac{3}{2},x_3 = 3$ and byes one take away meal, one and a half vegetable and three loafs of bread to a total cost of $12.5$.
 \end{example}
-\section{feasible and optimal solutions}
-\subsection{feasibility}
-Given a Linear problem on form \ref{lpform} any point of $\R^n$ such that all $m$ constraints are true is called a feasible solution. The set of all these points is called the feasible set. In the case \Cref{lpex} the feasible set is the set of all combinations of amounts of the different foods such that the nutritional requirements are met. If a problem has no feasible solutions, that problem is said to be infeasible. A feasibility problem is a special case in linear programming where our object function is constant and thus if any feasible solution exists, that solution is optimal.
-\subsection{optimal solutions}
+\section{Feasible and optimal solutions}
+\subsection{Feasibility}
+Given a Linear problem on form \ref{lpform} any point of $\R^n$ such that all $m$ constraints are satisfied is called a feasible solution. The set of all these points is called the feasible set. In the case of \Cref{lpex} the feasible set is the set of all combinations of amounts of the different foods such that the nutritional requirements are met. If a problem has no feasible solutions, that problem is said to be infeasible. A feasibility problem is a special case in linear programming where our object function is constant and thus if any feasible solution exists, that solution is optimal.
+\subsection{Optimal solutions}
 A feasible solution $\textbf{x}_0 \in \R^n$ is said to be optimal if $z(\textbf{x}_0) \geq z(\textbf{x})$ (when maximizing) or $z(\textbf{x}_0) \leq z(\textbf{x})$ (when minimizing) for all feasible solutions $\textbf{x} \in \R^n$.\\
-In some instances when feasible solutions exist, but no maximal (or minimal) solution exists the problem is said to be \textit{unbounded}. In that case one or more variable in the objective can approach $\infty$ or $-\infty$ in a solution, all while that solution remains feasible and the objective value diverges.\\\\ 
+In some instances when feasible solutions exist, but no maximal (or minimal) solution exists the problem is said to be \textbf{unbounded}. In that case one or more variable in the objective can approach $\infty$ or $-\infty$ in a solution, all while the solution remains feasible and the objective value diverges.
 \section{Convexity}
 \begin{definition}\label{convex}
 A set $X \in \R^n$ is said to be convex if for any two points $a, b \in X$ the straight line segment 
@@ -47,27 +48,36 @@ connecting $a$ and $b$ is entirely within $X$.
 \begin{theorem}
 A feasible set of a linear program is convex
 \begin{proof}
-The feasible subset of $\R^n$ of an LP is exactly the intersection of all the halfspaces given by each constraint function. \\
-Since such halfspaces are convex and the intersection of convex sets is also convex, the entire feasible set is convex.
+The feasible subset of $\R^n$ of an LP is exactly the intersection of all the half-spaces given by each constraint function where an equality is seen as two half spaces defined by two inequalities. \\
+Since such half-spaces are convex and the intersection of convex sets is also convex, the entire feasible set is convex.
 \end{proof}
 \end{theorem}
-\begin{lemma}
-Any solution between two feasible solutions is feasible.
+\begin{definition}
+An intersection of half spaces is known as a \textbf{convex polyhedron}. 
+\end{definition}
+\begin{definition}
+A \textbf{face} of a polyhedron $P$ is a subset $\{x\in P:g(x)=b\}$ of the boundary of $P$ where $g(x) \geq b$ is some half-space bounding the polyhedron. 
+\end{definition}
+\begin{definition}
+An \textbf{Extreme point} of a feasible space in $\R^n$ is a point on the boundary of the feasible set that is the intersection of $n$ constraint functions.\todo{more precise}
+\end{definition}
+\begin{lemma}\label{face}
+Any face of a polyhedron $P\subset \R^n$ contains an extreme point of $P$ or is unbounded.
 \begin{proof}
-Since the feasible region of an LP is convex, any point between two feasible points is within the feasible region.
+The intersection of two faces is itself a face of $P$ since the intersection is on the boundary and intersects the half-space defined by $g_1(x)+g_2(x)\geq b_1+b_2$ where $g_1(x) \geq b_1$ and $g_2(x) \geq b_2$ are the inequalities defining the half-spaces intersecting each of the two faces. Thus an extreme point is a face in itself and is contained in all faces that intersect in that point. If a face contains no extreme points it is unbounded on at least one coordinate, since at most $n-1$ of the half-spaces bounding $P$ intersect in any point of the face.
 \end{proof}
 \end{lemma}
 \subsection{The Fundamental Theorem of Linear Programming}
-\begin{definition}
-An \textbf{Extreme point} of a feasible space in $\R^n$ is a point on the boundary of the feasible set that is the intersection of $n$ constraint functions.
-\end{definition}
 \begin{theorem}\label{extreme point}
-If a set $\mathcal{S}$ of optimal solutions to a given LP exists, then some $s\in \mathcal{S}$ such that $s$ is in an extreme point in the feasible set.
+If a set $\mathcal{S}$ of optimal solutions to a given LP is non-empty, then some solution $s\in \mathcal{S}$ exists such that $s$ is in an extreme point in the feasible set.
 \begin{proof}
+An optimal solution is a feasible solution with the highest or lowest possible objective value for maximization and minimization problems respectively. Thus if the objective hyperplane approaches the feasible region from the infeasible space it will first intersect the feasible space in the set of optimal solutions $\mathcal{S}$.\\
+But since this is the intersection of the boundary of the feasible set with a hyperplane bounding the polyhedron $\mathcal{S}$ is by definition a face of the feasible polyhedron and by \Cref{face} some extreme point on the face exists and is an optimal solution. 
+\iffalse
 Let $A$ be the feasible region to a given Linear problem and let $\textbf{x}_0=\begin{bmatrix}
 x_1\\ \vdots\\ x_n
 \end{bmatrix}
-$ be an optimal solution with value $z(\textbf{x}_0=\zeta$.
+$ be an optimal solution with value $z(\textbf{x}_0)=\zeta$.
 Suppose $\textbf{x}_0$ is not in an extreme point of $A$. Then $\textbf{x}_0$ is either in the open set $A'=A^O$ or on some point of the boundary $\bar{A}-A^O$ that is not an extreme point. In the first case at least one of the coordinates $x_1,\cdots, x_n$ can be increased or decreased until the solution reaches a point $\textbf{x}_1$ on $\bar{A}-A^O$ with $z(\textbf{x}_1)< \text{ or } > \zeta$. Thus that cannot be the case.\\
 In the second case there are two options;
 \begin{enumerate}
@@ -75,10 +85,11 @@ In the second case there are two options;
 \item The hyperplane defined by $z(\textbf{x}) = \zeta$ is equal to the entire hyperplane defined by a constraint function or all points of the intersection of several constraint functions are contained within the hyperplane.
 \end{enumerate}
 In the first case we have a contradiction since we can increase or decrease the values $x_1,\cdots, x_n$ while still remaining in the feasible region and thus find a vector $\textbf{x}_1$ with $z(\textbf{x}_1)< \text{ or } > \zeta$. In the second case the entire subset of the hyperplane contained in the feasible region is optimal and thus the extreme points of that set are also optimal solutions.
+\fi
 \end{proof}
 \end{theorem}
 \section{The geometric/graphical intuition}
-From a geometric perspective the feasible region of an LP can be seen as a convex polyhedron encapsulated by the hyperplanes defined by each constraint function And the objective is a hyperplane that can be "pushed" orthogonally to either maximize or minimize a point of the plane such that it is contained in the feasible polyhedron.\\ 
+From a geometric perspective the feasible region of an LP can be seen as a convex polyhedron encapsulated by the hyperplanes defined by each constraint function. The objective is a hyperplane that can be "pushed" orthogonally to either maximize or minimize a point of the plane such that it is contained in the feasible polyhedron.\\ 
 In case of \Cref{lpex}, with three real variables, $x_1,x_2,x_3$ the polyhedron will be a polyhedron in $\R^3$ and the objective plane will be the plane defined by the linear equation $5x_1+x_2+2x_3 = \zeta $ where $\zeta $ is the value we want to minimize. 
 \begin{figure}[H]
 \centering
@@ -200,7 +211,7 @@ $\begin{bmatrix}x_{1} \\ x_{2} \\
 \vdots \\
 x_{n}
 \end{bmatrix}=\textbf{x}$, and the transposed vector of coefficients $[c_1,c_2,...,c_n]=\textbf{c}^T$ of each $x_i$ in the objective.\\
-Likewise the constraints can be written as the matrix-vector products of $n\times m$ constraint matrices,$A$ where $m$ is the number of a constraints with a certain order relation, and $\textbf{x}$ with some order relation ($\leq,\geq or =)$ to a $1\times m$ vector $\textbf{b}$.\\
+Likewise the constraints can be written as the matrix-vector products of $n\times m$ constraint matrices,$A$ where $m$ is the number of a constraints with a certain order relation, and $\textbf{x}$ with some order relation to a $1\times m$ vector $\textbf{b}$.\\
 Rewriting any $\leq$ constraint to $\geq$ in case of minimization or any $\geq$ to $\leq$ in case of maximization (the equality constraints can be written with two inequalities) we can write the linear program on it's \textit{canonical form}:
 \begin{align}\label{canonicalMin}
 \begin{array}{ll@{}ll}
@@ -232,7 +243,7 @@ Much like how we made an LP on canonical form by manipulating the inequalities, 
 &\textbf{x} \geq 0,&\\
 \end{array}
 \end{align}
-by introducing a $1\times m$ vector, $\textbf{s}$, with one slack variable for each constraint and thus creating a new LP on standard with the same solutions as the old one.
+by introducing a $1\times m$ vector, $\textbf{s}$, with one slack variable for each constraint and thus creating a new LP on standard form with the same solutions as the old one.
 \begin{align}
 \begin{array}{ll@{}ll}
 \text{max} &\textbf{c}^T\textbf{x}&\\
@@ -240,7 +251,8 @@ by introducing a $1\times m$ vector, $\textbf{s}$, with one slack variable for e
 &\textbf{x,s} \geq 0,&\\
 \end{array}
 \end{align}
-These forms and the concept of slack variables will come in handy later (I hope)
+These forms and the concept of slack variables will come in handy later
+\iffalse
 \section{Duality}
 Another important result in Linear programming is the concept of duality.
 \begin{definition}
@@ -261,6 +273,7 @@ An optimal solution to a linear program on it's primal form is also optimal in t
 \end{proof}
 \end{theorem}
 \subsection{Weak and strong duality}
+\fi
 \section{Efficiency of solving an LP}
 \subsection{The simplex method}
 A popular algorithm for finding the optimal solution of LPs, taking advantage of the convexity of the feasible region and \Cref{extreme point} is the \textbf{Simplex method}. ~\cite{vanderbei2015linear}, where Theorem 3.4 also gives a proof of \ref{extreme point} using the simplex method, explains this further. The basic idea of the algorithm is to move from extreme point to extreme point of the feasible set and never return to an already visited solution. Thus the algorithm will find an optimal solution after at most the number of extreme points iterations. If a problem has $n$ variables and $m$ constraints, an upper bound of the number of iterations is 
@@ -275,7 +288,8 @@ which is maximized when $n=m$. Thus we see that
 n+m\\m
 \end{pmatrix}\leq 2^{2n}
 \end{align*}
+So the worst-case running time of the simplex method is exponential.
 \subsection{Polynomial time algorithms}
-Even though the simplex method is one of the most popular algorithms, the worst case runtime is exponential compared to the problem size. Other algorithms have however been made, which has a polynomial worst case runtime. In 1979 Khachian(1979) gave the first algorithm, the \textit{ellipsoid method}, proved to run in polynomial time later ~\cite{Karmarkar1984} gave a new, more efficient, algorithm also solving linear problems in polynomial time.
-\\ Even though these algorithms has better worst case time complexity compared to the simplex method, they are often slower in practise. They do however show that linear programming is in $\mathcal{P}$
+Even though the simplex method is one of the most popular algorithms, the worst case runtime is exponential compared to the problem size. Other algorithms have however been introduced, which have a polynomial worst case runtime. In 1979 Leonid Khachiyan \cite{khachiyan1980polynomial} gave the first algorithm, the \textit{ellipsoid method}, proved to run in polynomial time later Narendra Karmarkar ~\cite{karmarkar1984new} gave a new, more efficient, algorithm also solving linear problems in polynomial time.
+\\ Even though these algorithms have better worst case time complexity compared to the simplex method, they are often slower in practice. They do however show that linear programming is in $\mathcal{P}$.
 \\\\ In the next chapter we will introduce Integer programming which is $\mathcal{NP}$-hard.

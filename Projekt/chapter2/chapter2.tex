@@ -1,31 +1,31 @@
 \chapter{Integer Programming and Graphs}
-In this chapter we introduce the concept of Integer programming. We will approach the subject with examples and results from graph theory, but apart from fundamental definitions we will omit most of the theory from this field of mathematics, but a more in depth explanation can be found in ~\cite{wolsey1998integer}. 
-\section{Some Graph notation}
+In this chapter we introduce the concept of Integer programming. We will approach the subject with examples and results from graph theory, but apart from fundamental definitions we will omit most of the theory from this field of mathematics. A more in depth explanation can be found in ~\cite{wolsey1998integer}. 
+\section{Some graph notation}
 \begin{definition}\label{graph}
-A \textbf{graph} $G$ is an ordered set $(V,E)$ where $V$ is a set of vertices and $E$ is a set of edges and each edge in $E$ is a subset of $V$ containing two vertices.
+A \textbf{graph} $G$ is a pair $(V,E)$ where $V$ is a set of vertices and $E$ is a set of edges and each edge in $E$ is a subset of $V$ containing two vertices.
 \end{definition}
 \begin{definition}
-let $G=(V,E)$ be a graph. Two vertices $v,u\in V$ are said to be \textbf{adjacent} if the edge $(v,u)$ (or $(u,v)$) is in $E$.
+Let $G=(V,E)$ be a graph. Two vertices $v,u\in V$ are said to be \textbf{adjacent} if the edge $(v,u)$ (or $(u,v)$) is in $E$.
 \end{definition}
 \begin{definition}
-let $G=(V,E)$ be a graph. A subset $S$ of $V$ form an \textbf{independent set} if no two vertices in $S$ are adjacent in $G$
+Let $G=(V,E)$ be a graph. A subset $S$ of $V$ forms an \textbf{independent set} if no two vertices in $S$ are adjacent in $G$.
 \end{definition}
 \begin{definition}
-let $G=(V,E)$ be a graph. A subset $S$ of $V$ form a \textbf{clique} if all pairs of two vertices in $S$ are adjacent in $G$
+Let $G=(V,E)$ be a graph. A subset $S$ of $V$ forms a \textbf{clique} if all pairs of two vertices in $S$ are adjacent in $G$.
 \end{definition}
 \begin{definition}
-let $G=(V,E)$ be a graph. A \textbf{maximal independent set} or a \textbf{maximal clique} is an independent set or a clique respectively where if any other vertex $v \in V$ is added to the set, it will lose the property of being an independent set or clique respectively 
+Let $G=(V,E)$ be a graph. A \textbf{maximal independent set} or a \textbf{maximal clique} is an independent set or a clique respectively where if any other vertex $v \in V$ is added to the set, it will lose the property of being an independent set or clique respectively.
 \end{definition}
 \begin{definition}
 A \textbf{maximum independent set} or a \textbf{maximum clique} in a graph $G$ is an independent set or a clique respectively where no other independent set or clique in $G$ respectively have more vertices.
 \end{definition}
 \begin{definition}
-the \textbf{clique number} $\omega(G)$ of a graph $G$ is the number of vertices in a maximal clique in $G$.
+the \textbf{clique number} $\omega(G)$ of a graph $G$ is the number of vertices in a maximum clique in $G$.
 \end{definition}
 
 \section{Mixed Integer Programming - MIP}
-A Mixed integer problem (MIP) is a way of solving optimisation problems with integer values. The Structure of an integer problem is the same as a linear problem, but with the extra constraint that all or some of the variables are in $\Z$. This added constraint might seem insignificant, but it introduces crucial differences to problems with real variables. One significant difference is that the feasible space of an MIP consists of discrete sets and thus it is not convex.
-\begin{figure}[H]
+A Mixed integer problem (MIP) is a way of formulating optimisation problems with integer values. The structure of an integer problem is the same as of a linear problem, but with the extra constraint that all or some of the variables are in $\Z$. This added constraint might seem insignificant, but it introduces crucial differences compared to purely linear problems. One significant difference is that the feasible space of an MIP consists of disjoint sets with no feasible solutions between the integer values of the integer variables and thus it is not convex.
+\begin{figure}[H]\label{IP figure}
 \centering
 \begin{tikzpicture}
 \foreach \x in {0,...,5}{
@@ -46,11 +46,13 @@ A Mixed integer problem (MIP) is a way of solving optimisation problems with int
 \end{tikzpicture}
 \caption{Figure showing the feasible region of an IP with the optimal solution in green and a red non-feasible solution that would have been optimal if the set was convex.}
 \end{figure}
+In the case of \Cref{lpex} the optimal solution did not have integer values, but when buying food it's often only possible to buy a product in quantities of natural numbers. If we restrict $x_2$ to be an integer we will get a new optimal solution, $x_1=0.75, x_2=2$ and $x_3= 3.5$, and if we restrict all variables to be integral, an optimal solution would be $x_1=1, x_2=2$ and $x_3= 3$\\
+These solutions are fairly close to the solution to the LP, but as seen in \Cref{IP figure} we can't always expect this to be the case for MIPs.
 \subsection{Integer and Binary Constraints}
-An important method in Integer programming is \textbf{Binary programming}. Here variables take values either $1$ or $0$ these binary variables are very useful since they can easily be used to say "Is variable $x_i$ part of the solution? then $x_i = 1$ otherwise $x_i = 0$. Binary constraints will be used extensively once we start colouring Graphs, but another example of their usefulness is in determining maximal cliques and independent sets of graphs:
-\begin{example}\label{clique}
-Maximal clique and maximal independent set problem:\\
-Let $G=(V,E)$ be a graph and let $H=(V,E')$ be it's complement graph. Then
+An important method in Integer programming is \textbf{Binary programming}. Here variables take values either $1$ or $0$. These binary variables are very useful since they can easily be used to say "If variable $x_i$ is part of the solution then $x_i = 1$ otherwise $x_i = 0$". Binary constraints will be used extensively once we start colouring graphs. We begin with an easier combinatorial problem on graphs using an MIP formulation:
+\begin{example}\label{independent set}
+Maximum clique and maximum independent set problem:\\
+Let $G=(V,E)$ be a graph and let $H=(V,E')$ with $E' = \{(u,v):u,v\in V, (u,v) \notin E\}$ be it's complement graph. Then
 \begin{align}
 \begin{array}{ll@{}ll}
 \text{max} &\sum_{v\in V} x_v&\\
@@ -58,7 +60,7 @@ Let $G=(V,E)$ be a graph and let $H=(V,E')$ be it's complement graph. Then
 &x_v\in\{0,1\},& \forall v \in V\\
 \end{array}
 \end{align}
-calculates the maximal independent set and
+calculates the maximum independent set and
 \begin{align}
 \begin{array}{ll@{}ll}
 \text{max} &\sum_{v\in V} x_v&\\
@@ -66,33 +68,11 @@ calculates the maximal independent set and
 &x_v\in\{0,1\},& \forall v \in V\\
 \end{array}
 \end{align}
-Calculates the maximal clique
-%\iffalse
+Calculates the maximum clique.
 % Clique and independent set
 \begin{figure}[H]
 \centering
 \begin{tikzpicture}[main node/.style={circle,fill=blue!20,draw,minimum size=.8cm,inner sep=0pt}]
-    \node[main node] (1) {$v_1$};
-    \node[main node,fill = green!60] (2) [right = 1.5cm  of 1]  {$v_2$};
-    \node[main node,fill = green!60] (3) [below left = 1cm and .8cm of 1] {$v_3$};
-    \node[main node,fill = green!60] (4) [below right = 1cm and .8cm of 2] {$v_4$};
-    \node[main node] (5) [below = 2.4cm  of 1] {$v_5$};
-    \node[main node] (6) [right = 1.5cm  of 5] {$v_6$};
-    \node[left = 1cm of 1]{$G:$};
-
-    \path[draw,thick]
-    (1) edge node {} (2)
-    (1) edge node {} (3)
-    (1) edge node {} (5)
-    (2) edge node {} (3)
-    (2) edge node {} (4)
-    (2) edge node {} (5)
-    (3) edge node {} (4)
-    (3) edge node {} (6)
-    (4) edge node {} (5)
-    (5) edge node {} (6);
-    %%
-    \begin{scope}[xshift=6cm]
     \node[main node,fill = green!60] (1) {$v_1$};
     \node[main node] (2) [right = 1.5cm  of 1]  {$v_2$};
     \node[main node] (3) [below left = 1cm and .8cm of 1] {$v_3$};
@@ -113,6 +93,27 @@ Calculates the maximal clique
     (4) edge node {} (5)
     (5) edge node {} (6)
     ;
+    \begin{scope}[xshift=6cm]
+    \node[main node] (1) {$v_1$};
+    \node[main node,fill = green!60] (2) [right = 1.5cm  of 1]  {$v_2$};
+    \node[main node,fill = green!60] (3) [below left = 1cm and .8cm of 1] {$v_3$};
+    \node[main node,fill = green!60] (4) [below right = 1cm and .8cm of 2] {$v_4$};
+    \node[main node] (5) [below = 2.4cm  of 1] {$v_5$};
+    \node[main node] (6) [right = 1.5cm  of 5] {$v_6$};
+    \node[left = 1cm of 1]{$G:$};
+
+    \path[draw = gray,thick]
+    (1) edge node {} (2)
+    (1) edge node {} (3)
+    (1) edge node {} (5)
+    (2) edge node {} (3)
+    (2) edge node {} (4)
+    (2) edge node {} (5)
+    (3) edge node {} (4)
+    (3) edge node {} (6)
+    (4) edge node {} (5)
+    (5) edge node {} (6);
+    %%
     \path[draw=red,thick,dashed]
     (1) edge node {} (4)
     (1) edge node {} (6)
@@ -122,17 +123,32 @@ Calculates the maximal clique
     ;
     \end{scope}
 \end{tikzpicture}
-\caption{A maximal clique and a maximal independent set in a graph $G$}
+\caption{A maximum independent set and a maximum clique in a graph $G$.}
 \end{figure}
-%\fi
-
-\todo{proof?}
+\begin{proof}
+\subsection{Maximum independent set:}
+An optimal solution to the MIP forms a maximum independent set in $G=(V,E)$ consisting of the vertices $\{v\in V:x_v=1\}$:
+\begin{enumerate}
+\item The first constraint states that no two adjacent vertices can be in the solution simultaneously. Thus a feasible solution forms an independent set.
+When maximizing $\sum_{v\in V} x_v$ an optimal solution will form an independent set with the biggest number of vertices possible. Thus an optimal solution forms a maximal independent set in $G$
+\end{enumerate}
+For a maximum independent set $I\subset V$, $x_{v} = \left\{
+\begin{array}{ll}
+1 & \text{if } v \in I \\ 0 & \text{otherwise}
+\end{array}\right.$ is an optimal solution to the MIP:
+\begin{enumerate}
+\item Since no vertices in $I$ are connected by an edge by definition, the solution is feasible by the first constraint. The objective value of this solution is exactly the number of vertices in the maximal independent set, and since $I$ is maximal no other independent set has a higher number of vertices and no additional vertices can be added to the set such that none of the vertices are adjacent to it, and no values of $\textbf{x}$ can be increased without making the solution infeasible. Thus the solution is optimal.
+\end{enumerate}
+\subsection{Maximum clique}
+Any two adjacent vertices in the component graph $H$ indicates that they are not adjacent in the $G$ and any two adjacent vertices in $G$ are independent of each other in $H$. Then it follows that an independent set in $H$ are all adjacent in $G$ and form a clique. \\
+The rest of the proof follows from the proof of the maximal independent set formulation.
+\end{proof}
 \end{example}
 \section{Relaxation}
-It is well known that \ref{clique} is an $\mathcal{NP}$-hard task. Thus unlike Linear programming, with real variables, integer programming can be used to calculate NP-hard tasks. in some cases it is however still useful to view the IP as a linear problem and assign real values to the variables instead of integer. This problem, where values in $\Z$ are assigned values in $\R$ instead and binary variables are assigned values in $[0,1]$ is called the \textbf{Linear relaxation} of the IP. And the solution to the linear relaxation of an IP can often tell us something about the solution to the IP itself or even give the integer solution.
+It is well known that \ref{independent set} is an $\mathcal{NP}$-hard task. Thus unlike Linear programming, with real variables, integer programming can be used to calculate NP-hard tasks. In some cases it is however still useful to view the IP as a linear problem and assign real values to the variables instead of integer. This problem, where values in $\Z$ are assigned values in $\R$ instead and binary variables are assigned values in $[0,1]$ is called the \textbf{Linear relaxation} of the IP. And the solution to the linear relaxation of an IP can often tell us something about the solution to the IP itself or even give the integer solution.
 \begin{example}
-Some examples of cases where the relaxation is useful to different degrees are the following formulations of the shortest path problem and the longest cycle problem in graphs:
-\subsection{Length of shortest path between two vertices}
+Some examples of cases where the relaxation is useful to different degrees are the following formulations of the shortest path problem and the shortest cycle problem in graphs:
+\section{Length of shortest path between two vertices}
 Let $G=(V,E)$ be a directed graph where $V$ is the set of vertices and $E$ is the set of edges. Let $A$ be the adjacency matrix of $G$ and introduce the set of binary values $x_{i,j}$ where
 \begin{align*}
 x_{i,j} = \left\{
@@ -145,7 +161,7 @@ And the sets $V^+(i)$ and $V^-(i)$ where
 V^+(i) = \{v: (i,v) \in E\}\\
 V^-(i) = \{v: (v, i) \in E\}
 \end{align*}
-We want to minimise the $\sum x_{i,j}$ subject to conditions that ensures we get a path form $s \in V$ to $t \in V$ in $G$.
+We want to minimize $\sum x_{i,j}$ subject to conditions that ensures we get a path form $s \in V$ to $t \in V$ in $G$.
 \begin{align}
 \begin{array}{ll@{}ll}
 \text{min} &\sum_{i,j \in V}x_{i,j}&\\
@@ -156,8 +172,9 @@ We want to minimise the $\sum x_{i,j}$ subject to conditions that ensures we get
 &x_{i,j} \in \{0,1\},&\forall i,j \in V.\\
 \end{array}
 \end{align}
-In this case the convex hull of the feasible set has all its extreme points in integer points. Thus the relaxed problem with $x_{i,j} \in [0,1]$ has has optimal solutions in integral values and we don't have to solve the original IP at all.
-\subsection{Length of shortest directed cycle in a graph}
+In this case the convex hull of the feasible set has all its extreme points in integer points. Thus the relaxed problem with $x_{i,j} \in [0,1]$ has has optimal solutions in integral values and we don't have to solve the original IP at all.\\
+\todo{this is not surprising because there are obvious poly-time algorithms for this problem}
+\section{Length of shortest directed cycle in a graph}
 Let $G=(V,E)$ be a directed graph where $V$ is the set of vertices and $E$ is the set of edges. Let $A$ be the adjacency matrix of $G$ and introduce the set of binary values $x_{i,j}$ where
 \begin{align*}
 x_{i,j} = \left\{
@@ -165,7 +182,7 @@ x_{i,j} = \left\{
 1 & \text{if } (i,j) \text{ is in the cycle} \\ 0 & \text{otherwise}
 \end{array}\right.
 \end{align*}
-We want to minimise the $\sum x_{i,j}$ subject to conditions that ensures we get a cycle in $G$.
+We want to minimize $\sum x_{i,j}$ subject to conditions that ensures we get a cycle in $G$.
 \begin{align}
 \begin{array}{ll@{}ll}
 \text{min} & \sum_{i,j \in V}x_{i,j}&\\
@@ -175,7 +192,8 @@ We want to minimise the $\sum x_{i,j}$ subject to conditions that ensures we get
 &x_{i,j} \in \{0,1\},&\forall i,j \in V.\\
 \end{array}
 \end{align}
-In this case a solution to the relaxed problem with $x_{i,j} \in [0,1]$ will be a union of directed cycles and the objective value will always minimize to $1$. Thus the relaxed problem does not tell us much about the actual optimal integral solution, but it does however tell us if a feasible solution exists.\\
-In the case of \Cref{clique} the relaxed problem doesn't tell us much at all. In some cases the relaxed problem will have the same solution as the IP but in most cases it will find a much higher value. Thus all we can get from the relaxation is an upper bound of the actual problem.
+In this case a solution to the relaxed problem with $x_{i,j} \in [0,1]$ will be a union of directed cycles and the objective value will always minimize to $1$. Thus the relaxed problem does not tell us much about the actual optimal integral solution, but at least it respects the structure of the problem in some sense.\\
+\section{Maximum clique problem}
+In the case of \Cref{independent set} the relaxed problem doesn't tell us much at all. In some cases the relaxed problem will have the same solution as the IP but a solution with $x_v = \frac{1}{2} \forall v \in V$ is always feasible and in most cases it will have a much higher objective value compared to an optimal solution to the MIP. Thus all we can get from the relaxation is an upper bound of the actual problem.
 \todo{figures to examples?}
 \end{example}

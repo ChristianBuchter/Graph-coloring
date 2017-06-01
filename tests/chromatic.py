@@ -117,36 +117,47 @@ def binary(graph, ub, timeLimit, threadLimit):
 		my_prob.parameters.timelimit.set(timeLimit)
 		my_prob.parameters.parallel.set(-1)
 		my_prob.parameters.timelimit.get()
+
 		my_obj = []
 		my_ub = []
 		my_ctype = ""
-		my_colnames = []
+		my_colnames = {}
+		old_cols = []
 		my_rhs = []
 		my_rownames = []
 		my_sense = ""
 		my_upperbound = ub
 		binLen = int(math.ceil(math.log(ub,2)))
+		varCounter = 0
 		print("greedy upperbound: ", my_upperbound)
 		
 		my_obj.append(1.0) # Max color
 		my_ub.append(float(my_upperbound)) #max is our upperbound
-		my_colnames.append("C")
+		old_cols.append("C")
+		my_colnames["C"] = varCounter
+		varCounter += 1
 		my_ctype += "I" #C is integral
 		for vertex in range(len(graph)):
 			for colorBit in range(binLen):
 				my_obj.append(0.0) # x_{v,b}
 				my_ub.append(1.0) #all x_{v,b} are binary
-				my_colnames.append("x"+str(vertex)+","+str(colorBit))
+				old_cols.append("x{},{}".format(vertex,colorBit))
+				my_colnames["x{},{}".format(vertex,colorBit)] = varCounter
+				varCounter += 1
 				my_ctype += "I" #all x_{v,b} are binary
 				
 				for adjVert in range(vertex):
 					my_obj.append(0.0) #z_{v,u,b}
 					my_ub.append(1.0)
-					my_colnames.append("z"+str(vertex)+","+str(adjVert)+","+str(colorBit))
+					old_cols.append("z{},{},{}".format(vertex,adjVert,colorBit))
+					my_colnames["z{},{},{}".format(vertex,adjVert,colorBit)]= varCounter
+					varCounter += 1
 					my_ctype += "I"
 					my_obj.append(0.0) #t_{v,u,b}
 					my_ub.append(1.0)
-					my_colnames.append("t"+str(vertex)+","+str(adjVert)+","+str(colorBit))
+					old_cols.append("t{},{},{}".format(vertex,adjVert,colorBit))
+					my_colnames["t{},{},{}".format(vertex,adjVert,colorBit)]= varCounter
+					varCounter += 1
 					my_ctype += "I"
 		for vertex in range(len(graph)):
 			my_rhs.append(-1.0) #sum_b{2^b*x_{v,b}} - c \leq -1" forall v
@@ -167,14 +178,14 @@ def binary(graph, ub, timeLimit, threadLimit):
 		my_prob.objective.set_sense(my_prob.objective.sense.minimize)
 		# since lower bounds are all 0.0 (the default), lb is omitted here
 		my_prob.variables.add(obj=my_obj, ub=my_ub, types=my_ctype,
-						   names=my_colnames)
+						   names=old_cols)
 		rows =[]
 		#sum_b{2^b*x_{v,b}} - c \geq 0" forall v
 		for vertex in range(len(graph)):
-			tmp1 = ["C"]
+			tmp1 = [my_colnames["C"]]
 			tmp2 = [-1.0]
 			for bit in range(binLen):
-				tmp1.append("x"+str(vertex)+","+str(bit))
+				tmp1.append(my_colnames["x{},{}".format(vertex,bit)])
 				tmp2.append(math.pow(2,bit))
 			rows.append([tmp1,tmp2])
 			
@@ -183,14 +194,14 @@ def binary(graph, ub, timeLimit, threadLimit):
 				tmp1 =[]
 				tmp2 =[]
 				for colorBit in range(binLen):
-					tmp1.append("z"+str(vertex)+","+str(adjVert)+","+str(colorBit))
+					tmp1.append(my_colnames["z{},{},{}".format(vertex,adjVert,colorBit)])
 					tmp2.append(1.0)
 				rows.append([tmp1,tmp2])
 				# z_{v,u,b}- 2t_{v,u,b}+x_{v,b} -x_{u,b} = 0 forall everything
 				for colorBit in range(binLen):
-					z = "z"+str(vertex)+","+str(adjVert)+","+str(colorBit)
-					t = "t"+str(vertex)+","+str(adjVert)+","+str(colorBit)
-					tmp1 = [z,t, "x"+str(vertex)+","+str(colorBit),"x"+str(adjVert)+","+str(colorBit) ]
+					z = my_colnames["z{},{},{}".format(vertex,adjVert,colorBit)]
+					t = my_colnames["t{},{},{}".format(vertex,adjVert,colorBit)]
+					tmp1 = [z,t,my_colnames["x{},{}".format(vertex,colorBit)], my_colnames["x{},{}".format(adjVert,colorBit)]]
 					tmp2 = [1.0,-2.0,1.0,-1.0]
 					rows.append([tmp1,tmp2])
 		my_prob.linear_constraints.add(lin_expr=rows, senses=my_sense,

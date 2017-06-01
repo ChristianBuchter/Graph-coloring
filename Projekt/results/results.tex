@@ -1,55 +1,261 @@
-\begin{table}[]
 \centering
+\begin{longtable}{|lll|l|l|l|l|}
+\toprule
+Graph & Vertices &Greedy bound&Formulation&Lower bound &Upper bound&Time\\
+\hline
+bip200&400&2&Standard&2&2&0s\\
+\cline{4-7}
+&&&Schedueling&2  &2 &0s\\
+\hline
+bip50&100&2&Standard&2&2&0s\\
+\cline{4-7}
+&&&Schedueling&2  &2 &0s\\
+\hline
+bip500&1000&2&Standard&2&2&7s\\
+\cline{4-7}
+&&&Schedueling&2  &2 &0s\\
+\hline
+G\_1\_2\_10\_12&480&11&Standard&4&8&30.0m\\
+\cline{4-7}
+&&&Schedueling&?  &? &30.0m\\
+\hline
+G\_1\_2\_12\_12&576&11&Standard&4&8&30.0m\\
+\cline{4-7}
+&&&Schedueling&?  &? &30.0m\\
+\hline
+G\_1\_2\_4\_10&160&10&Standard&6&6&17.6m\\
+\cline{4-7}
+&&&Schedueling&6  &6 &2.0m\\
+\hline
+G\_1\_2\_4\_12&192&11&Standard&6&6&24.2m\\
+\cline{4-7}
+&&&Schedueling&6  &6 &3.6m\\
+\hline
+G\_1\_2\_4\_4&64&8&Standard&6&6&8s\\
+\cline{4-7}
+&&&Schedueling&6  &6 &19s\\
+\hline
+G\_1\_2\_4\_6&96&10&Standard&6&6&43s\\
+\cline{4-7}
+&&&Schedueling&6  &6 &1.1m\\
+\hline
+G\_1\_2\_6\_10&240&11&Standard&5&8&30.0m\\
+\cline{4-7}
+&&&Schedueling&6  &6 &18.2m\\
+\hline
+G\_1\_2\_6\_12&288&10&Standard&5&8&30.0m\\
+\cline{4-7}
+&&&Schedueling&4  &8 &30.0m\\
+\hline
+G\_1\_2\_6\_6&144&11&Standard&5&7&30.0m\\
+\cline{4-7}
+&&&Schedueling&6  &6 &6.3m\\
+\hline
+G\_1\_2\_8\_12&320&10&Standard&5&8&30.0m\\
+\cline{4-7}
+&&&Schedueling&4  &8 &30.0m\\
+\hline
+G\_2\_2\_10\_10&200&10&Standard&5&5&31s\\
+\cline{4-7}
+&&&Schedueling&5  &5 &19s\\
+\hline
+G\_2\_2\_6\_6&72&8&Standard&5&5&2s\\
+\cline{4-7}
+&&&Schedueling&5  &5 &1s\\
+\hline
+G\_2\_2\_8\_8&128&11&Standard&6&8&30.0m\\
+\cline{4-7}
+&&&Schedueling&4  &8 &30.0m\\
+\hline
+G\_2\_2\_9\_10&180&10&Standard&5&8&30.0m\\
+\cline{4-7}
+&&&Schedueling&6  &6 &20.4m\\
+\hline
+G\_3\_3\_10\_10&200&12&Standard&6&7&30.0m\\
+\cline{4-7}
+&&&Schedueling&4  &7 &30.0m\\
+\hline
+G\_3\_3\_12\_12&288&15&Standard&?&?&30.0m\\
+\cline{4-7}
+&&&Schedueling&?  &? &30.0m\\
+\hline
+G\_3\_3\_6\_6&72&11&Standard&8&?&1s\\
+\cline{4-7}
+&&&Schedueling&?  &? &30.0m\\
+\hline
+G\_3\_3\_8\_8&128&14&Standard&?&?&30.0m\\
+\cline{4-7}
+&&&Schedueling&?  &? &30.0m\\
+\hline
+miles1000&128&44&Standard&42&42&2s\\
+\cline{4-7}
+&&&Schedueling&4  &43 &30.0m\\
+\hline
+miles1500&128&73&Standard&73&73&21s\\
+\cline{4-7}
+&&&Schedueling&4  &73 &30.0m\\
+\hline
+miles250&128&9&Standard&8&8&0s\\
+\cline{4-7}
+&&&Schedueling&8  &8 &55s\\
+\hline
+miles500&128&21&Standard&20&20&0s\\
+\cline{4-7}
+&&&Schedueling&5  &20 &30.0m\\
+\hline
+miles750&128&32&Standard&31&31&1s\\
+\cline{4-7}
+&&&Schedueling&4  &31 &30.0m\\
+\hline
+myciel3&11&4&Standard&4&4&0s\\
+\cline{4-7}
+&&&Schedueling&4  &4 &0s\\
+\hline
+myciel4&23&5&Standard&5&5&0s\\
+\cline{4-7}
+&&&Schedueling&5  &5 &0s\\
+\hline
+myciel5&47&6&Standard&6&6&22s\\
+\cline{4-7}
+&&&Schedueling&5  &6 &30.0m\\
+\hline
+myciel6&95&7&Standard&5&7&30.0m\\
+\cline{4-7}
+&&&Schedueling&4  &7 &30.0m\\
+\hline
+myciel7&191&8&Standard&4&8&30.0m\\
+\cline{4-7}
+&&&Schedueling&4  &8 &30.0m\\
+\hline
+Q\_10\_4\_3&120&21&Standard&8&17&30.0m\\
+\cline{4-7}
+&&&Schedueling&4  &18 &30.0m\\
+\hline
+Q\_10\_4\_5&252&30&Standard&7&27&30.0m\\
+\cline{4-7}
+&&&Schedueling&3  &30 &30.0m\\
+\hline
+Q\_7\_4&64&9&Standard&8&8&0s\\
+\cline{4-7}
+&&&Schedueling&5  &8 &30.0m\\
+\hline
+Q\_8\_2&128&15&Standard&8&8&1s\\
+\cline{4-7}
+&&&Schedueling&5  &8 &30.0m\\
+\hline
+Q\_8\_4&128&9&Standard&8&8&7s\\
+\cline{4-7}
+&&&Schedueling&5  &8 &30.0m\\
+\hline
+Q\_9\_2&256&19&Standard&9&16&30.0m\\
+\cline{4-7}
+&&&Schedueling&3  &18 &30.0m\\
+\hline
+Q\_9\_4&256&29&Standard&8&19&30.0m\\
+\cline{4-7}
+&&&Schedueling&?  &? &30.0m\\
+\hline
+queen10\_10&100&14&Standard&10&12&30.0m\\
+\cline{4-7}
+&&&Schedueling&4  &12 &30.0m\\
+\hline
+queen5\_5&25&7&Standard&5&5&0s\\
+\cline{4-7}
+&&&Schedueling&5  &5 &0s\\
+\hline
+queen6\_6&36&8&Standard&7&7&1s\\
+\cline{4-7}
+&&&Schedueling&7  &7 &14s\\
+\hline
+queen7\_7&49&10&Standard&7&7&1s\\
+\cline{4-7}
+&&&Schedueling&7  &7 &1.4m\\
+\hline
+queen8\_12&96&14&Standard&12&12&6s\\
+\cline{4-7}
+&&&Schedueling&5  &12 &30.0m\\
+\hline
+queen8\_8&64&12&Standard&9&9&1.6m\\
+\cline{4-7}
+&&&Schedueling&5  &9 &30.0m\\
+\hline
+queen9\_9&81&13&Standard&9&10&30.0m\\
+\cline{4-7}
+&&&Schedueling&5  &11 &30.0m\\
+\hline
+random1&30&3&Standard&3&3&0s\\
+\cline{4-7}
+&&&Schedueling&2  &3 &0s\\
+\hline
+random2&30&5&Standard&4&4&0s\\
+\cline{4-7}
+&&&Schedueling&4  &4 &0s\\
+\hline
+random3&30&6&Standard&5&5&0s\\
+\cline{4-7}
+&&&Schedueling&5  &5 &0s\\
+\hline
+random4&30&7&Standard&7&7&1s\\
+\cline{4-7}
+&&&Schedueling&7  &7 &5s\\
+\hline
+random5&30&8&Standard&7&7&1s\\
+\cline{4-7}
+&&&Schedueling&7  &7 &13s\\
+\hline
+random6&30&10&Standard&9&9&1s\\
+\cline{4-7}
+&&&Schedueling&9  &9 &24.5m\\
+\hline
+random7&30&11&Standard&10&10&0s\\
+\cline{4-7}
+&&&Schedueling&6  &10 &30.0m\\
+\hline
+random8&30&14&Standard&13&13&2s\\
+\cline{4-7}
+&&&Schedueling&7  &13 &30.0m\\
+\hline
+random9&30&17&Standard&16&16&0s\\
+\cline{4-7}
+&&&Schedueling&6  &16 &30.0m\\
+\hline
+reg1&211&49&Standard&49&49&3s\\
+\cline{4-7}
+&&&Schedueling&4  &49 &30.0m\\
+\hline
+reg2&211&30&Standard&30&30&2s\\
+\cline{4-7}
+&&&Schedueling&4  &30 &30.0m\\
+\hline
+reg3&206&30&Standard&30&30&2s\\
+\cline{4-7}
+&&&Schedueling&4  &30 &30.0m\\
+\hline
+reg4&197&49&Standard&49&49&3s\\
+\cline{4-7}
+&&&Schedueling&4  &49 &30.0m\\
+\hline
+reg5&188&31&Standard&31&31&2s\\
+\cline{4-7}
+&&&Schedueling&5  &31 &30.0m\\
+\hline
+sparse1&100&7&Standard&5&5&6s\\
+\cline{4-7}
+&&&Schedueling&5  &5 &6s\\
+\hline
+sparse2&200&9&Standard&4&7&30.0m\\
+\cline{4-7}
+&&&Schedueling&3  &7 &30.0m\\
+\hline
+sparse3&300&10&Standard&4&8&30.0m\\
+\cline{4-7}
+&&&Schedueling&4  &7 &30.0m\\
+\hline
+sparse4&400&9&Standard&4&7&30.0m\\
+\cline{4-7}
+&&&Schedueling&3  &7 &30.0m\\
+\bottomrule
 \caption{Results}
 \label{table}
-\begin{tabular}{l||l|l|l|l}
-Graph & &standard &scheduling  &binary\\
-\toprule
-myciel3&&&&\\
-Vertices=11 &Status: &MIP\_optimal  &MIP\_optimal &MIP\_optimal\\
-\cline{2-5}
-Greedy ub =4&Best objective: &4.0  &4.0 &4.0\\
-\cline{2-5}
-&Lower bound: &4.0  &4.0 &4.0\\
-\cline{2-5}
-&Compute time: &0.062 seconds  &0.047 seconds &0.156 seconds\\
-\hline
-myciel4&&&&\\
-Vertices=23 &Status: &MIP\_optimal  &MIP\_optimal &MIP\_time\_limit\_feasible\\
-\cline{2-5}
-Greedy ub =5&Best objective: &5.0  &5.0 &5.0\\
-\cline{2-5}
-&Lower bound: &5.0  &5.0 &4.0\\
-\cline{2-5}
-&Compute time: &0.297 seconds  &0.547 seconds &50.031 seconds\\
-\hline
-myciel5&&&&\\
-Vertices=47 &Status: &MIP\_optimal  &MIP\_time\_limit\_feasible &MIP\_time\_limit\_feasible\\
-\cline{2-5}
-Greedy ub =6&Best objective: &6.0  &6.0 &6.0\\
-\cline{2-5}
-&Lower bound: &6.0  &4.0 &3.0\\
-\cline{2-5}
-&Compute time: &6.329 seconds  &50.0 seconds &50.031 seconds\\
-\hline
-myciel6&&&&\\
-Vertices=95 &Status: &MIP\_time\_limit\_feasible  &MIP\_time\_limit\_feasible &MIP\_time\_limit\_infeasible\\
-\cline{2-5}
-Greedy ub =7&Best objective: &7.0  &7.0 &-1\\
-\cline{2-5}
-&Lower bound: &5.0  &3.0 &inf\\
-\cline{2-5}
-&Compute time: &50.016 seconds  &50.031 seconds &50.078 seconds\\
-\hline
-myciel7&&&&\\
-Vertices=191 &Status: &MIP\_time\_limit\_feasible  &MIP\_time\_limit\_feasible &MIP\_time\_limit\_infeasible\\
-\cline{2-5}
-Greedy ub =8&Best objective: &8.0  &8.0 &-1\\
-\cline{2-5}
-&Lower bound: &2.5  &3.0 &inf\\
-\cline{2-5}
-&Compute time: &50.047 seconds  &50.031 seconds &50.172 seconds\\
-\hline
-\bottomrule
-\end{tabular}
-\end{table}
+\end{longtable}
+%\end{table}

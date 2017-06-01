@@ -1,8 +1,8 @@
 \chapter{Graph colouring}\label{chap:GC}
-In this chapter we introduce main concept of graph vertex-colouring and some integer formulations for colouring graphs.
+In this chapter we introduce the main concept of graph vertex-colouring and some integer formulations for colouring graphs. Graph colouring is used extensively in modern computer science for optimizing register allocation where Torben Mogensens "Introduction to compiler design" ~\cite{b459f618a93441f1ad27d944d0f81644} details this further, and in many scheduling problems making it one of the most important concepts in graph theory.
 \section{Fundamental colouring terms and results}
 \begin{definition}\label{vertex colouring}
-A \textbf{vertex-colouring} of a graph $G=(V,E)$ is an assignment of colors $C = {1,...,k}$ such that each $v\in V$ is assigned one color and no two adjacent vertices are assigned the same color.
+A \textbf{vertex-colouring} of a graph $G=(V,E)$ is an assignment of colors from the set $\{1,...,k\}$ to $V$ such that each $v\in V$ is assigned one color and no two adjacent vertices are assigned the same color. 
 \end{definition}
 %\todo{udkommenteret tikz}
 %\iffalse
@@ -56,38 +56,38 @@ A \textbf{vertex-colouring} of a graph $G=(V,E)$ is an assignment of colors $C =
 %\fi
 in this paper a colouring will always refer to a vertex-colouring.
 \begin{definition}
-A \textbf{$k$-colouring} of a graph $G$ is a vertex-colouring using $k$ colours.
+A \textbf{$k$-colouring} of a graph $G$ is a vertex-colouring using $k$ colours. A $k$-colouring where $k$ is equal to the number of vertices in $V$ is called the \textbf{trivial colouring}.
 \end{definition}
 \begin{definition}\label{cromatic number}
 An \textbf{optimal colouring} of a graph, $G$, is a colouring of $G$ using the minimum amount of colours possible.
 \end{definition}
 \begin{definition}\label{cromatic number}
-The \textbf{chromatic number} $\chi (G)$ of a graph, $G$ is the number number of colours in an optimal colouring of $G$.
+The \textbf{chromatic number} $\chi (G)$ of a graph, $G$ is the number of colours in an optimal colouring of $G$.
 \end{definition}
 \begin{theorem}
-Vertices of one color form an independent set
-\begin{proof}
+Vertices of one color form an independent set.
+\begin{proof}\todo{simplify}
 Let $G=(V,E)$ be a graph and suppose that a set of vertices $S$ are assigned the same color but does not form an independent set. Then there exists some edge in $E$ connecting two vertices $s_1,s_2 \in S$. But that implies that $s_1$ and $s_2$ are assigned different colours which gives us contradiction
 \end{proof}
 \end{theorem}
 \begin{theorem}
-Given a graph $G$\\
-$\chi (G) \geq \omega(G)$
+Given a graph $G$, $\chi (G) \geq \omega(G)$
 \begin{proof}
 Let $G=(V,E)$ be a graph and suppose that a set $S$ of $k = \omega(G)$ vertices form a maximal clique in $G$. Then each $s_i \in S$ has edges in $E$ to all other vertices of $S$ and they must each have distinct colours by \ref{vertex colouring}. And since $G_S$ is a sub graph of $G$, we get $\omega(G)= \chi(G_S) \leq \chi(G)$.
 \end{proof}
 \end{theorem}
 \section{Integer programming formulations}
-Here we formulate some integer problems to calculate an optimal colouring. The same formulations can be used with minor simplifications to calculate if feasibility problems of weather graphs are $k$-colourable.
+Here we formulate some integer problems to calculate an optimal colouring. The same formulations can be used with minor simplifications to calculate if feasibility problems of whether graphs are $k$-colourable.\\
+\todo{first formulation has size... benefits and so on for each formulation}
 \subsection{The standard formulation}
-In the standard formulation we want to introduce $k|V|$ binary variables, $x_{v,c}$ for a suitable $k\geq \mathcal{X}(G)$. where
+In the standard formulation we want to introduce $k|V|$ binary variables, $x_{v,c}$ for a suitable $k\geq \chi (G)$. where
 \begin{align} \label{x standard}
 x_{v,c} = \left\{
 \begin{array}{ll}
 1 & \text{if vertex }v \text{ is assigned colour } c \\ 0 & \text{otherwise}
 \end{array}\right.
 \end{align}
-and $k$ binary variables $y_c$ indicating if color $c$ is used in the colouring.\\
+and $k$ binary variables $y_c$, for $k \geq \chi (G)$ (for example $k = |V|$), indicating if color $c$ is used in the colouring.\\
 \begin{proposition}
 The following formulation assigns an optimal colouring to the graph and gives the chromatic number:
 \begin{align}\label{the standard formulation}
@@ -123,7 +123,7 @@ $y_c =\left\{
 \end{proposition}
 
 \subsection{A scheduling formulation}
-Another Integer formulation of the graph colouring problem for a graph $G=(V,E)$ is the scheduling formulation. Here we introduce $V$ integer variables $\{X_1, \cdots X_v\}$ with the desired result: $X_v = c$ if vertex $v$ is assigned colour $c$. And another $E$ binary variables $x_{u,v} \forall (u,v)\in E$ with the desired result:
+Another Integer formulation of the graph colouring problem for a graph $G=(V,E)$ is the scheduling formulation. Here we introduce $V$ integer variables $\{X_1, \cdots X_v\}$ with the desired result: $X_v = i$ if vertex $v$ is assigned colour $i$, and another $E$ binary variables $x_{u,v} \forall (u,v)\in E$ with the desired result:
 \begin{align}
 x_{u,v} = \left\{
 \begin{array}{ll}

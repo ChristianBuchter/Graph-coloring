@@ -1,3 +1,29 @@
 \chapter{Colouring results}
 In this chapter I show the results from colouring a selection of graphs with the IP formulations formulated in \Cref{chap:GC}. The IP's are solved using the Cplex solver and the $k$-values are found 
+\section{The graph test-set}
+The graphs in the test-set are divided into a number of categories of graphs described in this section.
+\subsection{Queen graphs}
+The $n\times m$ queen graphs "queen5\_5", "queen6\_6", "queen7\_7", "queen8\_8", "queen9\_9", "queen10\_10" and "queen8\_12" are graphs where each vertex corresponds to a square in an $n \times m$ chessboard and the edges represent the valid moves for a queen chess piece between the squares. The colouring of these graphs can be interpreted at placing different coloured queens on all squares of the board such that no two queens of the same colour are threatening each other.
+\subsection{Mycielski graphs}
+The graphs "myciel3", "myciel4", "myciel5", "myciel6" and "myciel7" are based on the Mycielski transformation. These graphs are difficult to solve because they are triangle free (clique number 2) but the coloring number increases in problem size.
+\subsection{Register allocation graphs}
+"reg1", "reg2", "reg3", "reg4" and "reg5" are real application graphs used in register allocation in compilers. These graphs have large chromatic numbers, but unlike Mycielski graphs they are not directly constructed to be difficult to colour and should be fairly efficient to colour compared to their size.
+\subsection{Proximity graphs of US road network at various scales}
+the graphs "miles250", "miles500", "miles750", "miles1000" and "miles1500" are proximity graphs of US road network at various scales. The nodes represent a set of 128 United States cities and the edges indicate if they are within a certain distance from each other given by by road mileage.
+\subsection{Lego graphs}
+The lego graphs "G\_a\_b\_c\_d" are graphs constructed to find an upper bound on the chromatic number of Lego buildings build entirely from $a\times b$ bricks. Each vertex describes a possible position for a brick in a $c\times d \times 2$ section, and there is an edge from one vertex to another if the two bricks (or their periodic translates) touch. Two bricks touch if either one sits on the other in one or more studs, or if they are in the same layer so that their sides meet with a positive area in common.\\
+\subsubsection{The specific graphs}
+The specific Lego graphs tested are the two by two Lego brick graphs: "G\_2\_2\_6\_6", "G\_2\_2\_8\_8", "G\_2\_2\_9\_10" and "G\_2\_2\_10\_10",
+the three by three Lego brick graphs: "G\_3\_3\_6\_6", "G\_3\_3\_8\_8", "G\_3\_3\_10\_10" and "G\_3\_3\_12\_12",
+and the two by one Lego brick graphs: "G\_1\_2\_4\_4", "G\_1\_2\_4\_6", "G\_1\_2\_4\_10", "G\_1\_2\_4\_12", "G\_1\_2\_6\_6", "G\_1\_2\_6\_10", "G\_1\_2\_6\_12", "G\_1\_2\_8\_12", "G\_1\_2\_10\_12" and "G\_1\_2\_12\_12" .
+\subsection{Generalized cube graphs}
+The graphs "Q\_7\_4", "Q\_8\_2", "Q\_8\_4", "Q\_9\_2", "Q\_9\_4", "Q\_10\_4\_3" and "Q\_10\_4\_5" are generalized cube graphs. These \todo{more}
+\subsection{Bipartite graph}  
+The graphs "bip50", "bip200" and "bip500" are random bipartite graphs. Bipartite graphs are graphs that can be separated into two two independent sets. Thus the chromatic number of any bipartite graph is at most two and it should be fairly easy to find an optimal colouring to them.
+\subsection{Random graphs}
+"random1", "random2", "random3", "random4", "random5", "random6", "random7" and "random8"
+\subsection{Sparse graphs}
+"sparse1", "sparse2", "sparse3" and "sparse4"
+\newpage
 \input{results/results}
+\section{Discussion of results}
