@@ -11,8 +11,8 @@ from cubes import Qdu, Qdus             #Cube-like graphs, see course lecture no
 from chromatic import standard, scheduling, binary    # ... and other models
 
 # I set these globally, but they'd better be adjusted to specific examples
-timeLimit = 60.0*60*8
-threadLimit = 32
+timeLimit = 60.0*30*1
+threadLimit = 8
 numpy.random.seed(12345)
 
 testCases = {
@@ -51,8 +51,8 @@ testCases = {
     # G(3,3)
     "G_3_3_6_6": (legoG(3,3,6,6), 7, timeLimit),
     "G_3_3_8_8": (legoG(3,3,8,8), 7, timeLimit),
-    "G_3_3_10_10": (legoG(3,3,10,10), 6, timeLimit),    # 7
-    "G_3_3_12_12": (legoG(3,3,12,12), 6, timeLimit),    # 7
+    "G_3_3_10_10": (legoG(3,3,10,10), 7, timeLimit),    
+    "G_3_3_12_12": (legoG(3,3,12,12), 7, timeLimit),    
     # G(1,2)                                    
     # For G(1,2) it is also interesting to ask directly if they are 4-colorable ! May be faster to decide    
     # And also to compare when upper bound is smaller
@@ -64,14 +64,14 @@ testCases = {
     "G_1_2_6_10": (legoG(1,2,6,10), 8, timeLimit),
     "G_1_2_6_12": (legoG(1,2,6,12), 8, timeLimit),
     "G_1_2_8_12": (legoG(1,2,8,10), 8, timeLimit),    
-    "G_1_2_10_12": (legoG(1,2,10,12), 4, timeLimit),        # 8
-    "G_1_2_12_12": (legoG(1,2,12,12), 4, timeLimit),        # 8
+    "G_1_2_10_12": (legoG(1,2,10,12), 8, timeLimit),        
+    "G_1_2_12_12": (legoG(1,2,12,12), 8, timeLimit),        
     # Generalized cube graphs
     "Q_7_4": (Qdu(7,4), 9, timeLimit),          
     "Q_8_2": (Qdu(8,2), 10, timeLimit),          
     "Q_8_4": (Qdu(8,4), 10, timeLimit),          
-    "Q_9_2": (Qdu(9,2), 16, timeLimit),		# 20          
-    "Q_9_4": (Qdu(9,4), 19, timeLimit),     # 22 
+    "Q_9_2": (Qdu(9,2), 20, timeLimit),		          
+    "Q_9_4": (Qdu(9,4), 22, timeLimit),     
     "Q_10_4_3": (Qdus(10,4,3), 20, timeLimit),                      # Increase 28 if necessary - I'm not sure what the aswer is!. See when it finds something feasible
     "Q_10_4_5": (Qdus(10,4,5), 31, timeLimit),
     # Random bipartite graph
@@ -127,7 +127,7 @@ def formatUpper(obj, status):
 def runGroup(tests):
     #allMethods = [standard, scheduling, binary]
     #allMethods = [standard, scheduling]
-    allMethods = [standard]
+    allMethods = [binary]
     for name in tests:
         case = testCases[name]
         graph = case[0]
@@ -138,19 +138,21 @@ def runGroup(tests):
         if greedy<upper:
             upper=greedy
         # I need to write results to a file
-        output = '{0:<10} {1:<4} {2:<4}'.format(name, vert, greedy)
+        #output = '{0:<10} {1:<4} {2:<4}'.format(name, vert, greedy)
+        output=''
         for method in allMethods:
             print(name, method.__name__)
             lower, obj, status, elapsed = method(graph, upper, timeLimit, threadLimit)
             output += '  {0:<4} {1:<4} {2:<7}'.format(formatLower(lower, status), formatUpper(obj, status), formatTime(elapsed))
-        with open('results-single/{0}'.format(name), 'w') as f:
-            print(output, file=f)
+        print(output)
+        #with open('results-single/{0}'.format(name), 'a') as f:
+        #    print(output, file=f)
 
 # Main method
 # 3 parallel processes
 def main():
     import concurrent.futures as cofu
-    with cofu.ProcessPoolExecutor(1) as pool:
+    with cofu.ProcessPoolExecutor(2) as pool:
         cache = []
         for name in getByName(sys.argv[1]):
             cache.append( pool.submit(runGroup, [name]) )
