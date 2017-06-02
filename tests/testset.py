@@ -64,6 +64,7 @@ testCases = {
     "G_1_2_6_10": (legoG(1,2,6,10), 8, timeLimit),
     "G_1_2_6_12": (legoG(1,2,6,12), 8, timeLimit),
     "G_1_2_8_12": (legoG(1,2,8,10), 8, timeLimit),    
+    "G_1_2_10_10": (legoG(1,2,10,10), 5, timeLimit),        
     "G_1_2_10_12": (legoG(1,2,10,12), 8, timeLimit),        
     "G_1_2_12_12": (legoG(1,2,12,12), 8, timeLimit),        
     # Generalized cube graphs
@@ -125,9 +126,9 @@ def formatUpper(obj, status):
 
 # Run a particular group of tests
 def runGroup(tests):
-    #allMethods = [standard, scheduling, binary]
+    allMethods = [standard, scheduling, binary]
     #allMethods = [standard, scheduling]
-    allMethods = [binary]
+    #allMethods = [binary]
     for name in tests:
         case = testCases[name]
         graph = case[0]
@@ -138,21 +139,20 @@ def runGroup(tests):
         if greedy<upper:
             upper=greedy
         # I need to write results to a file
-        #output = '{0:<10} {1:<4} {2:<4}'.format(name, vert, greedy)
-        output=''
+        output = '{0:<10} {1:<4} {2:<4}'.format(name, vert, greedy)
         for method in allMethods:
             print(name, method.__name__)
             lower, obj, status, elapsed = method(graph, upper, timeLimit, threadLimit)
             output += '  {0:<4} {1:<4} {2:<7}'.format(formatLower(lower, status), formatUpper(obj, status), formatTime(elapsed))
         print(output)
-        #with open('results-single/{0}'.format(name), 'a') as f:
-        #    print(output, file=f)
+        with open('results-single/{0}'.format(name), 'a') as f:
+            print(output, file=f)
 
 # Main method
 # 3 parallel processes
 def main():
     import concurrent.futures as cofu
-    with cofu.ProcessPoolExecutor(2) as pool:
+    with cofu.ProcessPoolExecutor(3) as pool:
         cache = []
         for name in getByName(sys.argv[1]):
             cache.append( pool.submit(runGroup, [name]) )
