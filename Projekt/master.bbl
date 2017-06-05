@@ -17,6 +17,26 @@
 \endgroup
 
 \sortlist[entry]{anyt/global/}
+  \entry{cplex}{misc}{}
+    \field{labeltitlesource}{title}
+    \field{labelalpha}{Cpl}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+  \field{howpublished}{\url{https://www-01.ibm.com/software/commerce/optimization/cplex-optimizer/index.html}}
+    \field{note}{Accessed: 2017-06-04}
+    \field{title}{IBM ILOG CPLEX Optimizer}
+  \endentry
+
+  \entry{dimacs}{misc}{}
+    \field{labeltitlesource}{title}
+    \field{labelalpha}{Dim}
+    \field{sortinit}{D}
+    \field{sortinithash}{D}
+    \field{howpublished}{\url{http://mat.gsia.cmu.edu/COLOR/instances.html}}
+    \field{note}{Accessed: 2017-06-04}
+    \field{title}{Graph Coloring Instances}
+  \endentry
+
   \entry{karmarkar1984new}{inproceedings}{}
     \name{author}{1}{}{%
       {{hash=KN}{%
@@ -71,6 +91,35 @@
     \field{year}{1980}
   \endentry
 
+  \entry{kahle2015new}{article}{}
+    \name{author}{2}{}{%
+      {{hash=KM}{%
+         family={Kahle},
+         familyi={K\bibinitperiod},
+         given={Matthew},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=TB}{%
+         family={Taha},
+         familyi={T\bibinitperiod},
+         given={Birra},
+         giveni={B\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{KMTB1}
+    \strng{fullhash}{KMTB1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelalpha}{KT15}
+    \field{sortinit}{K}
+    \field{sortinithash}{K}
+    \field{pages}{109\bibrangedash 116}
+    \field{title}{New lower bounds on $\chi$ (Rd) for d= 8,..., 12}
+    \field{volume}{24}
+    \field{journaltitle}{Geombinatorics}
+    \field{year}{2015}
+  \endentry
+
   \entry{b459f618a93441f1ad27d944d0f81644}{book}{}
     \name{author}{1}{}{%
       {{hash=MT}{%
@@ -94,16 +143,46 @@
     \verb 10.1007/978-0-85729-829-4
     \endverb
     \field{isbn}{978-0-85729-828-7}
-    \field{note}{@book{DBLP:series/utcs/Mogensen11, author = {Torben
-  {\AE}gidius Mogensen}, title = {Introduction to Compiler Design}, series =
-  {Undergraduate Topics in Computer Science}, publisher = {Springer}, year =
-  {2011}, url = {http://dx.doi.org/10.1007/978-0-85729-829-4}, doi =
-  {10.1007/978-0-85729-829-4}, isbn = {978-0-85729-828-7}, timestamp = {Mon, 09
-  Dec 2013 17:20:15 +0100}, biburl =
-  {http://dblp.uni-trier.de/rec/bib/series/utcs/Mogensen11}, bibsource = {dblp
-  computer science bibliography, http://dblp.org} }}
     \field{title}{Introduction to compiler design}
     \field{year}{2011}
+  \endentry
+
+  \entry{Lego}{article}{}
+    \name{author}{4}{}{%
+      {{hash=SM}{%
+         family={Strunge},
+         familyi={S\bibinitperiod},
+         given={Mikkel},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=HN}{%
+         family={Hjuler},
+         familyi={H\bibinitperiod},
+         given={Niklas},
+         giveni={N\bibinitperiod},
+      }}%
+      {{hash=BT}{%
+         family={Barnholdt},
+         familyi={B\bibinitperiod},
+         given={Thomas},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=AI}{%
+         family={Atanasovska},
+         familyi={A\bibinitperiod},
+         given={Ivana},
+         giveni={I\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SM+1}
+    \strng{fullhash}{SMHNBTAI1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelalpha}{Str+14}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{title}{Colouring Lego}
+    \field{year}{2014}
   \endentry
 
   \entry{vanderbei2015linear}{book}{}

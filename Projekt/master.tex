@@ -9,10 +9,9 @@
 \include{frontpage/frontpage}
 \frontmatter %herunder ligger ting som ikke er selve projektets kerne
 \begin{abstract}
-The aim is to present and compare a few formulations of the graph colouring problem in the language of mixed-integer optimization. The student will learn and describe the principles of linear and integer optimization, formulate and implement a few known integer models of the graph colouring problem, and compare their performance on various benchmark graphs.
+In this thesis we construct and compare three mixed integer programming formulations of the graph colouring problem. First we introduce the fundamental principles of linear programming, mixed integer programming and concepts of graph theory related to graph vertex-colouring. We then introduce the mixed integer formulations; the standard formulation, a scheduling formulation and the binary formulation. In the last chapter we compare the performance of each formulation when colouring a test-set of graphs using an industry standard MIP solver and discuss the results.
 \end{abstract}
 \newpage
-
 \begin{KeepFromToc}
   \tableofcontents
 \end{KeepFromToc}
@@ -21,8 +20,9 @@ The aim is to present and compare a few formulations of the graph colouring prob
 \input{chapter2/chapter2}
 \input{chapter3/chapter3}
 \input{chapter4/chapter4}
+\iffalse
 \input{chapter_appA/App}
-\printbibliography
-	
+\fi
+\printbibliography	
 \backmatter
 \end{document}

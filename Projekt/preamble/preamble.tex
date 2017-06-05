@@ -26,7 +26,15 @@
 \usepackage{faktor}
 \usepackage{float}
 \usepackage{tikz}
-\usetikzlibrary{calc, 3d,positioning}
+\usetikzlibrary{calc, 3d,automata,positioning}
+\usepackage{listings}
+\usepackage{array}
+\newcolumntype{?}{!{\vrule width 1pt}}
+%%%%
+\usepackage[font=normalsize]{caption}     %% make caption in normal size
+\usepackage{etoolbox}
+%%%%
+
 
 
 \begin{filecontents}{bibtest.bib}
@@ -36,6 +44,16 @@
   volume={42},
   year={1998},
   publisher={Wiley New York}
+}
+@misc{dimacs,
+  title = { Graph Coloring Instances},
+  howpublished = {\url{http://mat.gsia.cmu.edu/COLOR/instances.html}},
+  note = {Accessed: 2017-06-04}
+}
+@misc{cplex,
+  title = {IBM ILOG CPLEX Optimizer},
+  howpublished = {\url{https://www-01.ibm.com/software/commerce/optimization/cplex-optimizer/index.html}},
+  note = {Accessed: 2017-06-04}
 }
 @book{vanderbei2015linear,
   title={Linear programming},
@@ -53,6 +71,19 @@
   year={1980},
   publisher={Elsevier}
 }
+@article{Lego,
+  title={Colouring Lego},
+  author={Strunge, Mikkel and  Hjuler, Niklas and Barnholdt, Thomas and Atanasovska, Ivana},
+  year={2014}
+}
+@article{kahle2015new,
+  title={New lower bounds on $\chi$ (Rd) for d= 8,..., 12},
+  author={Kahle, Matthew and Taha, Birra},
+  journal={Geombinatorics},
+  volume={24},
+  pages={109--116},
+  year={2015}
+}
 @inproceedings{karmarkar1984new,
   title={A new polynomial-time algorithm for linear programming},
   author={Karmarkar, Narendra},
@@ -64,7 +95,6 @@
 @book{b459f618a93441f1ad27d944d0f81644,
 title = "Introduction to compiler design",
 author = "Mogensen, {Torben Ægidius}",
-note = "@book{DBLP:series/utcs/Mogensen11, author = {Torben {\AE}gidius Mogensen}, title = {Introduction to Compiler Design}, series = {Undergraduate Topics in Computer Science}, publisher = {Springer}, year = {2011}, url = {http://dx.doi.org/10.1007/978-0-85729-829-4}, doi = {10.1007/978-0-85729-829-4}, isbn = {978-0-85729-828-7}, timestamp = {Mon, 09 Dec 2013 17:20:15 +0100}, biburl = {http://dblp.uni-trier.de/rec/bib/series/utcs/Mogensen11}, bibsource = {dblp computer science bibliography, http://dblp.org} }",
 year = "2011",
 doi = "10.1007/978-0-85729-829-4",
 isbn = "978-0-85729-828-7",
@@ -92,6 +122,12 @@ publisher = "Springer",
 \DeclareMathOperator{\conv}{conv}
 \DeclareMathOperator{\AR}{AR}
 \DeclareMathOperator{\Homeo}{Homeo}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{lightgray},
+    basicstyle = \scriptsize
+    }
+\lstset{style=mystyle}
 
 \makepagestyle{abs}
     \makeevenhead{abs}{}{}{}

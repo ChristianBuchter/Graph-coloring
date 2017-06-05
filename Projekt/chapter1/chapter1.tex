@@ -1,7 +1,7 @@
 \chapter{Linear Programming}
 In this chapter we introduce the concept of linear programming. Most proofs will be omitted but proofs and more in depth explanations can be found in ~\cite{vanderbei2015linear}
 \section{The structure of a linear program (LP)}
-In a linear program we want to maximize or minimize a given linear function $z:\R^n \rightarrow \R$ subject to a number of linear inequalities or equalities $g_i:\R^n \rightarrow \R$ with $g_i(x_1,...,x_n)\geq b_i$,$g_i(x_1,...,x_n)\leq b_i$ or $g_i(x_1,...,x_n)= b_i$. The function, $z$, that we want to optimise is called the \textbf{Objective} and the set of inequalities are called the \textbf{Constraints}. A general linear problem is written:
+In a linear program we want to maximize or minimize a given linear function $z:\R^n \rightarrow \R$ subject to a number of linear inequalities or equalities $g_i:\R^n \rightarrow \R$ with $g_i(x_1,...,x_n)\geq b_i$,$g_i(x_1,...,x_n)\leq b_i$ or $g_i(x_1,...,x_n)= b_i$. The function, $z$, that we want to optimise is called the \textbf{objective} and the set of inequalities are called the \textbf{constraints}. A general linear problem is written:
 \begin{align}\label{lpform}
 \begin{array}{ll@{}ll}
 \text{min/max} &z(x_1,...,x_n)&\\
@@ -31,7 +31,7 @@ He then define an optimization problem minimizing the cost of food subject to ge
 &x_1,x_2,x_3 \geq 0,&\\
 \end{array}
 \end{align}
-He finds the cheapest solution to be $x_1 = 1, x_2= \frac{3}{2},x_3 = 3$ and byes one take away meal, one and a half vegetable and three loafs of bread to a total cost of $12.5$.
+He finds the cheapest solution to be $x_1 = 1, x_2= \frac{3}{2},x_3 = 3$ and buys one take away meal, one and a half vegetable and three loafs of bread to a total cost of $12.5$.
 \end{example}
 \section{Feasible and optimal solutions}
 \subsection{Feasibility}
@@ -56,36 +56,26 @@ Since such half-spaces are convex and the intersection of convex sets is also co
 An intersection of half spaces is known as a \textbf{convex polyhedron}. 
 \end{definition}
 \begin{definition}
-A \textbf{face} of a polyhedron $P$ is a subset $\{x\in P:g(x)=b\}$ of the boundary of $P$ where $g(x) \geq b$ is some half-space bounding the polyhedron. 
+A \textbf{face} of a polyhedron $P$ is a subset $\{x\in P:g(x)=b\}$ of the boundary of $P$ where $g(x) \geq b$ is some half-space containing the polyhedron. 
 \end{definition}
 \begin{definition}
-An \textbf{Extreme point} of a feasible space in $\R^n$ is a point on the boundary of the feasible set that is the intersection of $n$ constraint functions.\todo{more precise}
+An \textbf{extreme point} (vertex) of a convex polyhedron is a face consisting of a single point.
 \end{definition}
 \begin{lemma}\label{face}
 Any face of a polyhedron $P\subset \R^n$ contains an extreme point of $P$ or is unbounded.
+\iffalse
 \begin{proof}
 The intersection of two faces is itself a face of $P$ since the intersection is on the boundary and intersects the half-space defined by $g_1(x)+g_2(x)\geq b_1+b_2$ where $g_1(x) \geq b_1$ and $g_2(x) \geq b_2$ are the inequalities defining the half-spaces intersecting each of the two faces. Thus an extreme point is a face in itself and is contained in all faces that intersect in that point. If a face contains no extreme points it is unbounded on at least one coordinate, since at most $n-1$ of the half-spaces bounding $P$ intersect in any point of the face.
 \end{proof}
+\fi
 \end{lemma}
 \subsection{The Fundamental Theorem of Linear Programming}
 \begin{theorem}\label{extreme point}
 If a set $\mathcal{S}$ of optimal solutions to a given LP is non-empty, then some solution $s\in \mathcal{S}$ exists such that $s$ is in an extreme point in the feasible set.
 \begin{proof}
-An optimal solution is a feasible solution with the highest or lowest possible objective value for maximization and minimization problems respectively. Thus if the objective hyperplane approaches the feasible region from the infeasible space it will first intersect the feasible space in the set of optimal solutions $\mathcal{S}$.\\
-But since this is the intersection of the boundary of the feasible set with a hyperplane bounding the polyhedron $\mathcal{S}$ is by definition a face of the feasible polyhedron and by \Cref{face} some extreme point on the face exists and is an optimal solution. 
-\iffalse
-Let $A$ be the feasible region to a given Linear problem and let $\textbf{x}_0=\begin{bmatrix}
-x_1\\ \vdots\\ x_n
-\end{bmatrix}
-$ be an optimal solution with value $z(\textbf{x}_0)=\zeta$.
-Suppose $\textbf{x}_0$ is not in an extreme point of $A$. Then $\textbf{x}_0$ is either in the open set $A'=A^O$ or on some point of the boundary $\bar{A}-A^O$ that is not an extreme point. In the first case at least one of the coordinates $x_1,\cdots, x_n$ can be increased or decreased until the solution reaches a point $\textbf{x}_1$ on $\bar{A}-A^O$ with $z(\textbf{x}_1)< \text{ or } > \zeta$. Thus that cannot be the case.\\
-In the second case there are two options;
-\begin{enumerate}
-\item The hyperplane defined by $z(\textbf{x}) = \zeta$ intersects one or more of the constraint functions in $\textbf{x}_0$ but is not parallel to any of them.
-\item The hyperplane defined by $z(\textbf{x}) = \zeta$ is equal to the entire hyperplane defined by a constraint function or all points of the intersection of several constraint functions are contained within the hyperplane.
-\end{enumerate}
-In the first case we have a contradiction since we can increase or decrease the values $x_1,\cdots, x_n$ while still remaining in the feasible region and thus find a vector $\textbf{x}_1$ with $z(\textbf{x}_1)< \text{ or } > \zeta$. In the second case the entire subset of the hyperplane contained in the feasible region is optimal and thus the extreme points of that set are also optimal solutions.
-\fi
+Suppose that the given LP is a minimization problem. Suppose $\mathcal{S} =\{z(\textbf{x})= \zeta \}$ is the set of optimal solutions to the LP. Then by $\mathcal{S}$ being optimal, the half space $z(\textbf{x}) \leq \zeta$ contains the convex polyhedron $\mathcal{P}$ of the feasible space and $z(\textbf{x})= \zeta$ is a subset of the boundary.\\
+Thus $\mathcal{S}$ is a face of $\mathcal{P}$ and by \Cref{face} it contains an extreme point.\\
+The proof for maximization problems is analogous.
 \end{proof}
 \end{theorem}
 \section{The geometric/graphical intuition}
@@ -96,7 +86,7 @@ In case of \Cref{lpex}, with three real variables, $x_1,x_2,x_3$ the polyhedron 
 \begin{tikzpicture}[x  = {(0.9659cm,-0.25882cm)},
                     y  = {(-0.6cm,-0.4cm)},
                     z  = {(0cm,1cm)},
-                    scale = 0.4,
+                    scale = 0.3,
                     color = {black}]
 % style of faces
 \tikzset{facestyle/.style={fill=black,draw=black,very thin,line join=round}}
@@ -206,13 +196,13 @@ In case of \Cref{lpex}, with three real variables, $x_1,x_2,x_3$ the polyhedron 
 \end{figure}
 \section{Matrix representation of an LP and Slack variables}
 Since the objective function and the constraints of a linear program are all linear functions we can also write a linear program using matrix-vector products. \\
-The object can be written as the product of the vector of variables to be determined 
+The objective can be written as the product of the vector of variables to be determined 
 $\begin{bmatrix}x_{1} \\ x_{2} \\
 \vdots \\
 x_{n}
 \end{bmatrix}=\textbf{x}$, and the transposed vector of coefficients $[c_1,c_2,...,c_n]=\textbf{c}^T$ of each $x_i$ in the objective.\\
-Likewise the constraints can be written as the matrix-vector products of $n\times m$ constraint matrices,$A$ where $m$ is the number of a constraints with a certain order relation, and $\textbf{x}$ with some order relation to a $1\times m$ vector $\textbf{b}$.\\
-Rewriting any $\leq$ constraint to $\geq$ in case of minimization or any $\geq$ to $\leq$ in case of maximization (the equality constraints can be written with two inequalities) we can write the linear program on it's \textit{canonical form}:
+Likewise the constraints can be written as the matrix-vector product of $\textbf{x}$ with a certain matrix, $A$.\\
+Rewriting any $\leq$ constraint to $\geq$ in case of minimization or any $\geq$ to $\leq$ in case of maximization (the equality constraints can be written with two inequalities) we can write the linear program in it's \textit{canonical form}:
 \begin{align}\label{canonicalMin}
 \begin{array}{ll@{}ll}
 \text{min} &\textbf{c}^T\textbf{x}&\\

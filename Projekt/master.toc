@@ -14,76 +14,72 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {1.3}Convexity}{2}{section.1.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{The Fundamental Theorem of Linear Programming}{3}{section*.4}
+\contentsline {subsection}{The Fundamental Theorem of Linear Programming}{3}{section*.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {1.4}The geometric/graphical intuition}{4}{section.1.4}
+\contentsline {section}{\numberline {1.4}The geometric/graphical intuition}{3}{section.1.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {1.5}Matrix representation of an LP and Slack variables}{5}{section.1.5}
+\contentsline {section}{\numberline {1.5}Matrix representation of an LP and Slack variables}{4}{section.1.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {1.6}Efficiency of solving an LP}{6}{section.1.6}
+\contentsline {section}{\numberline {1.6}Efficiency of solving an LP}{5}{section.1.6}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{The simplex method}{6}{section*.5}
+\contentsline {subsection}{The simplex method}{5}{section*.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{Polynomial time algorithms}{7}{section*.6}
+\contentsline {subsection}{Polynomial time algorithms}{6}{section*.6}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\chapternumberline {2}Integer Programming and Graphs}{8}{chapter.2}
+\contentsline {chapter}{\chapternumberline {2}Integer Programming and Graphs}{7}{chapter.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.1}Some graph notation}{8}{section.2.1}
+\contentsline {section}{\numberline {2.1}Some graph notation}{7}{section.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.2}Mixed Integer Programming - MIP}{8}{section.2.2}
+\contentsline {section}{\numberline {2.2}Mixed Integer Programming - MIP}{7}{section.2.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{Integer and Binary Constraints}{9}{section*.7}
+\contentsline {subsection}{Integer and Binary Constraints}{8}{section*.8}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{Maximum independent set:}{10}{section*.8}
+\contentsline {section}{\numberline {2.3}Relaxation}{10}{section.2.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{Maximum clique}{11}{section*.9}
+\contentsline {section}{\numberline {2.4}Length of shortest path between two vertices}{11}{section.2.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.3}Relaxation}{11}{section.2.3}
+\contentsline {section}{\numberline {2.5}Length of shortest directed cycle in a graph}{11}{section.2.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.4}Length of shortest path between two vertices}{12}{section.2.4}
+\contentsline {section}{\numberline {2.6}Maximum clique and independent set problem}{12}{section.2.6}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.5}Length of shortest directed cycle in a graph}{12}{section.2.5}
+\contentsline {chapter}{\chapternumberline {3}Graph colouring}{13}{chapter.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.6}Maximum clique problem}{13}{section.2.6}
+\contentsline {section}{\numberline {3.1}Fundamental colouring terms and results}{13}{section.3.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\chapternumberline {3}Graph colouring}{14}{chapter.3}
+\contentsline {section}{\numberline {3.2}Integer programming formulations}{14}{section.3.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.1}Fundamental colouring terms and results}{14}{section.3.1}
+\contentsline {subsection}{The standard formulation}{14}{section*.12}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.2}Integer programming formulations}{15}{section.3.2}
+\contentsline {subsection}{A scheduling formulation}{16}{section*.13}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{The standard formulation}{15}{section*.14}
-\defcounter {refsection}{0}\relax 
-\contentsline {subsection}{A scheduling formulation}{16}{section*.15}
-\defcounter {refsection}{0}\relax 
-\contentsline {subsection}{The binary encoding formulation}{18}{section*.16}
+\contentsline {subsection}{The binary encoding formulation}{17}{section*.14}
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\chapternumberline {4}Colouring results}{20}{chapter.4}
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {4.1}The graph test-set}{20}{section.4.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{Queen graphs}{20}{section*.17}
+\contentsline {subsection}{Queen graphs}{20}{section*.15}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{Mycielski graphs}{20}{section*.18}
+\contentsline {subsection}{Mycielski graphs}{20}{section*.16}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{Register allocation graphs}{20}{section*.19}
+\contentsline {subsection}{Register allocation graphs}{20}{section*.17}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{Proximity graphs of US road network at various scales}{21}{section*.20}
+\contentsline {subsection}{Proximity graphs of US road network at various scales}{21}{section*.18}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{Lego graphs}{21}{section*.21}
+\contentsline {subsection}{Lego graphs}{21}{section*.19}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{The specific graphs}{21}{section*.22}
+\contentsline {subsection}{Generalized cube graphs}{21}{section*.20}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{Generalized cube graphs}{21}{section*.23}
+\contentsline {subsection}{Bipartite graph}{21}{section*.21}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{Bipartite graph}{21}{section*.25}
+\contentsline {subsection}{Random graphs}{21}{section*.22}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{Random graphs}{22}{section*.26}
+\contentsline {subsection}{Sparse graphs}{22}{section*.23}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{Sparse graphs}{22}{section*.27}
+\contentsline {section}{\numberline {4.2}The Results}{22}{section.4.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.2}Discussion of results}{26}{section.4.2}
+\contentsline {section}{\numberline {4.3}Discussion of results}{24}{section.4.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {appendix}{\chapternumberline {A}Test appendix}{27}{appendix.A}
+\contentsline {section}{\numberline {4.4}Lego results}{25}{section.4.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Bibliography}{28}{section*.29}
+\contentsline {chapter}{Bibliography}{27}{section*.27}

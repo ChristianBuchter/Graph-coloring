@@ -11,12 +11,13 @@
 \BOOKMARK [1][-]{section.2.3}{Relaxation}{chapter.2}% 11
 \BOOKMARK [1][-]{section.2.4}{Length of shortest path between two vertices}{chapter.2}% 12
 \BOOKMARK [1][-]{section.2.5}{Length of shortest directed cycle in a graph}{chapter.2}% 13
-\BOOKMARK [1][-]{section.2.6}{Maximum clique problem}{chapter.2}% 14
+\BOOKMARK [1][-]{section.2.6}{Maximum clique and independent set problem}{chapter.2}% 14
 \BOOKMARK [0][-]{chapter.3}{Graph colouring}{}% 15
 \BOOKMARK [1][-]{section.3.1}{Fundamental colouring terms and results}{chapter.3}% 16
 \BOOKMARK [1][-]{section.3.2}{Integer programming formulations}{chapter.3}% 17
 \BOOKMARK [0][-]{chapter.4}{Colouring results}{}% 18
 \BOOKMARK [1][-]{section.4.1}{The graph test-set}{chapter.4}% 19
-\BOOKMARK [1][-]{section.4.2}{Discussion of results}{chapter.4}% 20
-\BOOKMARK [0][-]{appendix.A}{Test appendix}{}% 21
-\BOOKMARK [0][-]{section*.29}{Bibliography}{}% 22
+\BOOKMARK [1][-]{section.4.2}{The Results}{chapter.4}% 20
+\BOOKMARK [1][-]{section.4.3}{Discussion of results}{chapter.4}% 21
+\BOOKMARK [1][-]{section.4.4}{Lego results}{chapter.4}% 22
+\BOOKMARK [0][-]{section*.27}{Bibliography}{}% 23

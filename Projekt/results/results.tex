@@ -1,261 +1,135 @@
 \centering
-\begin{longtable}{|lll|l|l|l|l|}
-\toprule
-Graph & Vertices &Greedy bound&Formulation&Lower bound &Upper bound&Time\\
+\begin{longtable}{|lll|lll|lll|lll|}
 \hline
-bip200&400&2&Standard&2&2&0s\\
-\cline{4-7}
-&&&Schedueling&2  &2 &0s\\
+\multicolumn{3}{|c|}{Graph}&\multicolumn{3}{c|}{Standard}&\multicolumn{3}{c|}{Scheduling} &\multicolumn{3}{c|}{Binary}\\
+Name&$|V|$&$k$&lb&ub&time&lb&ub&time&lb&ub&time\\
 \hline
-bip50&100&2&Standard&2&2&0s\\
-\cline{4-7}
-&&&Schedueling&2  &2 &0s\\
+bip200&400&2&2&2&0s&2&2&0s&2&2&8s\\
 \hline
-bip500&1000&2&Standard&2&2&7s\\
-\cline{4-7}
-&&&Schedueling&2  &2 &0s\\
+bip50&100&2&2&2&0s&2&2&0s&2&2&6s\\
 \hline
-G\_1\_2\_10\_12&480&11&Standard&4&8&30.0m\\
-\cline{4-7}
-&&&Schedueling&?  &? &30.0m\\
+bip500&1000&2&2&2&7s&2&2&0s&2&2&1.7m\\
 \hline
-G\_1\_2\_12\_12&576&11&Standard&4&8&30.0m\\
-\cline{4-7}
-&&&Schedueling&?  &? &30.0m\\
+G\_1\_2\_10\_10&400&11&5&5&16.2m&5&5&57s&?&?&30.3m\\
 \hline
-G\_1\_2\_4\_10&160&10&Standard&6&6&17.6m\\
-\cline{4-7}
-&&&Schedueling&6  &6 &2.0m\\
+G\_1\_2\_10\_12&480&11&4&8&30.0m&?&?&30.0m&2&8&34.3m\\
 \hline
-G\_1\_2\_4\_12&192&11&Standard&6&6&24.2m\\
-\cline{4-7}
-&&&Schedueling&6  &6 &3.6m\\
+G\_1\_2\_12\_12&576&11&4&8&30.0m&?&?&30.0m&?&?&30.0m\\
 \hline
-G\_1\_2\_4\_4&64&8&Standard&6&6&8s\\
-\cline{4-7}
-&&&Schedueling&6  &6 &19s\\
+G\_1\_2\_4\_10&160&10&6&6&17.6m&6&6&2.0m&?&?&30.0m\\
 \hline
-G\_1\_2\_4\_6&96&10&Standard&6&6&43s\\
-\cline{4-7}
-&&&Schedueling&6  &6 &1.1m\\
+G\_1\_2\_4\_12&192&11&6&6&24.2m&6&6&3.6m&?&?&30.0m\\
 \hline
-G\_1\_2\_6\_10&240&11&Standard&5&8&30.0m\\
-\cline{4-7}
-&&&Schedueling&6  &6 &18.2m\\
+G\_1\_2\_4\_4&64&8&6&6&8s&6&6&19s&?&?&30.0m\\
 \hline
-G\_1\_2\_6\_12&288&10&Standard&5&8&30.0m\\
-\cline{4-7}
-&&&Schedueling&4  &8 &30.0m\\
+G\_1\_2\_4\_6&96&10&6&6&43s&6&6&1.1m&?&?&30.0m\\
 \hline
-G\_1\_2\_6\_6&144&11&Standard&5&7&30.0m\\
-\cline{4-7}
-&&&Schedueling&6  &6 &6.3m\\
+G\_1\_2\_6\_10&240&11&5&8&30.0m&6&6&18.2m&?&?&30.0m\\
 \hline
-G\_1\_2\_8\_12&320&10&Standard&5&8&30.0m\\
-\cline{4-7}
-&&&Schedueling&4  &8 &30.0m\\
+G\_1\_2\_6\_12&288&10&5&8&30.0m&4&8&30.0m&?&?&30.0m\\
 \hline
-G\_2\_2\_10\_10&200&10&Standard&5&5&31s\\
-\cline{4-7}
-&&&Schedueling&5  &5 &19s\\
+G\_1\_2\_6\_6&144&11&5&7&30.0m&6&6&6.3m&3&8&30.0m\\
 \hline
-G\_2\_2\_6\_6&72&8&Standard&5&5&2s\\
-\cline{4-7}
-&&&Schedueling&5  &5 &1s\\
+G\_1\_2\_8\_12&320&10&5&8&30.0m&4&8&30.0m&?&?&30.0m\\
 \hline
-G\_2\_2\_8\_8&128&11&Standard&6&8&30.0m\\
-\cline{4-7}
-&&&Schedueling&4  &8 &30.0m\\
+G\_2\_2\_10\_10&200&10&5&5&31s&5&5&19s&?&?&30.0m\\
 \hline
-G\_2\_2\_9\_10&180&10&Standard&5&8&30.0m\\
-\cline{4-7}
-&&&Schedueling&6  &6 &20.4m\\
+G\_2\_2\_6\_6&72&8&5&5&2s&5&5&1s&5&5&36s\\
 \hline
-G\_3\_3\_10\_10&200&12&Standard&6&7&30.0m\\
-\cline{4-7}
-&&&Schedueling&4  &7 &30.0m\\
+G\_2\_2\_8\_8&128&11&6&8&30.0m&4&8&30.0m&?&?&30.0m\\
 \hline
-G\_3\_3\_12\_12&288&15&Standard&?&?&30.0m\\
-\cline{4-7}
-&&&Schedueling&?  &? &30.0m\\
+G\_2\_2\_9\_10&180&10&5&8&30.0m&6&6&20.4m&?&?&30.0m\\
 \hline
-G\_3\_3\_6\_6&72&11&Standard&8&?&1s\\
-\cline{4-7}
-&&&Schedueling&?  &? &30.0m\\
+G\_3\_3\_10\_10&200&12&6&7&30.0m&4&7&30.0m&?&?&30.0m\\
 \hline
-G\_3\_3\_8\_8&128&14&Standard&?&?&30.0m\\
-\cline{4-7}
-&&&Schedueling&?  &? &30.0m\\
+G\_3\_3\_12\_12&288&15&?&?&30.0m&?&?&30.0m&?&?&30.0m\\
 \hline
-miles1000&128&44&Standard&42&42&2s\\
-\cline{4-7}
-&&&Schedueling&4  &43 &30.0m\\
+G\_3\_3\_8\_8&128&14&?&?&30.0m&?&?&30.0m&?&?&30.0m\\
 \hline
-miles1500&128&73&Standard&73&73&21s\\
-\cline{4-7}
-&&&Schedueling&4  &73 &30.0m\\
+miles1000&128&44&42&42&2s&4&43&30.0m&?&?&30.0m\\
 \hline
-miles250&128&9&Standard&8&8&0s\\
-\cline{4-7}
-&&&Schedueling&8  &8 &55s\\
+miles1500&128&73&73&73&21s&4&73&30.0m&?&?&30.0m\\
 \hline
-miles500&128&21&Standard&20&20&0s\\
-\cline{4-7}
-&&&Schedueling&5  &20 &30.0m\\
+miles250&128&9&8&8&0s&8&8&55s&?&?&30.0m\\
 \hline
-miles750&128&32&Standard&31&31&1s\\
-\cline{4-7}
-&&&Schedueling&4  &31 &30.0m\\
+miles500&128&21&20&20&0s&5&20&30.0m&?&?&30.0m\\
 \hline
-myciel3&11&4&Standard&4&4&0s\\
-\cline{4-7}
-&&&Schedueling&4  &4 &0s\\
+miles750&128&32&31&31&1s&4&31&30.0m&?&?&30.0m\\
 \hline
-myciel4&23&5&Standard&5&5&0s\\
-\cline{4-7}
-&&&Schedueling&5  &5 &0s\\
+myciel3&11&4&4&4&0s&4&4&0s&4&4&0s\\
 \hline
-myciel5&47&6&Standard&6&6&22s\\
-\cline{4-7}
-&&&Schedueling&5  &6 &30.0m\\
+myciel4&23&5&5&5&0s&5&5&0s&5&5&22s\\
 \hline
-myciel6&95&7&Standard&5&7&30.0m\\
-\cline{4-7}
-&&&Schedueling&4  &7 &30.0m\\
+myciel5&47&6&6&6&22s&5&6&30.0m&4&6&30.0m\\
 \hline
-myciel7&191&8&Standard&4&8&30.0m\\
-\cline{4-7}
-&&&Schedueling&4  &8 &30.0m\\
+myciel6&95&7&5&7&30.0m&4&7&30.0m&3&7&30.0m\\
 \hline
-Q\_10\_4\_3&120&21&Standard&8&17&30.0m\\
-\cline{4-7}
-&&&Schedueling&4  &18 &30.0m\\
+myciel7&191&8&4&8&30.0m&4&8&30.0m&3&8&30.0m\\
 \hline
-Q\_10\_4\_5&252&30&Standard&7&27&30.0m\\
-\cline{4-7}
-&&&Schedueling&3  &30 &30.0m\\
+Q\_10\_4\_3&120&21&8&17&30.0m&4&18&30.0m&?&?&30.0m\\
 \hline
-Q\_7\_4&64&9&Standard&8&8&0s\\
-\cline{4-7}
-&&&Schedueling&5  &8 &30.0m\\
+Q\_10\_4\_5&252&30&7&27&30.0m&3&30&30.0m&?&?&30.0m\\
 \hline
-Q\_8\_2&128&15&Standard&8&8&1s\\
-\cline{4-7}
-&&&Schedueling&5  &8 &30.0m\\
+Q\_7\_4&64&9&8&8&0s&5&8&30.0m&?&?&30.0m\\
 \hline
-Q\_8\_4&128&9&Standard&8&8&7s\\
-\cline{4-7}
-&&&Schedueling&5  &8 &30.0m\\
+Q\_8\_2&128&15&8&8&1s&5&8&30.0m&?&?&30.0m\\
 \hline
-Q\_9\_2&256&19&Standard&9&16&30.0m\\
-\cline{4-7}
-&&&Schedueling&3  &18 &30.0m\\
+Q\_8\_4&128&9&8&8&7s&5&8&30.0m&?&?&30.0m\\
 \hline
-Q\_9\_4&256&29&Standard&8&19&30.0m\\
-\cline{4-7}
-&&&Schedueling&?  &? &30.0m\\
+Q\_9\_2&256&19&9&16&30.0m&3&18&30.0m&?&?&30.4m\\
 \hline
-queen10\_10&100&14&Standard&10&12&30.0m\\
-\cline{4-7}
-&&&Schedueling&4  &12 &30.0m\\
+Q\_9\_4&256&29&8&19&30.0m&?&?&30.0m&?&?&30.0m\\
 \hline
-queen5\_5&25&7&Standard&5&5&0s\\
-\cline{4-7}
-&&&Schedueling&5  &5 &0s\\
+queen10\_10&100&14&10&12&30.0m&4&12&30.0m&?&?&30.0m\\
 \hline
-queen6\_6&36&8&Standard&7&7&1s\\
-\cline{4-7}
-&&&Schedueling&7  &7 &14s\\
+queen5\_5&25&7&5&5&0s&5&5&0s&5&5&1s\\
 \hline
-queen7\_7&49&10&Standard&7&7&1s\\
-\cline{4-7}
-&&&Schedueling&7  &7 &1.4m\\
+queen6\_6&36&8&7&7&1s&7&7&14s&5&8&30.0m\\
 \hline
-queen8\_12&96&14&Standard&12&12&6s\\
-\cline{4-7}
-&&&Schedueling&5  &12 &30.0m\\
+queen7\_7&49&10&7&7&1s&7&7&1.4m&4&10&30.0m\\
 \hline
-queen8\_8&64&12&Standard&9&9&1.6m\\
-\cline{4-7}
-&&&Schedueling&5  &9 &30.0m\\
+queen8\_12&96&14&12&12&6s&5&12&30.0m&?&?&30.0m\\
 \hline
-queen9\_9&81&13&Standard&9&10&30.0m\\
-\cline{4-7}
-&&&Schedueling&5  &11 &30.0m\\
+queen8\_8&64&12&9&9&1.6m&5&9&30.0m&?&?&30.0m\\
 \hline
-random1&30&3&Standard&3&3&0s\\
-\cline{4-7}
-&&&Schedueling&2  &3 &0s\\
+queen9\_9&81&13&9&10&30.0m&5&11&30.0m&?&?&30.0m\\
 \hline
-random2&30&5&Standard&4&4&0s\\
-\cline{4-7}
-&&&Schedueling&4  &4 &0s\\
+random1&30&3&3&3&0s&3&3&0s&3&3&0s\\
 \hline
-random3&30&6&Standard&5&5&0s\\
-\cline{4-7}
-&&&Schedueling&5  &5 &0s\\
+random2&30&5&4&4&0s&4&4&0s&4&4&1s\\
 \hline
-random4&30&7&Standard&7&7&1s\\
-\cline{4-7}
-&&&Schedueling&7  &7 &5s\\
+random3&30&6&5&5&0s&5&5&0s&5&5&5s\\
 \hline
-random5&30&8&Standard&7&7&1s\\
-\cline{4-7}
-&&&Schedueling&7  &7 &13s\\
+random4&30&7&7&7&1s&7&7&5s&7&7&13.9m\\
 \hline
-random6&30&10&Standard&9&9&1s\\
-\cline{4-7}
-&&&Schedueling&9  &9 &24.5m\\
+random5&30&8&7&7&1s&7&7&13s&7&7&14.3m\\
 \hline
-random7&30&11&Standard&10&10&0s\\
-\cline{4-7}
-&&&Schedueling&6  &10 &30.0m\\
+random6&30&10&9&9&1s&9&9&24.5m&5&9&30.0m\\
 \hline
-random8&30&14&Standard&13&13&2s\\
-\cline{4-7}
-&&&Schedueling&7  &13 &30.0m\\
+random7&30&11&10&10&0s&6&10&30.0m&5&10&30.0m\\
 \hline
-random9&30&17&Standard&16&16&0s\\
-\cline{4-7}
-&&&Schedueling&6  &16 &30.0m\\
+random8&30&14&13&13&2s&7&13&30.0m&3&14&30.0m\\
 \hline
-reg1&211&49&Standard&49&49&3s\\
-\cline{4-7}
-&&&Schedueling&4  &49 &30.0m\\
+random9&30&17&16&16&0s&6&16&30.0m&?&?&30.0m\\
 \hline
-reg2&211&30&Standard&30&30&2s\\
-\cline{4-7}
-&&&Schedueling&4  &30 &30.0m\\
+reg1&211&49&49&49&3s&4&49&30.0m&2&49&30.0m\\
 \hline
-reg3&206&30&Standard&30&30&2s\\
-\cline{4-7}
-&&&Schedueling&4  &30 &30.0m\\
+reg2&211&30&30&30&2s&4&30&30.0m&2&30&30.0m\\
 \hline
-reg4&197&49&Standard&49&49&3s\\
-\cline{4-7}
-&&&Schedueling&4  &49 &30.0m\\
+reg3&206&30&30&30&2s&4&30&30.0m&?&?&30.0m\\
 \hline
-reg5&188&31&Standard&31&31&2s\\
-\cline{4-7}
-&&&Schedueling&5  &31 &30.0m\\
+reg4&197&49&49&49&3s&4&49&30.0m&?&?&30.0m\\
 \hline
-sparse1&100&7&Standard&5&5&6s\\
-\cline{4-7}
-&&&Schedueling&5  &5 &6s\\
+reg5&188&31&31&31&2s&5&31&30.0m&?&?&30.0m\\
 \hline
-sparse2&200&9&Standard&4&7&30.0m\\
-\cline{4-7}
-&&&Schedueling&3  &7 &30.0m\\
+sparse1&100&7&5&5&6s&5&5&6s&3&5&30.0m\\
 \hline
-sparse3&300&10&Standard&4&8&30.0m\\
-\cline{4-7}
-&&&Schedueling&4  &7 &30.0m\\
+sparse2&200&9&4&7&30.0m&3&7&30.0m&3&9&30.0m\\
 \hline
-sparse4&400&9&Standard&4&7&30.0m\\
-\cline{4-7}
-&&&Schedueling&3  &7 &30.0m\\
-\bottomrule
-\caption{Results}
+sparse3&300&10&4&8&30.0m&4&7&30.0m&2&10&31.2m\\
+\hline
+sparse4&400&9&4&7&30.0m&3&7&30.0m&?&?&33.2m\\
+\hline
+\caption{Results from colouring the test-set with each formulation from \Cref{chap:GC}}
 \label{table}
 \end{longtable}
-%\end{table}

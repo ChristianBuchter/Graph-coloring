@@ -1,0 +1,47 @@
+\begin{lstlisting}[language=Python]
+CPXPARAM_Read_DataCheck                          1
+CPXPARAM_Read_APIEncoding                        "UTF-8"
+CPXPARAM_MIP_Strategy_CallbackReducedLP          0
+Tried aggregator 1 time.
+Reduced MIP has 165 rows, 95 columns, and 472 nonzeros.
+Reduced MIP has 71 binaries, 24 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.25 ticks)
+Found incumbent of value 5.000000 after 0.00 sec. (0.67 ticks)
+Probing fixed 0 vars, tightened 1 bounds.
+Probing time = 0.00 sec. (0.11 ticks)
+Tried aggregator 1 time.
+Reduced MIP has 165 rows, 95 columns, and 472 nonzeros.
+Reduced MIP has 71 binaries, 24 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.30 ticks)
+Probing time = 0.00 sec. (0.11 ticks)
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 4 threads.
+Root relaxation solution time = 0.00 sec. (0.24 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+*     0+    0                            5.0000        2.0000            60.00%
+      0     0        2.0000    58        5.0000        2.0000       60   60.00%
+      0     0        2.0000    92        5.0000     Cuts: 116      154   60.00%
+      0     0        2.0000    33        5.0000      Cuts: 13      167   60.00%
+      0     0        2.0000    51        5.0000      Cuts: 40      213   60.00%
+      0     2        2.0000    51        5.0000        2.0000      213   60.00%
+Elapsed time = 0.05 sec. (9.41 ticks, tree = 0.01 MB, solutions = 1)
+
+Implied bound cuts applied:  65
+Mixed integer rounding cuts applied:  49
+Zero-half cuts applied:  49
+Gomory fractional cuts applied:  19
+
+Root node processing (before b&c):
+  Real time             =    0.05 sec. (9.32 ticks)
+Parallel b&c, 4 threads:
+  Real time             =    0.47 sec. (189.22 ticks)
+  Sync time (average)   =    0.04 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    0.52 sec. (198.55 ticks)
+
+\end{lstlisting}
