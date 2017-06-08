@@ -123,6 +123,7 @@ def formatUpper(obj, status):
         return int(obj)
     else:
         return '?'
+<<<<<<< HEAD
 
 # Run a particular group of tests
 def runGroup(tests):
@@ -159,3 +160,82 @@ def main():
         cofu.wait(cache)
 
 if __name__ == "__main__": main()
+=======
+
+# Run a particular group of tests
+def runGroup(tests):
+    allMethods = [standard, scheduling, binary]
+    #allMethods = [standard, scheduling]
+    #allMethods = [binary]
+    for name in tests:
+        case = testCases[name]
+        graph = case[0]
+        vert = len(graph)
+        upper = case[1]
+        timeLimit = case[2]
+        greedy = bestGreedyChi(graph, 10)
+        if greedy<upper:
+            upper=greedy
+        # I need to write results to a file
+        output = '{0:<10} {1:<4} {2:<4}'.format(name, vert, greedy)
+        for method in allMethods:
+            print(name, method.__name__)
+            lower, obj, status, elapsed = method(graph, upper, timeLimit, threadLimit)
+            output += '  {0:<4} {1:<4} {2:<7}'.format(formatLower(lower, status), formatUpper(obj, status), formatTime(elapsed))
+        print(output)
+        with open('results-single/{0}'.format(name), 'a') as f:
+            print(output, file=f)
+
+# Main method
+# 3 parallel processes
+def main():
+    import concurrent.futures as cofu
+    with cofu.ProcessPoolExecutor(3) as pool:
+        cache = []
+        for name in getByName(sys.argv[1]):
+            cache.append( pool.submit(runGroup, [name]) )
+        cofu.wait(cache)
+
+if __name__ == "__main__": main()
+
+
+'''
+# Print results in a not too ugly way
+with open('results/results.txt', 'w') as f:
+	print('=======================================================================', file=f)
+	for name in allTests:
+		for method in allMethods:
+			vert, lower, obj, status, elapsed, greedy = results[(name, method.__name__)]
+			print('{0:<10} (V={1:<4}) ,{2}:  lb={3}, ub={4}, status={5},elapsed time ~={6} greedy={7}'.format(name, vert, method.__name__, lower if lower >= 0 else 'inf',obj, status, elapsed, greedy), file=f)
+#TEX
+with open('results/results.tex', 'w') as f:
+	f.write('\\begin{table}[]\n')
+	f.write('\\centering\n')
+	f.write('\\caption{Results}\n')
+	f.write('\\label{table}\n')
+	f.write('\\begin{tabular}{l||l|l|l|l}\n')
+	f.write('Graph & &{0} &{1}  &{2}\\\\\n\\toprule'.format(allMethods[0].__name__,allMethods[1].__name__,allMethods[2].__name__))
+	
+	for name in allTests:
+		case = testCases[name]
+		graph = case[0]
+		vert = len(graph)
+		f.write('\n{0}&&&&\\\\'.format(name.replace ('_', '\_')))
+		statusList =[]
+		ubList=[]
+		lbList=[]
+		timeList=[]
+		for method in allMethods:
+			vert, lower, obj, status, elapsed, greedy = results[(name, method.__name__)]
+			statusList.append(status.replace ('_', '\_'))
+			ubList.append(obj)
+			lbList.append(lower)
+			timeList.append(elapsed)
+		f.write('\nVertices={3} &Status: &{0}  &{1} &{2}\\\\\n\\cline{{2-5}}'.format(statusList[0], statusList[1],statusList[2],vert))
+		f.write('\nGreedy ub ={3}&Best objective: &{0}  &{1} &{2}\\\\\n\\cline{{2-5}}'.format(ubList[0], ubList[1],ubList[2],greedy))
+		f.write('\n&Lower bound: &{0}  &{1} &{2}\\\\\n\\cline{{2-5}}'.format(lbList[0] if lbList[0] >= 0 else 'inf', lbList[1] if lbList[1] >= 0 else 'inf',lbList[2] if lbList[2] >= 0 else 'inf'))
+		f.write('\n&Compute time: &{0} seconds  &{1} seconds &{2} seconds\\\\'.format(timeList[0], timeList[1],timeList[2]))
+		f.write('\n\\hline')
+	f.write('\n\\bottomrule\n\\end{tabular}\n\\end{table}')
+'''
+>>>>>>> origin/master
