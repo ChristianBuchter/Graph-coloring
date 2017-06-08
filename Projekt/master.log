@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.4.10)  5 JUN 2017 20:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.4.10)  7 JUN 2017 22:38
 entering extended mode
 **./master.tex
 (master.tex
@@ -2349,44 +2349,41 @@ Underfull \hbox (badness 10000) in paragraph at lines 206--208
 
  []
 
-[18]) (chapter4/chapter4.tex [19] [20
+[18]) (chapter4/chapter4.tex [19]
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 7.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\t1cmtt.fd"
+File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+Underfull \hbox (badness 10000) in paragraph at lines 7--8
+[]$\T1/cmtt/m/n/10 https : / / github . com / ChristianBuchter / Graph-[]colori
+ng / tree / master /
+ []
+
+
+Underfull \vbox (badness 2057) has occurred while \output is active []
+
+ [20
 
 ]
-Underfull \hbox (badness 5475) in paragraph at lines 17--18
+Underfull \hbox (badness 5475) in paragraph at lines 21--22
 \T1/cmr/m/n/10 The graphs "Q_7_4", "Q_8_2", "Q_8_4", "Q_9_2", "Q_9_4",
  []
 
-
-Underfull \vbox (badness 1688) has occurred while \output is active []
-
- [21]
-(results/results.tex
+[21] (results/results.tex
 Underfull \vbox (badness 10000) detected at line 42
  []
 
-[22] [23])
-Package hyperref Info: bookmark level for unknown todo defaults to 0 on input l
-ine 43.
- [24]
-Underfull \vbox (badness 10000) detected at line 70
- []
-
-
-Underfull \hbox (badness 1127) in paragraph at lines 74--75
-\T1/cmr/m/n/10 We specif-i-cally con-cen-trated on the G_a_b_c_d Lego graphs. W
-ith
- []
-
-
-Underfull \vbox (badness 10000) detected at line 94
- []
+[22] [23]) [24]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 80.
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 80.
 
 [25]) [26]
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 26.
- ("C:\Program Files\MiKTeX 2.9\tex\latex\base\t1cmtt.fd"
-File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
-)
-Underfull \hbox (badness 4205) in paragraph at lines 27--27
+Underfull \hbox (badness 3250) in paragraph at lines 27--27
 []\T1/cmr/m/n/10 Torben Ægid-ius Mo-gensen. \T1/cmr/m/it/10 In-tro-duc-tion to 
 com-piler de-sign\T1/cmr/m/n/10 .
  []
@@ -2417,16 +2414,16 @@ Package logreq Info: Writing requests to 'master.run.xml'.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 28.
  ) 
 Here is how much of TeX's memory you used:
- 44627 strings out of 493333
- 819864 string characters out of 3139182
- 1325491 words of memory out of 3000000
- 47337 multiletter control sequences out of 15000+200000
+ 44599 strings out of 493333
+ 819275 string characters out of 3139182
+ 1333524 words of memory out of 3000000
+ 47308 multiletter control sequences out of 15000+200000
  22522 words of font info for 54 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  69i,19n,92p,10475b,1998s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\Christian\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi
-600\ectt1000.pk> <C:\Users\Christian\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\j
-knappen\ec\dpi600\ecrm0700.pk> <C:\Users\Christian\AppData\Local\MiKTeX\2.9\fon
+600\ecrm0700.pk> <C:\Users\Christian\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\j
+knappen\ec\dpi600\ectt1000.pk> <C:\Users\Christian\AppData\Local\MiKTeX\2.9\fon
 ts\pk\ljfour\jknappen\ec\dpi600\ecbi1000.pk> <C:\Users\Christian\AppData\Local\
 MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecti1000.pk> <C:\Users\Christian\
 AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1095.pk> <C:\Us
@@ -2451,9 +2448,9 @@ X 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fo
 nts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
 /public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/a
 msfonts/symbols/msbm10.pfb>
-Output written on master.pdf (30 pages, 434035 bytes).
+Output written on master.pdf (30 pages, 436854 bytes).
 PDF statistics:
- 1095 PDF objects out of 1200 (max. 8388607)
- 167 named destinations out of 1000 (max. 500000)
+ 1098 PDF objects out of 1200 (max. 8388607)
+ 165 named destinations out of 1000 (max. 500000)
  202 words of extra memory for PDF output out of 10000 (max. 10000000)
 

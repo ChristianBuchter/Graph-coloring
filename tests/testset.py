@@ -2,16 +2,18 @@ from __future__ import print_function
 import chromatic        #CPLEX models
 import graphtools       #I/O of graphs etc.
 import lego, cubes      #Some special graph classes
+import math, sys, numpy
 
 from graphtools import readDimacs       #Read Dimacs text format examples
-from graphtools import bipRandom, bestGreedyChi
+from graphtools import bipRandom, randomGraph, bestGreedyChi
 from lego import legoG, legoGP          #Soren's graphs G, Gprime
 from cubes import Qdu, Qdus             #Cube-like graphs, see course lecture notes
 from chromatic import standard, scheduling, binary    # ... and other models
 
 # I set these globally, but they'd better be adjusted to specific examples
-timeLimit = 3600.0
-threadLimit = 10
+timeLimit = 60.0*30*1
+threadLimit = 8
+numpy.random.seed(12345)
 
 testCases = {
     # Queen graphs
@@ -62,80 +64,98 @@ testCases = {
     "G_1_2_6_10": (legoG(1,2,6,10), 8, timeLimit),
     "G_1_2_6_12": (legoG(1,2,6,12), 8, timeLimit),
     "G_1_2_8_12": (legoG(1,2,8,10), 8, timeLimit),    
+    "G_1_2_10_10": (legoG(1,2,10,10), 5, timeLimit),        
     "G_1_2_10_12": (legoG(1,2,10,12), 8, timeLimit),        
-    "G_1_2_12_12": (legoG(1,2,12,12), 8, timeLimit),  
+    "G_1_2_12_12": (legoG(1,2,12,12), 8, timeLimit),        
     # Generalized cube graphs
     "Q_7_4": (Qdu(7,4), 9, timeLimit),          
     "Q_8_2": (Qdu(8,2), 10, timeLimit),          
     "Q_8_4": (Qdu(8,4), 10, timeLimit),          
-    "Q_9_2": (Qdu(9,2), 20, timeLimit),          
-    "Q_9_4": (Qdu(9,4), 22, timeLimit),          
+    "Q_9_2": (Qdu(9,2), 20, timeLimit),		          
+    "Q_9_4": (Qdu(9,4), 22, timeLimit),     
     "Q_10_4_3": (Qdus(10,4,3), 20, timeLimit),                      # Increase 28 if necessary - I'm not sure what the aswer is!. See when it finds something feasible
     "Q_10_4_5": (Qdus(10,4,5), 31, timeLimit),
     # Random bipartite graph
     "bip50": (bipRandom(50), 3, timeLimit),
     "bip200": (bipRandom(200), 3, timeLimit),
     "bip500": (bipRandom(500), 3, timeLimit),
+	# Completely random small graphs, just to test if we get the same answer
+	"random1": (randomGraph(30,0.1), 30, timeLimit),
+    "random2": (randomGraph(30,0.2), 30, timeLimit),
+    "random3": (randomGraph(30,0.3), 30, timeLimit),
+    "random4": (randomGraph(30,0.4), 30, timeLimit),
+    "random5": (randomGraph(30,0.5), 30, timeLimit),
+    "random6": (randomGraph(30,0.6), 30, timeLimit),
+    "random7": (randomGraph(30,0.7), 30, timeLimit),
+    "random8": (randomGraph(30,0.8), 30, timeLimit),
+    "random9": (randomGraph(30,0.9), 30, timeLimit),
+	# Some random sparse graphs, to check if the "sparse" scheduling formulation does beter
+    "sparse1": (randomGraph(100,0.1), 10, timeLimit),
+    "sparse2": (randomGraph(200,0.08), 20, timeLimit),
+    "sparse3": (randomGraph(300,0.06), 30, timeLimit),
+    "sparse4": (randomGraph(400,0.04), 40, timeLimit),
 }
 
-
-
-results = {}
-
 # Get only tests whose name matches a substring
-def getByName(cases, str):
+def getByName(str):
     return sorted([ name for name in testCases if str in name ])
 
-# Go through all tests (or all tests in a group) and run them
-# AHA: It would maybe be cool to also get the running time in case when it finished early i.e. before time limit
-allTests = getByName(testCases, "")
-allMethods = [standard, scheduling, binary]
+# Format the number of seconds
+def formatTime(t):
+    if t<60:
+        return '{0:.0f}s'.format(t)
+    elif t<3600:
+        return '{0:.1f}m'.format(t/60)
+    else:
+        return '{0:.1f}h'.format(t/3600)
 
-for name in allTests:
-    case = testCases[name]
-    graph = case[0]
-    vert = len(graph)
-    upper = case[1]
-    timeLimit = case[2]
-    for method in allMethods:
-        print (name, method.__name__)
-        lower, obj, status, elapsed = method(graph, upper, timeLimit, threadLimit)
-        results[(name, method.__name__)] = (vert, lower, obj, status, elapsed, bestGreedyChi(graph, 10))
+# Format the lower bound
+def formatLower(lower, status):
+    if lower and lower>0:
+        return int(math.ceil(lower-0.001))	# I'll explain
+    else:
+        return '?'
 
-# Print results in a not too ugly way
-with open('results/results.txt', 'w') as f:
-	print('=======================================================================', file=f)
-	for name in allTests:
-		for method in allMethods:
-			vert, lower, obj, status, elapsed, greedy = results[(name, method.__name__)]
-			print('{0:<10} (V={1:<4}) ,{2}:  lb={3}, ub={4}, status={5},elapsed time ~={6} greedy={7}'.format(name, vert, method.__name__, lower if lower >= 0 else 'inf',obj, status, elapsed, greedy), file=f)
-#TEX
-with open('results/results.tex', 'w') as f:
-	f.write('\\begin{table}[]\n')
-	f.write('\\centering\n')
-	f.write('\\caption{Results}\n')
-	f.write('\\label{table}\n')
-	f.write('\\begin{tabular}{l||l|l|l|l}\n')
-	f.write('Graph & &{0} &{1}  &{2}\\\\\n\\toprule'.format(allMethods[0].__name__,allMethods[1].__name__,allMethods[2].__name__))
-	
-	for name in allTests:
-		case = testCases[name]
-		graph = case[0]
-		vert = len(graph)
-		f.write('\n{0}&&&&\\\\'.format(name.replace ('_', '\_')))
-		statusList =[]
-		ubList=[]
-		lbList=[]
-		timeList=[]
-		for method in allMethods:
-			vert, lower, obj, status, elapsed, greedy = results[(name, method.__name__)]
-			statusList.append(status.replace ('_', '\_'))
-			ubList.append(obj)
-			lbList.append(lower)
-			timeList.append(elapsed)
-		f.write('\nVertices={3} &Status: &{0}  &{1} &{2}\\\\\n\\cline{{2-5}}'.format(statusList[0], statusList[1],statusList[2],vert))
-		f.write('\nGreedy ub ={3}&Best objective: &{0}  &{1} &{2}\\\\\n\\cline{{2-5}}'.format(ubList[0], ubList[1],ubList[2],greedy))
-		f.write('\n&Lower bound: &{0}  &{1} &{2}\\\\\n\\cline{{2-5}}'.format(lbList[0] if lbList[0] >= 0 else 'inf', lbList[1] if lbList[1] >= 0 else 'inf',lbList[2] if lbList[2] >= 0 else 'inf'))
-		f.write('\n&Compute time: &{0} seconds  &{1} seconds &{2} seconds\\\\'.format(timeList[0], timeList[1],timeList[2]))
-		f.write('\n\\hline')
-	f.write('\n\\bottomrule\n\\end{tabular}\n\\end{table}')
+# Format the upper bound
+# Infeasibility status should be used somehow, but let's ignore it for now
+def formatUpper(obj, status):
+    if obj and obj>=0:
+        return int(obj)
+    else:
+        return '?'
+
+# Run a particular group of tests
+def runGroup(tests):
+    allMethods = [standard, scheduling, binary]
+    #allMethods = [standard, scheduling]
+    #allMethods = [binary]
+    for name in tests:
+        case = testCases[name]
+        graph = case[0]
+        vert = len(graph)
+        upper = case[1]
+        timeLimit = case[2]
+        greedy = bestGreedyChi(graph, 10)
+        if greedy<upper:
+            upper=greedy
+        # I need to write results to a file
+        output = '{0:<10} {1:<4} {2:<4}'.format(name, vert, greedy)
+        for method in allMethods:
+            print(name, method.__name__)
+            lower, obj, status, elapsed = method(graph, upper, timeLimit, threadLimit)
+            output += '  {0:<4} {1:<4} {2:<7}'.format(formatLower(lower, status), formatUpper(obj, status), formatTime(elapsed))
+        print(output)
+        with open('results-single/{0}'.format(name), 'a') as f:
+            print(output, file=f)
+
+# Main method
+# 3 parallel processes
+def main():
+    import concurrent.futures as cofu
+    with cofu.ProcessPoolExecutor(3) as pool:
+        cache = []
+        for name in getByName(sys.argv[1]):
+            cache.append( pool.submit(runGroup, [name]) )
+        cofu.wait(cache)
+
+if __name__ == "__main__": main()

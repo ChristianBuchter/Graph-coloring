@@ -1,4 +1,4 @@
-# Descriptions of Cube-like graphs
+# Descriptions of Cube-like graphs 
 
 import graphtools
 from graphtools import *

@@ -1,7 +1,7 @@
 \chapter{Linear Programming}
 In this chapter we introduce the concept of linear programming. Most proofs will be omitted but proofs and more in depth explanations can be found in ~\cite{vanderbei2015linear}
 \section{The structure of a linear program (LP)}
-In a linear program we want to maximize or minimize a given linear function $z:\R^n \rightarrow \R$ subject to a number of linear inequalities or equalities $g_i:\R^n \rightarrow \R$ with $g_i(x_1,...,x_n)\geq b_i$,$g_i(x_1,...,x_n)\leq b_i$ or $g_i(x_1,...,x_n)= b_i$. The function, $z$, that we want to optimise is called the \textbf{objective} and the set of inequalities are called the \textbf{constraints}. A general linear problem is written:
+In a linear program we want to maximize or minimize a given linear function $z:\R^n \rightarrow \R$ subject to a number of linear inequalities or equalities $g_i:\R^n \rightarrow \R$ with $g_i(x_1,...,x_n)\geq b_i$,$g_i(x_1,...,x_n)\leq b_i$ or $g_i(x_1,...,x_n)= b_i$. The function, $z$, that we want to optimise is called the \textbf{objective} and the inequalities are called the \textbf{constraints}. A general linear problem is written:
 \begin{align}\label{lpform}
 \begin{array}{ll@{}ll}
 \text{min/max} &z(x_1,...,x_n)&\\
@@ -20,7 +20,7 @@ He considers buying 3 food products with different nutritional values and prices
 \item $x_2$ is a vegetable costing 1 and containing 1 unit of protein, 2 units of carbs, 0 units of fat and 4 units of vitamins.
 \item $x_3$ is a type of bread costing 2 and containing $\frac{1}{2}$ unit of protein, 4 units of carbs, 1 unit of fat and 0 units of vitamins.
 \end{enumerate}
-He then define an optimization problem minimizing the cost of food subject to getting the right nutrition
+He then defines an optimization problem minimizing the cost of food subject to getting the right nutrition
 \begin{align}
 \begin{array}{ll@{}ll}
 \text{min} &5x_1+x_2+2x_3&\\
@@ -35,9 +35,9 @@ He finds the cheapest solution to be $x_1 = 1, x_2= \frac{3}{2},x_3 = 3$ and buy
 \end{example}
 \section{Feasible and optimal solutions}
 \subsection{Feasibility}
-Given a Linear problem on form \ref{lpform} any point of $\R^n$ such that all $m$ constraints are satisfied is called a feasible solution. The set of all these points is called the feasible set. In the case of \Cref{lpex} the feasible set is the set of all combinations of amounts of the different foods such that the nutritional requirements are met. If a problem has no feasible solutions, that problem is said to be infeasible. A feasibility problem is a special case in linear programming where our object function is constant and thus if any feasible solution exists, that solution is optimal.
+Given a Linear problem on form \ref{lpform} any point of $\R^n$ such that all $m$ constraints are satisfied is called a \textbf{feasible solution}. The set of all these points is called the \textbf{feasible set}. In the case of \Cref{lpex} the feasible set is the set of all combinations of amounts of the different foods such that the nutritional requirements are met. If a problem has no feasible solutions, that problem is said to be \textbf{infeasible}. A \textbf{feasibility problem} is a special case in linear programming where our object function is constant and thus if any feasible solution exists, that solution is optimal.
 \subsection{Optimal solutions}
-A feasible solution $\textbf{x}_0 \in \R^n$ is said to be optimal if $z(\textbf{x}_0) \geq z(\textbf{x})$ (when maximizing) or $z(\textbf{x}_0) \leq z(\textbf{x})$ (when minimizing) for all feasible solutions $\textbf{x} \in \R^n$.\\
+A feasible solution $\textbf{x}_0 \in \R^n$ is said to be \textbf{optimal} if $z(\textbf{x}_0) \geq z(\textbf{x})$ (when maximizing) or $z(\textbf{x}_0) \leq z(\textbf{x})$ (when minimizing) for all feasible solutions $\textbf{x} \in \R^n$.\\
 In some instances when feasible solutions exist, but no maximal (or minimal) solution exists the problem is said to be \textbf{unbounded}. In that case one or more variable in the objective can approach $\infty$ or $-\infty$ in a solution, all while the solution remains feasible and the objective value diverges.
 \section{Convexity}
 \begin{definition}\label{convex}

@@ -1,4 +1,4 @@
-# Descriptions of Lego-related graphs
+# Descriptions of Lego-related graphs G[a,b;c,d] and G'[a,b;c,d]
 
 import graphtools
 from graphtools import *

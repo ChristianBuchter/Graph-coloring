@@ -1,5 +1,5 @@
 \chapter{Graph colouring}\label{chap:GC}
-In this chapter we introduce the main concept of graph vertex-colouring and some integer formulations for colouring graphs. Graph colouring is used extensively in modern computer science for optimizing register allocation where Torben Mogensens "Introduction to compiler design" ~\cite{b459f618a93441f1ad27d944d0f81644} details this further, and in many scheduling problems making it one of the most important concepts in graph theory.
+In this chapter we introduce the main concept of graph vertex-colouring and some integer formulations for colouring graphs. Graph colouring is one of the fundamental problems in modern computer science used in many applications such as scheduling and register allocation \cite{b459f618a93441f1ad27d944d0f81644}.
 \section{Fundamental colouring terms and results}
 \begin{definition}\label{vertex colouring}
 A \textbf{vertex-colouring} of a graph $G=(V,E)$ is an assignment of colors from the set $\{1,...,k\}$ to $V$ such that each $v\in V$ is assigned one color and no two adjacent vertices are assigned the same color. 
@@ -54,7 +54,7 @@ A \textbf{vertex-colouring} of a graph $G=(V,E)$ is an assignment of colors from
 \caption{A graph coloured with the trivial and an optimal vertex colouring.}
 \end{figure}
 %\fi
-\noindent in this paper a colouring will always refer to a vertex-colouring.
+\noindent In this paper a colouring will always refer to a vertex-colouring.
 \begin{definition}
 A \textbf{$k$-colouring} of a graph $G$ is a vertex-colouring using $k$ colours. A $k$-colouring where $k$ is equal to the number of vertices in $V$ is called the \textbf{trivial colouring}.
 \end{definition}
@@ -62,16 +62,16 @@ A \textbf{$k$-colouring} of a graph $G$ is a vertex-colouring using $k$ colours.
 An \textbf{optimal colouring} of a graph, $G$, is a colouring of $G$ using the minimum amount of colours possible.
 \end{definition}
 \begin{definition}\label{cromatic number}
-The \textbf{chromatic number} $\chi (G)$ of a graph, $G$ is the number of colours in an optimal colouring of $G$.
+The \textbf{chromatic number} $\chi (G)$ of a graph $G$ is the number of colours in an optimal colouring of $G$.
 \end{definition}
 \begin{theorem}
 Vertices of one color form an independent set.
 \begin{proof}
-Let $G=(V,E)$ be a graph and suppose that a set of vertices $S$ are assigned the same color. Then by definition of a colouring no two vertices in $S$ share an edge in $E$ and $S$ is an independent set in $G$
+Let $G=(V,E)$ be a graph and suppose that a set of vertices $S$ is assigned the same color. Then by definition of a colouring no two vertices in $S$ share an edge in $E$ and $S$ is an independent set in $G$.
 \end{proof}
 \end{theorem}
 \begin{theorem}
-Given a graph $G$, $\chi (G) \geq \omega(G)$
+Given a graph $G$, $\chi (G) \geq \omega(G)$.
 \begin{proof}
 Let $G=(V,E)$ be a graph and suppose that a set $S$ of $k = \omega(G)$ vertices form a maximal clique in $G$. Then each $s_i \in S$ has edges in $E$ to all other vertices of $S$ and they must each have distinct colours by \ref{vertex colouring}. And since $G_S$ is a subgraph of $G$, we get $\omega(G)= \chi(G_S) \leq \chi(G)$.
 \end{proof}
@@ -79,7 +79,7 @@ Let $G=(V,E)$ be a graph and suppose that a set $S$ of $k = \omega(G)$ vertices 
 \section{Integer programming formulations}
 Here we formulate some integer problems which calculate an optimal colouring. The same formulations can be used with minor simplifications to solve feasibility problems of whether graphs are $k$-colourable.\\
 \subsection{The standard formulation}
-In the standard formulation we want to introduce $k|V|$ binary variables, $x_{v,c}$ for a suitable $k\geq \chi (G)$. where
+In the standard formulation we want to introduce $k|V|$ binary variables, $x_{v,c}$ for a suitable $k\geq \chi (G)$ where
 \begin{align} \label{x standard}
 x_{v,c} = \left\{
 \begin{array}{ll}
@@ -88,15 +88,15 @@ x_{v,c} = \left\{
 \end{align}
 and $k$ binary variables $y_c$, for $k \geq \chi (G)$ (for example $k = |V|$), indicating if color $c$ is used in the colouring.\\
 \begin{proposition}
-For any $\chi(G) \leq k \leq |V|$ the following formulation assigns an optimal colouring to the graph and it's objective value is the chromatic number:
+For any $\chi(G) \leq k \leq |V|$ the following formulation assigns an optimal colouring to the graph and its objective value is the chromatic number:
 \begin{align}\label{the standard formulation}
 \begin{array}{ll@{}ll}
 \text{min} &\sum_{c\in \{1...k\}} y_c&\\
 \text{s.t.} 
-&\sum_{c\in \{1...k\}}{x_{v,c}} = 1,& \forall v \in V\\
-&x_{v,c} + x_{u,c} \leq 1,& \forall (u,v)\in E, \forall c \in \{1...k\}\\
-&x_{v,c} - y_c \leq 0,& \forall v \in V,\forall c \in \{1...k\}\\
-&x_{v,c}\in\{0,1\},& \forall v \in V, \forall c \in \{1...k\}\\
+&\sum_{c\in \{1...k\}}{x_{v,c}} = 1, \quad & \forall v \in V\\
+&x_{v,c} + x_{u,c} \leq 1,& \forall (u,v)\in E, \, \forall c \in \{1...k\}\\
+&x_{v,c} - y_c \leq 0,& \forall v \in V, \,\forall c \in \{1...k\}\\
+&x_{v,c}\in\{0,1\},& \forall v \in V, \, \forall c \in \{1...k\}\\
 &y_c \geq 0,& \forall c \in \{1...k\}\\
 \end{array}
 \end{align}
@@ -126,7 +126,7 @@ $y_c =\left\{
 \end{proposition}
 
 \subsection{A scheduling formulation}
-Another integer formulation of the graph colouring problem for a graph $G=(V,E)$ is the scheduling formulation. Here we introduce $|V|$ integer variables $\{X_1, \cdots, X_v\}$ with the desired result: $X_v = i$ if vertex $v$ is assigned colour $i$, and another $|E|$ binary variables $x_{u,v} \forall (u,v)\in E$ with the desired result:
+Another integer formulation of the graph colouring problem for a graph $G=(V,E)$ is the scheduling formulation. Here we introduce $|V|$ integer variables $\{X_1, \cdots, X_v\}$ with the desired result: $X_v = i$ if vertex $v$ is assigned colour $i$, and another $|E|$ binary variables $x_{u,v} \, \forall (u,v)\in E$ with the desired result:
 \begin{align}
 x_{u,v} = \left\{
 \begin{array}{ll}
@@ -140,7 +140,7 @@ For any $\chi(G) \leq k \leq |V|$ the following formulation assigns an optimal c
 \begin{array}{ll@{}ll}
 \text{min} &c&\\
 \text{s.t.} 
-&X_u - X_v + kx_{u,v} \leq k-1,& \forall (u,v)\in E\\
+&X_u - X_v + kx_{u,v} \leq k-1, \quad & \forall (u,v)\in E\\
 &X_v - X_u - kx_{u,v} \leq -1,& \forall (u,v)\in E\\
 &X_v - c \leq 0,& \forall v \in V\\
 &x_{u,v}\in\{0,1\},& \forall (u,v) \in E\\
@@ -177,7 +177,7 @@ x_{v,b} =\left\{
 1 & \text{if vertex }v \text{ has the $b$'th bit in its assigned colour set to 1} \\ 0 & \text{otherwise}
 \end{array}\right.
 \end{align} 
-Furthermore another $2|E|\left \lceil{log_2(k)}\right \rceil$ binary variables $z_{u,v,b}$ and $x_{u,v,b}$ to help analyze the differences $|x_{u,b}-x_{v,b}|, \forall (u,v) \in E$.
+Furthermore another $2|E|\left \lceil{log_2(k)}\right \rceil$ binary variables $z_{u,v,b}$ and $x_{u,v,b}$ to help analyze the differences $|x_{u,b}-x_{v,b}|, \, \forall (u,v) \in E$.
 Lastly we introduce the variable $c$ that has to be greater or equal to the greatest value of any colour used.
 \begin{proposition}
 For any $\chi(G) \leq k \leq |V|$, suppose $B = \left \lceil{log_2(k)}\right \rceil$. Then the following formulation assigns an optimal colouring to the graph and gives the chromatic number:
@@ -186,11 +186,11 @@ For any $\chi(G) \leq k \leq |V|$, suppose $B = \left \lceil{log_2(k)}\right \rc
 \text{min} &c&\\
 \text{s.t.} 
 &c - \sum_{b = 0}^{B}{2^b\cdot x_{v,b}} \leq -1,& \forall v\in V\\
-&z_{v,u,b}-2t_{v,u,b}+x_{v,b}-x_{u,b} = 0,& \forall (u,v)\in E \forall b \in [0,\cdots ,B ] \\
+&z_{v,u,b}-2t_{v,u,b}+x_{v,b}-x_{u,b} = 0,\quad & \forall (u,v)\in E \, \forall \, b \in [0,\cdots ,B ] \\
 &\sum_{b = 0}^{B}{z_{v,u,b}} \geq 1,& \forall (u,v) \in E\\
-&x_{v,b}\in\{0,1\},& \forall v \in V \forall b \in [0,\cdots ,B]\\
-&z_{u,v,b}\in\{0,1\},& \forall (u,v) \in E \forall b \in [0,\cdots ,B]\\
-&x_{u,v,b}\in\{0,1\},& \forall (u,v) \in E \forall b \in [0,\cdots ,B]\\
+&x_{v,b}\in\{0,1\},& \: \forall \, v \in V \, \forall \, b \in [0,\cdots ,B]\\
+&z_{u,v,b}\in\{0,1\},& \forall (u,v) \in E \: \forall \, b \in [0,\cdots ,B]\\
+&x_{u,v,b}\in\{0,1\},& \forall (u,v) \in E \: \forall \, b \in [0,\cdots ,B]\\
 \end{array}
 \end{align}
 \noindent It has $|V|\left \lceil{log_2(k)}\right \rceil + 2|E|\left \lceil{log_2(k)}\right \rceil$ binary variables and $|V|+|E|+|E|\left \lceil{log_2(k)}\right \rceil$ constraints.

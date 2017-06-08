@@ -62,7 +62,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{Mycielski graphs}{20}{section*.16}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{Register allocation graphs}{20}{section*.17}
+\contentsline {subsection}{Register allocation graphs}{21}{section*.17}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{Proximity graphs of US road network at various scales}{21}{section*.18}
 \defcounter {refsection}{0}\relax 
@@ -72,7 +72,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{Bipartite graph}{21}{section*.21}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{Random graphs}{21}{section*.22}
+\contentsline {subsection}{Random graphs}{22}{section*.22}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{Sparse graphs}{22}{section*.23}
 \defcounter {refsection}{0}\relax 

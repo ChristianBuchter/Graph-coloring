@@ -2,6 +2,7 @@
 
 from itertools import product,chain,izip
 from random import shuffle
+import numpy
 
 '''
 Test symmetric + zeros on diagonal
@@ -16,7 +17,7 @@ def testAdj(A):
 	return A
 
 '''
-Canonicalize the graph into an adjacency matrix using the given vertex set
+Canonicalize the graph into an adjacency matrix using the given vertex and edge sets
 '''
 def canonical(vertices, edges):
 	n = len(vertices)
@@ -103,3 +104,15 @@ def bipRandom(n):
 		if (i*i+j*j)%17 < 4:
 			A[i][j] = A[j][i] = 1
 	return A
+
+'''
+Random graph on n vertices, G(n,p)
+'''
+def randomGraph(n, p):
+	A = [[0 for i in range(n)] for j in range(n)]
+	for i in range(0,n):
+		for j in range(0,i):
+			if numpy.random.uniform(0,1)<p:
+				A[i][j] = A[j][i] = 1
+	return A
+

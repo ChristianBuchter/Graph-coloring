@@ -1,10 +1,14 @@
 \chapter{Colouring results}\label{chap:Results}
-In this chapter I show the results from colouring a selection of graphs with the IP formulations formulated in \Cref{chap:GC}. The IP's are solved using the Cplex\cite{cplex} solver and the $k$-values have been found by using a greedy colouring algorithm.
+In this chapter I show the results from colouring a selection of graphs with the IP formulations formulated in \Cref{chap:GC}. The IP's are solved using the CPLEX\cite{cplex} solver and the $k$-values have been found by using a greedy colouring algorithm.
 Some test graphs come from the DIMACS benchmark library \cite{dimacs}.
+
+\noindent All the code of the project was written in Python using the CPLEX API and can be found at together with the results at:
+
+\noindent \url{https://github.com/ChristianBuchter/Graph-coloring/tree/master/tests}.
 \section{The graph test-set}
 The graphs in the test-set are divided into a number of categories of graphs described in this section.
 \subsection{Queen graphs}
-The $n\times m$ queen graphs "queen5\_5", "queen6\_6", "queen7\_7", "queen8\_8", "queen9\_9", "queen10\_10" and "queen8\_12" are graphs where each vertex corresponds to a square in an $n \times m$ chessboard and the edges represent the valid moves for a queen chess piece between the squares. The colouring of these graphs can be interpreted at placing different coloured queens on all squares of the board such that no two queens of the same colour are threatening each other.
+The $n\times m$ queen graphs "queen$n$\_$m$" are graphs where each vertex corresponds to a square in an $n \times m$ chessboard and the edges represent the valid moves for a queen chess piece between the squares. The colouring of these graphs can be interpreted at placing different coloured queens on all squares of the board such that no two queens of the same colour are threatening each other.
 \subsection{Mycielski graphs}
 The graphs "myciel3", "myciel4", "myciel5", "myciel6" and "myciel7" are based on the Mycielski transformation. These graphs are difficult to solve because they are triangle free (clique number 2) but the coloring number increases in problem size.
 \subsection{Register allocation graphs}
@@ -12,7 +16,7 @@ The graphs "myciel3", "myciel4", "myciel5", "myciel6" and "myciel7" are based on
 \subsection{Proximity graphs of US road network at various scales}
 The graphs "miles250", "miles500", "miles750", "miles1000" and "miles1500" are proximity graphs of US road network at various scales. The nodes represent a set of 128 United States cities and the edges indicate if they are within a certain distance from each other given by road mileage.
 \subsection{Lego graphs}
-The Lego graphs "G\_a\_b\_c\_d" are graphs constructed to find an upper bound on the chromatic number of Lego buildings build entirely from $a\times b$ bricks~\cite{Lego}. Each vertex describes a possible position for a brick in a $c\times d \times 2$ section, and there is an edge from one vertex to another if the two bricks (or their periodic translates) touch. Two bricks touch if either one sits on the other in one or more studs, or if they are in the same layer so that their sides meet with a positive area in common.
+The Lego graphs denoted "G\_a\_b\_c\_d" in the result tables and otherwise $G[a,b;c,d]$ are graphs constructed to find an upper bound on the chromatic number of Lego buildings built entirely from $a\times b$ bricks~\cite{Lego}. Each vertex describes a possible position for a brick in a $c\times d \times 2$ section, and there is an edge from one vertex to another if the two bricks (or their periodic translates) touch. Two bricks touch if either one sits on the other in one or more studs, or if they are in the same layer so that their sides meet with a positive area in common.
 \subsection{Generalized cube graphs}
 The graphs "Q\_7\_4", "Q\_8\_2", "Q\_8\_4", "Q\_9\_2", "Q\_9\_4", "Q\_10\_4\_3" and "Q\_10\_4\_5" are generalized cube graphs. These graphs are commonly used to prove lower bounds for the chromatic numbers of Euclidean spaces \cite{kahle2015new}. 
 \subsection{Bipartite graph}  
@@ -38,13 +42,13 @@ In the table each of the columns contains the following results:
 \input{results/results}
 \end{scriptsize}
 \section{Discussion of results}
-From the results in \Cref{table}, the general pattern to notice is that the standard formulation outperforms the two others by far in most graphs. There are however some notable cases in the Lego graphs where the scheduling formulation is the fastest by a great deal. In G\_1\_2\_6\_10, G\_1\_2\_6\_6 and G\_2\_2\_9\_10 it even managed to prove the chromatic number, where the standard formulation only managed to find a loose bound.
+From the results in \Cref{table}, the general pattern is that the standard formulation outperforms the two others by far in most graphs. There are however some notable cases in the Lego graphs where the scheduling formulation is the fastest by a great deal. In G\_1\_2\_6\_10, G\_1\_2\_6\_6 and G\_2\_2\_9\_10 it even managed to prove the chromatic number, where the standard formulation only managed to find a loose bound.
 
-\noindent The Binary formulation is overall the slowest of the three. \todo{Even for large sparse graphs, where the problem size becomes... it is severely outperformed by the other two.} In most of graphs it fails to even find an integer solution within the time limit, and only in G\_\1\_2\_10\_12, where it finds an integer solution as opposed to the scheduling formulation, does it outperform any of the other graphs.
+\noindent The Binary formulation is overall the slowest of the three. In most of the graphs it fails to find an integer solution within the time limit, and only in G\_1\_2\_10\_12, where it finds an integer solution as opposed to the scheduling formulation, does it outperform any of the other formulations.
 
-\noindent From the number of integer values and constraints in each formulation It was surprising to see how well the standard formulation performed. For dense graphs with upper bound $k$ close to $|V|$ the standard formulation has close to $|V|^2$ binary variables, far more than the scheduling formulation's $|V|+|E|$ variables and for sparse graphs the scheduling formulation has a very small problem size because of its greater focus on edges. Apart from the Lego graphs, the scheduling formulation only performed close to on par with the standard formulation for sparse graphs, and was greatly outperformed on denser graphs. It is however noteworthy that the scheduling formulation often found an optimal colouring (An integer solution with objective $\chi (G)$) but was unable to prove its optimality. The binary formulation was meant to fall in between the standard formulation with its focus on \todo{when is this even ever smart? do this part.} but ended up being worse than both of them in almost all cases.
+\noindent From the number of integer variables and constraints in each formulation it was surprising to see how well the standard formulation performed. For dense graphs with upper bound $k$ close to $|V|$ the standard formulation has close to $|V|^2$ binary variables- far more than the scheduling formulation's $|V|+|E|$ variables and for sparse graphs the scheduling formulation has a very small problem size because of its greater focus on edges. Apart from the Lego graphs, the scheduling formulation only performed close to on par with the standard formulation for sparse graphs, and was greatly outperformed on denser graphs. It is however noteworthy that the scheduling formulation often found an optimal colouring (An integer solution with objective $\chi (G)$) but was unable to prove its optimality. The binary formulation was meant to fall in between the standard and scheduling formulation with its focus on binary constraints for each vertex and variables for each edge, securing that two adjacent vertices has different colours and with the added advantage that the problem size only increases logarithmically with a higher value of $k$. However it ended up being worse than both of them in almost all cases.
 
-\noindent Another noteworthy observation is in the register allocation graphs, where graph colouring is used to solve real life problems. Despite their large sizes and and chromatic numbers, they are solved very fast in the standard formulation and the scheduling formulation managed to find an optimal colouring every time. This indicates that the register allocation problem is a fairly simple problem, which is also supported by the fact that the greedy algorithm also managed to find the chromatic number every time.
+\noindent Another noteworthy observation is in the register allocation graphs, where graph colouring is used to solve real life problems. Despite their large sizes and and chromatic numbers, they are solved very fast in the standard formulation and the scheduling formulation managed to find an optimal colouring every time. This indicates that the register allocation problem is a fairly simple problem, which is also supported by the fact that the greedy algorithm managed to find the actual chromatic number every time.
 
 \noindent Seeing the superiority of the standard formulation we attempted to find better bounds on the Q\_9\_2 and Q\_9\_4 generalized cube graphs using the standard formulation with a time limit of 8 hours:
 \iffalse
@@ -55,8 +59,9 @@ Maybe a bigger number of binary variables result in tighter relaxation}
 \todo{(number of variables and constraints), the tightness of the formulation (the gap between integer optimal value and the optimal value of linear relaxation)}
 \fi
 
-\begin{centering}
-\begin{longtable}{|lll|lll|}
+\begin{table}[H]\label{table2}
+\centering
+\begin{tabular}{|lll|lll|}
 \hline
 \multicolumn{3}{|c|}{Graph}&\multicolumn{3}{c|}{Standard}\\
 Name&$|V|$&$k$&lb&ub&time\\
@@ -65,18 +70,24 @@ Q\_9\_2&256&18&10&16&8.0h\\
 \hline 
 Q\_9\_4&256&28&9&19&8.0h\\
 \hline
+\end{tabular}
 \caption{Two generalized cube graphs from the test-set solved with a time limit of 8 hours.}
-\label{table2}
-\end{longtable}
-\end{centering}
-\noindent The results in \Cref{table} was only improved slightly within the longer time limit in \Cref{table2}. No better integer solutions were found, but the solver was able to prove a slightly better lower bound for both of them.
+\end{table}
+\noindent The results in \Cref{table} were only improved slightly within the longer time limit in \Cref{table2}. No better integer solutions were found, but the solver was able to prove a slightly better lower bound for both of them.
 \section{Lego results}
-We specifically concentrated on the G\_a\_b\_c\_d Lego graphs. With G\_1\_2\_10\_10 we were able reprove the result from \cite{Lego}, that any Lego building build entirely from one by two Lego bricks is 5-colourable. We also found from G\_3\_3\_10\_10, that a building build from three by three bricks is 7-colourable. Using the standard and scheduling formulations we tried proving a lower chromatic number than the upper bound found in \Cref{table} on a the graphs where the lower bound found within the time limit was less than the upper bound we had found from those two graphs.
+We specifically concentrated on the $G[a,b;c,d]$ Lego graphs. We were able to reprove the following results from \cite{Lego}\iffalse and from \cite{Søren Eilers private communication}\fi :
+\begin{itemize}
+\item Because $\chi (G[1,2;10,10]) = 5$ we obtained that any Lego building built entirely from $1\times 2$ Lego bricks is 5-colourable. This colouring was also found by \cite{Lego} in several days of computation in Maple.
+\item Because $\chi (G[2,2;6,6]) = 5$ we obtained that any Lego building built entirely from $2\times 2$ Lego bricks is 5-colourable. This result was also established earlier by \cite{Lego} using the bigger graph $G[2,2;10,10]$.
+\item Because $\chi (G[3,3;10,10]) \leq 7$ we obtained that any Lego building built entirely from $3\times 3$ Lego bricks is 7-colourable. This result was also established earlier by \cite{Lego} with an ad hoc colouring of the graph $G[3,3;21,21]$.
+\end{itemize} 
+Using the standard and scheduling formulations we next tried improving the lower bounds for some of the Lego graphs. The results are shown in the next table.
 
-If a $k$-colouring of a graph is proven infeasible the solver will terminate and it will be indicated in the table with a  lower bound of $k+1$ and a question mark in the upper bound cell:
+\noindent If a $k$-colouring of a graph is proven infeasible the solver will terminate and it will be indicated in the table with a  lower bound of $k+1$ and a question mark in the upper bound cell:
 
-\begin{centering}
-\begin{longtable}{|lll|lll|lll|}
+\begin{table}[H]\label{table3}
+\centering
+\begin{tabular}{|lll|lll|lll|}
 \hline
 \multicolumn{3}{|c|}{Graph}&\multicolumn{3}{c|}{Standard}&\multicolumn{3}{c|}{Scheduling}\\
 Name&$|V|$&$k$&lb&ub&time&lb&ub&time\\
@@ -89,8 +100,7 @@ G\_3\_3\_10\_10&200&6&7&?&20.9m&?&?&30.0m\\
 \hline
 G\_3\_3\_12\_12&288&6&7&?&1.5h&\multicolumn{3}{c}{}\\
 \cline{1-6}
+\end{tabular}
 \caption{Results from trying to find 4 colourable one by two, and 6 colourable three by three Lego graphs.}
-\label{table3}
-\end{longtable}
-\end{centering}
-\noindent From the results in \Cref{table3} we did not manage to find a better upper bound on the chromatic number of the Lego buildings. We did however manage to confirm the best bounds found so far, using MIP programming.
+\end{table}
+\noindent From the results in \Cref{table3} we did not manage to find a better upper bound on the chromatic number of the Lego buildings. We did however manage to confirm the best bounds found so far, using mixed integer programming and doing so very efficiently.
