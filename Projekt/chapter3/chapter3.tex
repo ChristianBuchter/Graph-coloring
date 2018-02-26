@@ -177,7 +177,7 @@ x_{v,b} =\left\{
 1 & \text{if vertex }v \text{ has the $b$'th bit in its assigned colour set to 1} \\ 0 & \text{otherwise}
 \end{array}\right.
 \end{align} 
-Furthermore another $2|E|\left \lceil{log_2(k)}\right \rceil$ binary variables $z_{u,v,b}$ and $x_{u,v,b}$ to help analyze the differences $|x_{u,b}-x_{v,b}|, \, \forall (u,v) \in E$.
+Furthermore another $2|E|\left \lceil{log_2(k)}\right \rceil$ binary variables $z_{u,v,b}$ and $t_{u,v,b}$ to help analyze the differences $|x_{u,b}-x_{v,b}|, \, \forall (u,v) \in E$ with $z_{u,v,b} = |x_{u,b}-x_{v,b}|$.
 Lastly we introduce the variable $c$ that has to be greater or equal to the greatest value of any colour used.
 \begin{proposition}
 For any $\chi(G) \leq k \leq |V|$, suppose $B = \left \lceil{log_2(k)}\right \rceil$. Then the following formulation assigns an optimal colouring to the graph and gives the chromatic number:
@@ -198,17 +198,20 @@ For any $\chi(G) \leq k \leq |V|$, suppose $B = \left \lceil{log_2(k)}\right \rc
 \begin{enumerate}
 \item An optimal colouring is feasible and optimal in \ref{binary}:\\
 \begin{enumerate}
-\item Given an optimal solution with values of $x_{v,b}$ defined as our desired results \ref{binX}, we see that at, since adjacent vertices have different colours, at least one bit in the colours are different for such two vertices.\\
-For such a bit, $x_{v,b}-x_{u,b}$ from the second constraint function is either $1$ or $-1$, and $z_{v,u,b}$ and $t_{v,u,b}$ must be either $z_{v,u,b} = 1$ and $t_{v,u,b} = 0$ or $z_{v,u,b} = 1$ and $t_{v,u,b} = 1$ respectively for the constraint to be satisfied. But since these values are not inherited from the colouring, they can take the appropriate values. 
+\item Given an optimal colouring with values of $x_{v,b}$ defined as our desired results \ref{binX}, we see that, since adjacent vertices have different colours, at least one bit in the colours are different for such two vertices.\\
+For such a bit, $x_{v,b}-x_{u,b}$ from the second constraint function is either $1$ or $-1$, and $z_{v,u,b}$ and $t_{v,u,b}$ must be either $z_{v,u,b} = 1$ and $t_{v,u,b} = 0$ or $z_{v,u,b} = 1$ and $t_{v,u,b} = 1$ respectively for the constraint to be satisfied. But since these values are not inherited from the colouring, they can take the appropriate values making the solution feasible. 
 \item Sine $z_{v,u,b} = 1$ for some bit of two adjacent vertices, the third constraint is also satisfied.
-\item since the first constraint states that $c$ is at least one higher than the value of the highest value colour used (since a vertex can be assigned colour $0$ by this formulation), and if we assume the colouring has assigned colours values as low as possible, $c$ will minimize to the chromatic number of the graph.
+\item Since the first constraint states that $c$ is at least one higher than the value of the highest value colour used (since a vertex can be assigned colour $0$ by this formulation), and if we assume the colouring has assigned colours values as low as possible, $c$ will minimize to the chromatic number of the graph when optimizing.
 \end{enumerate}
 \item An optimal solution to \ref{binary} returns $\chi(G)$ and assign the vertices colours such that the colouring is optimal:\\
 \begin{enumerate}
-\item since all $x_{v,b}$ has a value, all vertices have colours trivially.
-\item As established before, a $z_{v,u,b}$ value of $1$ indicates that the $b$'th bit of vertex $u$ and $v$ are different. Likewise we see that since $x_{v,b}-x_{u,b} \in \{-1,0,1\}$ and $2t_u,v,b \in \{0,2\}$ a $z_{v,u,b}$ value of $0$ will only be feasible if the $b$'th bit of $u$ and $v$ are the same. \\
-By that observation we see that the third constraint ensures that at least one bit of the colours of two adjacent vertices are different, making the colours different. Thus the formulation will assign a proper colouring to a graph
-\item  the first constraint states that $c$ is at least the value of the highest value colour assigned to any vertex. When minimizing c the formulation will therefore assign the lowest amount of colours possible with the lowest possible values where the solution is still feasible. Thus it will assign an optimal colouring to a graph and return the chromatic number. 
+\item Since all $x_{v,b}$ has a value, all vertices have colours trivially.
+\item As established before, a $z_{v,u,b}$ value of $1$ indicates that the $b$'th bit of vertex $u$ and $v$ are different. Indeed since $x_{v,b}-x_{u,b} \in \{-1,0,1\}$ and $2t_{u,v,b} \in \{0,2\}$ a $z_{v,u,b}$ value of 0 is only feasible if $x_{v,b}-x_{u,b} = 0$ by the second constraint:
+\begin{align*}
+0 - 2t_{u,v,b} + x_{v,b}-x_{u,b} \Rightarrow t_{u,v,b} = 0, x_{v,b}=x_{u,b}.
+\end{align*}\\
+By that observation we see that the third constraint ensures that at least one bit of the assigned colours of two adjacent vertices are different, making the colours different. Thus the formulation will assign a proper colouring to a graph.
+\item  The first constraint states that $c$ is at least the value of the highest value colour assigned to any vertex. When minimizing c the formulation will therefore assign the lowest amount of colours possible with the lowest possible values where the solution is still feasible. Thus it will assign an optimal colouring to a graph and return the chromatic number. 
 \end{enumerate}
 \end{enumerate}
 \end{proof}

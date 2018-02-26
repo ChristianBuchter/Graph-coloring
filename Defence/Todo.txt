@@ -1,0 +1,167 @@
+Hi everybody and welcome to my bachelor defence. 
+I wrote about graph colouring formulations in integer programming so lets get started.
+
+
+So this is what i'm gonna talk about today; first some motivation for why this is an interesting subject, 
+then some of the theory behind the work and lastly the results we found and a short summary 
+
+that'll take approximatly 25 minutes and after that its time for questions.
+
+
+So first off some motivation. why is graph colouring interesting and why use integer programming.
+
+well most of you probably know graph colouring from this example. where it's used to colour graphs. For this kind of euclidian graph we also have the
+4-colouring theorem which is probably the most famous theorem inside graph colouring, but graph colouring is used for much more.
+
+In computer science it is used to solve things like register allocation in compiler optimizatoin and you can also use it for scheduling
+education - these are the timetable groups that we use here to shcedule teaching of different courses throughout a week.
+
+and of course- it can also be used to colour lego buildings, as i'll talk about later.
+
+now let's move on to some of the theory. Linear programming.
+so linear programming is a method in mathemathical optimization, which is a branc of applied mathemathics where we 
+maximize or minimize some linear objective subject to linear constraints.
+
+The structure of a linear program looks like this.
+we have a linear function to optimize and some constraints consisting of linear functions with some order relation to a konstant. 
+And in linear programming all these variables have to be Real numbers.
+
+this makes these problems quite easy to sove since the poits where all constraints are satisfied is this convex polyhedron defined by the intersection of all these halfspaces.
+and they can actually be solved in polynomial time.
+
+Here is an example of a linear program which i also use in the thesis.
+
+
+As i mentioned before the set where all constraints are satisfied (the feasible space) creates this convex polyhedron and here you can 
+see the feasible set for our exmample from before.
+
+when we want to find an optimal solution, we can simply find values for our variables where the hyperplane for the objective function intersects this space in some optimal solution.
+
+
+Graph colouring
+First of all- what is a graph? 
+
+All the graphs i've been working with in this thesis are simple graph, and they are just graphs with undirected edges and no loops.
+
+this is what a graph looks like.
+
+vertex colouring define.
+
+here we have a proper colouring of a graph. this is acturally the trivial colouring where every vertex is assigned it's own colour. but we can do much better than that.
+here is an optimal colouring of the same graph where we've used the least amount of colours to colour the graph and you can see that we couldn't have used less than three
+since we have three vertices here that are all adjacent, so none of them can share the same colour. this is called a clique.
+
+so these optimal colourings are what we are interested in.
+
+chromatic number define
+
+can we solve this colouring problem using linear programming? unfortunatly we cannot since this is an NP hard problem and all linear programs can be solved in polynomial time.
+so we need something stronger.
+
+Integer programming is another method in mathemathicaloptimization.
+it has exactly the same structure as linear programs, except for the fact that some of the variables has to be integral.
+
+these are much harder to solve, but we can solve np-hard problems with them.
+
+talk about picture.
+
+So lets look at solving some graph theory with this method.
+
+here, indicated in green we have an idependend set in a graph. that's a subset of the vertices with no edges between any of them. 
+This is acually a maximal independent set and we can define this as a very simple integer program. here we use binary indicator variables x_v
+that inidcates if vertex v is in the set.
+ the constraint states that if two vertices share an edge they cannot both be in the solution and thrn we maximize this sum to find a maximal independent set. 
+
+
+Apart from these indicator variables we use some other IP strategies in our colouring formulations.
+
+first we have the big-M strategy to make the constrait that two integer values are inequal.
+here we have to introduce a new binary variable and two new constraints.
+
+	-blackboard proof.
+
+secondly we have a strategy to find the difference between two binary variables.
+we introduce two new binary variables with the desired result z = |x1-x2| and a constraint x1-x2 -2t +z =0
+
+	-blackboard proof.
+
+So lets get into the formulations.
+
+----------
+
+these problems are fairly simple to formulate but very dificult to solve. thats why we use industrial MIP solvers.
+we used one of the leading solvers in the industry, cplex, which is developed by ibm, and i used the cplex python-api for defining these problems.
+this is just a snippet of my code.
+
+Let's try and colour one of our graphs.
+
+This one is a lego graphs from our testset using the standard formulation. 
+i'll talk about the lego graps right after this.
+ 
+as you can see it already terminated and found an optimal solution with objective value 5. this was a fairly small graph, but a very interesting one still.
+
+so what are these lego graphs? 
+
+the problem we're tryig to solve with them is to for a times b lego bricks, how many different colours do we need to build any bulding such that
+no touching bricks have the same colour.
+
+Some former students from here came up with this method to find upper bounds for this. instead of colouring buildings they look at all the possible possitions of
+bricks in the space and colour the space.
+
+so here we have an illustration of the colouring for 1x2 bricks. anywhere you place a brick in this grid it'll touch exactly one of these letters. this grid
+can be extended perioticly and we have two layers thats enough.
+
+
+
+We used the formulations to solve a testset of around 60 graphs. this is a section of our results, but it might be a bit confusing to look at like this, so lets just summarize the major points.
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Motivation and background
+	- solving hard combinatorical problems efficiently 
+	- why the graph colouring problem is interesting
+
+Linear programming
+	- a branch of applied mathemathics
+	- minimizing or maximizing an objective subject to linear constraints (formel)
+
+Graph colouring
+	- simple graphs and defenition of a graph
+	- all the defenitions
+	- pictures of coloured graphs
+	- Linear programming is not enough (NP-hardness)
+
+Integer programming
+	- linear programming with added constraints that vars \in \Z
+	- Integer constraints
+	- solving hard problems
+	- some methods used in the formulations (big-M, x_{v,c} indicators and so on)
+
+formulations
+	- focus on one formulation
+	- pictures with values on graph and how it is infeasible to have an inproper colouring
+	- CPLEX
+	- colour a graph in CPLEX with the formulation.
+
+Lego graphs
+	- Introduce the work of ABHS
+	- what are the G- graphs
+	- (maybe pretty pictures)
+
+Results
+	- How the formulations compare
+	- The lego results
+
+summary
+	- lol

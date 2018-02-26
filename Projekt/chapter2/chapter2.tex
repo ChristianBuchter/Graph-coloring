@@ -130,7 +130,7 @@ calculates the maximum clique.
 \begin{proof}
 We need to prove two implications: An optimal solution to the MIP is an optimal solution to the problem, and an optimal solution to the problem is an optimal solution to the MIP. 
 
-An optimal solution to the independent set MIP forms a maximum independent set in $G=(V,E)$ consisting of the vertices $\{v\in V:x_v=1\}$:
+\noindent An optimal solution to the independent set MIP forms a maximum independent set in $G=(V,E)$ consisting of the vertices $\{v\in V:x_v=1\}$:
 \begin{enumerate}
 \item The first constraint states that no two adjacent vertices can be in the solution simultaneously. Thus a feasible solution forms an independent set.
 When maximizing $\sum_{v\in V} x_v$ an optimal solution will form an independent set with the biggest number of vertices possible. Thus an optimal solution forms a maximal independent set in $G$
@@ -148,7 +148,7 @@ The rest of the proof follows from the proof of the maximal independent set form
 \end{proof}
 \end{example}
 \section{Relaxation}\label{relaxation}
-It is well known that \ref{independent set} is an $\mathcal{NP}$-hard problem. Thus unlike Linear programming, with real variables, integer programming can be used to solve $\mathcal{NP}$-hard problems. In some cases it is however still useful to view the IP as a linear problem and assign real values to the variables instead of integer. This problem, where values in $\Z$ are assigned values in $\R$ instead and binary variables are assigned values in $[0,1]$ is called the \textbf{linear relaxation} of the IP. And the solution to the linear relaxation of an IP can often tell us something about the solution to the IP itself or even give the integer solution.
+It is well known that \ref{independent set} is an $\mathcal{NP}$-hard problem. Thus unlike Linear programming with real variables, where as established in \Cref{polynomial} all problems can be solved in polynomial time, integer programming can be used to solve $\mathcal{NP}$-hard problems. In some cases it is however still useful to view the IP as a linear problem and assign real values to the variables instead of integer. This problem, where variables in $\Z$ are assigned values in $\R$ and binary variables are assigned values in $[0,1]$ is called the \textbf{linear relaxation} of the IP. The solution to the linear relaxation of an IP can often tell us something about the solution to the IP itself or even give the integer solution.
 \begin{example}
 Some examples of cases where the relaxation is useful to different degrees are the following formulations of the shortest path problem and the shortest cycle problem in graphs together with the formulation of the maximal independent sets problem \ref{independent set}.
 \section{Length of shortest path between two vertices}

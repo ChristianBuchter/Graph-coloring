@@ -78,8 +78,8 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {4.2}The Results}{22}{section.4.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.3}Discussion of results}{24}{section.4.3}
+\contentsline {section}{\numberline {4.3}Discussion of results}{22}{section.4.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.4}Lego results}{25}{section.4.4}
+\contentsline {section}{\numberline {4.4}Lego results}{24}{section.4.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Bibliography}{27}{section*.27}
+\contentsline {chapter}{Bibliography}{26}{section*.27}

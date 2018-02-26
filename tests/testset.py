@@ -125,7 +125,8 @@ def formatUpper(obj, status):
 
 # Run a particular group of tests
 def runGroup(tests):
-    allMethods = [standard, scheduling, binary]
+    allMethods = [standard]
+    #allMethods = [standard, scheduling, binary]
     #allMethods = [standard, scheduling]
     #allMethods = [binary]
     for name in tests:

@@ -202,7 +202,7 @@ $\begin{bmatrix}x_{1} \\ x_{2} \\
 x_{n}
 \end{bmatrix}=\textbf{x}$, and the transposed vector of coefficients $[c_1,c_2,...,c_n]=\textbf{c}^T$ of each $x_i$ in the objective.\\
 Likewise the constraints can be written as the matrix-vector product of $\textbf{x}$ with a certain matrix, $A$.\\
-Rewriting any $\leq$ constraint to $\geq$ in case of minimization or any $\geq$ to $\leq$ in case of maximization (the equality constraints can be written with two inequalities) we can write the linear program in it's \textit{canonical form}:
+Rewriting any $\leq$ constraint to $\geq$ in case of minimization or any $\geq$ to $\leq$ in case of maximization (the equality constraints can be written with two inequalities) we can write the linear program in it's \textbf{canonical form}:
 \begin{align}\label{canonicalMin}
 \begin{array}{ll@{}ll}
 \text{min} &\textbf{c}^T\textbf{x}&\\
@@ -221,11 +221,11 @@ in case of \Cref{lpex} we write it on it's canonical form:
 \begin{align}
 \begin{array}{ll@{}ll}
 \text{min} &[5,1,2]\begin{bmatrix}x_{1} \\x_{2} \\x_{3}\end{bmatrix}&\\
-\text{s.t.} &\begin{bmatrix}3&2&1 \\12&2&4 \\7&0&2\\3&5&2\end{bmatrix}\begin{bmatrix}x_{1} \\x_{2} \\x_{3}\end{bmatrix} \geq \begin{bmatrix}5 \\10 \\5\\10\end{bmatrix},&\\
+\text{s.t.} &\begin{bmatrix}3&1&\frac{1}{2} \\3&2&4 \\2&0&1\\1&4&0\end{bmatrix}\begin{bmatrix}x_{1} \\x_{2} \\x_{3}\end{bmatrix} \geq \begin{bmatrix}6 \\15 \\5\\7\end{bmatrix},&\\
 &\textbf{x} \geq 0,&\\
 \end{array}
 \end{align}
-Much like how we made an LP on canonical form by manipulating the inequalities, we can also write any LP on it's \textit{standard form} 
+Much like how we made an LP on canonical form by manipulating the inequalities, we can also write any LP on it's \textbf{standard form} 
 \begin{align}
 \begin{array}{ll@{}ll}
 \text{max/min} &\textbf{c}^T\textbf{x}&\\
@@ -266,7 +266,7 @@ An optimal solution to a linear program on it's primal form is also optimal in t
 \fi
 \section{Efficiency of solving an LP}
 \subsection{The simplex method}
-A popular algorithm for finding the optimal solution of LPs, taking advantage of the convexity of the feasible region and \Cref{extreme point} is the \textbf{Simplex method}. ~\cite{vanderbei2015linear}, where Theorem 3.4 also gives a proof of \ref{extreme point} using the simplex method, explains this further. The basic idea of the algorithm is to move from extreme point to extreme point of the feasible set and never return to an already visited solution. Thus the algorithm will find an optimal solution after at most the number of extreme points iterations. If a problem has $n$ variables and $m$ constraints, an upper bound of the number of iterations is 
+A popular algorithm for finding the optimal solution of LPs, taking advantage of the convexity of the feasible region and \Cref{extreme point} is the \textbf{simplex method}. ~\cite{vanderbei2015linear}, where Theorem 3.4 also gives a proof of \ref{extreme point} using the simplex method, explains this further. The basic idea of the algorithm is to move from extreme point to extreme point of the feasible set and never return to an already visited solution. Thus the algorithm will find an optimal solution after at most the number of extreme points iterations. If a problem has $n$ variables and $m$ constraints, an upper bound of the number of iterations is 
 \begin{align*}
 \begin{pmatrix}
 n+m\\m
@@ -279,7 +279,7 @@ n+m\\m
 \end{pmatrix}\leq 2^{2n}
 \end{align*}
 So the worst-case running time of the simplex method is exponential.
-\subsection{Polynomial time algorithms}
-Even though the simplex method is one of the most popular algorithms, the worst case runtime is exponential compared to the problem size. Other algorithms have however been introduced, which have a polynomial worst case runtime. In 1979 Leonid Khachiyan \cite{khachiyan1980polynomial} gave the first algorithm, the \textit{ellipsoid method}, proved to run in polynomial time later Narendra Karmarkar ~\cite{karmarkar1984new} gave a new, more efficient, algorithm also solving linear problems in polynomial time.
+\subsection{Polynomial time algorithms}\label{polynomial}
+Even though the simplex method is one of the most popular algorithms, the worst case runtime is exponential compared to the problem size. Other algorithms have however been introduced, which have a polynomial worst case runtime. In 1979 Leonid Khachiyan \cite{khachiyan1980polynomial} gave the first algorithm, the \textbf{ellipsoid method}, proved to run in polynomial time later Narendra Karmarkar ~\cite{karmarkar1984new} gave a new, more efficient, algorithm also solving linear problems in polynomial time.
 \\ Even though these algorithms have better worst case time complexity compared to the simplex method, they are often slower in practice. They do however show that linear programming is in $\mathcal{P}$.
 \\\\ In the next chapter we will introduce Integer programming which is $\mathcal{NP}$-hard.
